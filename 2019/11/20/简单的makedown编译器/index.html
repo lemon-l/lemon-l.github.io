@@ -46,30 +46,35 @@
   };
 </script>
 
-  <meta name="description" content="用于平时的学习记录和个人阶段性总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lemonl&#39;s Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="目的：  学习正则表达式、文件 IO 等相关内容，编写简易的 Markdown 解析器  具体要求： 编写程序，解析文件，将 Markdown 格式的图片和超链接转换成 HTML 格式。 首先，你需要使用正则表达式在文件中筛选定位到 Markdown 格式的图片和超链接。 然后，将图片和超链接的路径获取出来并转换为 HTML 格式。 转换完成之后，生成新的 HTML 文件，双击打开该 HTML 文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单的makedown编译器">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;20&#x2F;%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
-<meta property="og:description" content="用于平时的学习记录和个人阶段性总结">
+<meta property="og:description" content="目的：  学习正则表达式、文件 IO 等相关内容，编写简易的 Markdown 解析器  具体要求： 编写程序，解析文件，将 Markdown 格式的图片和超链接转换成 HTML 格式。 首先，你需要使用正则表达式在文件中筛选定位到 Markdown 格式的图片和超链接。 然后，将图片和超链接的路径获取出来并转换为 HTML 格式。 转换完成之后，生成新的 HTML 文件，双击打开该 HTML 文">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190224110259690.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190224110349171.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190224111542616.jpg?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70,">
+<meta property="og:updated_time" content="2019-11-19T19:10:21.153Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190224110259690.gif">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2019/11/20/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>lemonl's Blog</title>
+  <title>简单的makedown编译器 | lemonl's Blog</title>
   
 
 
@@ -165,10 +170,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,8 +187,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/20/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/" class="post-title-link" itemprop="url">简单的makedown编译器</a>
+          简单的makedown编译器
         </h1>
 
         <div class="post-meta">
@@ -236,7 +240,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h2><hr>
+        <h2 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h2><hr>
 <p> 学习正则表达式、文件 IO 等相关内容，编写简易的 Markdown 解析器</p>
 <hr>
 <h2 id="具体要求："><a href="#具体要求：" class="headerlink" title="具体要求："></a>具体要求：</h2><hr>
@@ -280,119 +284,30 @@
 </blockquote>
 </blockquote>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/postName/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="lemonl">
-      <meta itemprop="description" content="用于平时的学习记录和个人阶段性总结">
-    </span>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/19/postName/" rel="next" title="postName">
+                  <i class="fa fa-chevron-left"></i> postName
+                </a>
+            </div>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lemonl's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/19/postName/" class="post-title-link" itemprop="url">postName</a>
-        </h1>
+            <span class="post-nav-divider"></span>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-11-19 21:43:11 / Modified: 21:45:34" itemprop="dateCreated datePublished" datetime="2019-11-19T21:43:11+08:00">2019-11-19</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/11/19/postName/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/19/postName/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><h5 id="要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西-闪退，死机是常有的事。"><a href="#要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西-闪退，死机是常有的事。" class="headerlink" title="(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)"></a>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</h5><p>这主要分为以下三个步骤：</p>
-<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong><em>注意：</em></strong></h5><h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
-2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
-<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
-<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
-<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
-<h6 id="以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。"><a href="#以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。" class="headerlink" title="以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。"></a>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</h6><h2 id="初来乍到，请多指教"><a href="#初来乍到，请多指教" class="headerlink" title="初来乍到，请多指教"></a>初来乍到，请多指教</h2><h6 id="安利一下："><a href="#安利一下：" class="headerlink" title="安利一下："></a>安利一下：</h6><p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
       </footer>
+    
   </article>
   
   
@@ -400,12 +315,10 @@
 
   </div>
 
-  
-
-
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -430,6 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的："><span class="nav-number">1.</span> <span class="nav-text">目的：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体要求："><span class="nav-number">2.</span> <span class="nav-text">具体要求：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图："><span class="nav-number">3.</span> <span class="nav-text">效果图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接："><span class="nav-number">4.</span> <span class="nav-text">参考链接：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">5.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码："><span class="nav-number">6.</span> <span class="nav-text">完整代码：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
