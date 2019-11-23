@@ -1,6 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>bugku - Web（1~20）</title>
+    <url>/2019/11/23/bugku-Web%EF%BC%881-20%EF%BC%89/</url>
+    <content><![CDATA[<p><font color="red" size="5">刚入门ctf，望各位大佬指教</font></p>
+<h2 id="1-web2"><a href="#1-web2" class="headerlink" title="1.web2"></a>1.<a href="http://123.206.87.240:8002/web2/" target="_blank" rel="noopener">web2</a></h2><p>这题直接右击查看页面源代码即可</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906094958507.png" width="300" hegiht="113" ></div>
+
+<h2 id="2-计算器"><a href="#2-计算器" class="headerlink" title="2.计算器"></a>2.<a href="http://123.206.87.240:8002/yanzhengma/" target="_blank" rel="noopener">计算器</a></h2><p>在文本框内发现只能输入一位数字，在框内右击-查看元素，发现“maxlength=1”,将其值改为较大的，然后在框内输入正确的值，点击验证，出现flag。</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906095732881.png" width="300" hegiht="113" ></div>
+
+
+<a id="more"></a>
+
+<h2 id="3-web基础-GET"><a href="#3-web基础-GET" class="headerlink" title="3.web基础$_GET"></a>3.<a href="http://123.206.87.240:8002/get/" target="_blank" rel="noopener">web基础$_GET</a></h2><p>由题分析，what = flag的时候，会出现flag，重新构造网址：<br><a href="http://123.206.87.240:8002/get/?what=flag" target="_blank" rel="noopener">http://123.206.87.240:8002/get/?what=flag</a>, 页面上面显示  </p>
+<div align = "center"><img src="https://i.loli.net/2019/09/03/91bOzRNmfpUkWIK.png" width="300" hegiht="113" ></div>
+
+<h2 id="4-web基础-POST"><a href="#4-web基础-POST" class="headerlink" title="4.web基础$_POST"></a>4.<a href="http://123.206.87.240:8002/post/" target="_blank" rel="noopener">web基础$_POST</a></h2><p>分析可知，这题与上面的极为相似（在火狐浏览器附加组件中下载hackbar，在页面右击查看元素可找到hackbar）<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pLmxvbGkubmV0LzIwMTkvMDkvMDMvUHVSNTE2c2N4RGZYMm9NLnBuZw?x-oss-process=image/format,png" alt="TIM截图20190903131606.png"><br>页面显示</p>
+<div align = "center"><img src="https://i.loli.net/2019/09/03/iARCauhSHObIkj3.png"  width="300" hegiht="113"></div>
+
+<h2 id="5-矛盾"><a href="#5-矛盾" class="headerlink" title="5.矛盾"></a>5.<a href="http://123.206.87.240:8002/get/index1.php" target="_blank" rel="noopener">矛盾</a></h2><p>此题需要搞清楚php中=== 和 ==的区别（===会比较两个变量的类型和值</p>
+<p>而==只比较他们的值）。分析代码，要想进入if代码里面需要满足给num的值不是数字，但进入里面需要num为1.有没有很困惑？不慌。其实因为num变量是与1比较，在比较的时候会默认把num转化为数字型。于是我们构造payload来绕过：<a href="http://123.206.87.240:8002/get/index1.php?num=1a" target="_blank" rel="noopener">http://123.206.87.240:8002/get/index1.php?num=1a</a><br>只要在1后面加上任意非数字字符就能绕过。</p>
+<p>参考链接：<a href="https://www.jianshu.com/p/ec7ef77b67a2" target="_blank" rel="noopener">https://www.jianshu.com/p/ec7ef77b67a2</a></p>
+<div align = "center"><img src="https://i.loli.net/2019/09/03/ywOYiHjtbFLeA5z.png" width="300" hegiht="100" ></div>
+
+<h2 id="6-web3"><a href="#6-web3" class="headerlink" title="6.web3"></a>6.<a href="http://123.206.87.240:8002/web3/" target="_blank" rel="noopener">web3</a></h2><p>点击阻止创建对话框，右击查看网页源代码，在最后发现</p>
+<pre><code>&lt;!&amp;#75;&amp;#69;&amp;#89;&amp;#123;&amp;#74;&amp;#50;&amp;#115;&amp;#97;&amp;#52;&amp;#50;&amp;#97;&amp;#104;&amp;#74;&amp;#75;&amp;#45;&amp;#72;&amp;#83;&amp;#49;&amp;#49;&amp;#73;&amp;#73;&amp;#73;&amp;#125;--&gt;</code></pre><p>查找在线解码工具<a href="http://tool.chinaz.com/Tools/urlencode.aspx" target="_blank" rel="noopener">http://tool.chinaz.com/Tools/urlencode.aspx</a><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pLmxvbGkubmV0LzIwMTkvMDkvMDQvVENHN1ZJbWJQaXpKRlVZLnBuZw?x-oss-process=image/format,png" alt="TIM截图20190904131925.png"></p>
+<h2 id="7-域名解析"><a href="#7-域名解析" class="headerlink" title="7.域名解析"></a>7.域名解析</h2><p>题目：<div align = "center"><img src="https://img-blog.csdnimg.cn/20190904134919577.png"  width="400" hegiht="113"></div><br>这题需要改变hosts文件（C:\Windows\System32\drivers\etc），</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190904134945198.png"  width="400" hegiht="113"></div>
+访问flag.baidu.com得到flag
+<div align = "center"><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pLmxvbGkubmV0LzIwMTkvMDkvMDQvaEVIZjFWQXpXd0RyS3k2LnBuZw?x-oss-process=image/format,png"  width="400" hegiht="113"></div>
+
+
+<h2 id="8-你必须让他停下"><a href="#8-你必须让他停下" class="headerlink" title="8.你必须让他停下"></a>8.<a href="http://123.206.87.240:8002/web12/" target="_blank" rel="noopener">你必须让他停下</a></h2><p>打开链接，发现有好多张图片一直在动，要看到每页的源码显然是不可能的，这个时候就需要burp suite进行抓包，我也是第一次使用此工具。参考链接:<a href="https://t0data.gitbooks.io/burpsuite/content/chapter2.html" target="_blank" rel="noopener">https://t0data.gitbooks.io/burpsuite/content/chapter2.html</a>，在火狐浏览器里面配置好代理，看到页面，可知配置成功。</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190904203547806.png"  width="400" hegiht="113"></div>
+打开Burp Suite软件 — 点击Proxy — 点击Action(选择send to repeater ) — 点击repeater — 一直点击go，知道在Response页面的Raw选项出现如下内容，即为成功。
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190904204046516.png"  width="400" hegiht="113"></div>
+
+<h2 id="9-本地包含"><a href="#9-本地包含" class="headerlink" title="9.本地包含"></a>9.<a href="http://123.206.87.240:8003/" target="_blank" rel="noopener">本地包含</a></h2><p>先了解一下$_REQUEST：<a href="https://www.php.net/manual/zh/reserved.variables.request.php" target="_blank" rel="noopener">https://www.php.net/manual/zh/reserved.variables.request.php</a><br>由于本题已挂，所以只介绍一下做题方法：<a href="https://blog.csdn.net/dyw_666666/article/details/82389457#comments" target="_blank" rel="noopener">https://blog.csdn.net/dyw_666666/article/details/82389457#comments</a></p>
+<h2 id="10-变量1"><a href="#10-变量1" class="headerlink" title="10.变量1"></a>10.<a href="http://123.206.87.240:8004/index1.php" target="_blank" rel="noopener">变量1</a></h2><p>PHP中全局变量global和$GLOBALS[]的区别分析:</p>
+<p> ==global $var其实就是&amp;$GLOBALS[‘var’]，调用外部变量的一个别名而已。PHP的全局变量和C语言有一点点不同。在C语言中，全局变量在函数中主动生效，除非被局部变量笼罩。这可能引起一些问题，有些人可能漫不经心的转变一个全局变量。PHP中全局变量在函数中应用时必须用global申明为全局。PHP的Global变量的作用是定义全局变量，但是这个全局变量不是应用于整个网站，而是应用于当前页面，包括include或require的所有文件。==</p>
+<p>知只要运行 eval(“var_dump($$args);”)，就能得到flag.这是需要构造一个GET参数，</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/2019090612075548.png"  width="700" hegiht="113"></div>
+所以，只需给变量传一个全局数组变量即可，构造get参数：
+
+<p><a href="http://123.206.87.240:8004/index1.php?args=GLOBALS" target="_blank" rel="noopener">http://123.206.87.240:8004/index1.php?args=GLOBALS</a></p>
+<p>即可得到flag：</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/2019090612103610.png"  width="500" hegiht="113"></div>
+
+<h2 id="11-web5"><a href="#11-web5" class="headerlink" title="11. web5"></a>11. <a href="http://123.206.87.240:8002/web5/" target="_blank" rel="noopener">web5</a></h2><p>看到这种问题，第一反应就是查看网页源代码：结果发现好多的”(+[]”这种符号，不要慌，这其实就是题中说的<a href="https://github.com/aemkei/jsfuck" target="_blank" rel="noopener">JSPFUCK</a>,其实这是一串js代码，可以放在控制台去执行。复制源码中的所有这些代码，然后去控制台粘贴，回车</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906123158712.png"  width="200" hegiht="113"></div>
+你以为这就完了？？？？别忘了，是要大写的。
+
+<p>所以答案是:  $\color{red}{CTF{WHATFK}}$</p>
+<h2 id="12-头等舱"><a href="#12-头等舱" class="headerlink" title="12.头等舱"></a>12.<a href="http://123.206.87.240:9009/hd.php" target="_blank" rel="noopener">头等舱</a></h2><p>说实话，刚点开链接，看见页面显示“什么都没有”，想着真棒，又有一道题挂了，哈哈哈哈哈哈！两巴掌抽死我自己吧！做什么白日梦。<br>解决方法：打开源码，也什么提示都没有。所以可以想到试试抓包，推荐一个新工具 — <a href="https://www.cnblogs.com/zhangtan/p/8625232.html" target="_blank" rel="noopener">fiddler</a>,此超链接里面有详细使用方法。发现flag在响应头里面。</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906142150153.png"></div>
+
+<h2 id="13-网站被黑"><a href="#13-网站被黑" class="headerlink" title="13.网站被黑"></a>13.<a href="http://123.206.87.240:8002/webshell/" target="_blank" rel="noopener">网站被黑</a></h2><p>题中提示实战中经常遇到，那就试一下开御剑扫描后台吧！扫描后发现有两个</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906153355548.png"></div>
+选择第二个，使用万能钥匙“admin'-”等弱密码试登录，发现无果。接着开burp进行爆破。分别进行如下操作：点击intruder — payloads。
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906160103943.png"></div>
+第一步选择Simple list ,第二步选择burp自带字典Passwords（我的burp软件没有自带的字典）或者导入本地字典（推荐剑眉大侠爆破专用字典）。
+点击start attack，接下来就是漫长的等待。
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906164401897.png"></div>
+用结果hack登录，成功得到flag。
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190906161010532.png"></div>
+
+<h2 id="14-管理员系统"><a href="#14-管理员系统" class="headerlink" title="14.管理员系统"></a>14.<a href="http://123.206.31.85:1003/" target="_blank" rel="noopener">管理员系统</a></h2><ol>
+<li>先随便输入username 和password提交发现显示：“IP禁止访问，请联系本地管理员登陆，IP已被记录”</li>
+<li>检查元素发现base64编码$\color{green}{<!--dGVzdDEyMw==-->}$ 尝试解码，发现密码为test123，管理员登陆username应该为admin,尝试登陆，未果。</li>
+<li>返回最本质的提示：IP禁止访问，请联系本地管理员登陆，IP已被记录<br>得到思路：可以伪装成本地访问(想到HTTP请求头中的<a href="https://baike.baidu.com/item/X-Forwarded-For/3593639?fr=aladdin" target="_blank" rel="noopener">X-Forwarded-For</a>)</li>
+<li><strong>方法一：</strong> </li>
+</ol>
+<pre><code>直接在火狐浏览器里面按F12 — 网络 — 所有 — 刷新页面 — 出现</code></pre><div align = "center"><img src="https://img-blog.csdnimg.cn/20190908152215487.png" width="450" hegiht="113"></div>
+
+<pre><code>点击它，右边出现消息头，点击里面状态码（编辑和重发）</code></pre><div align = "center"><img src="https://img-blog.csdnimg.cn/20190908155801418.png" width="450" hegiht="113"></div>
+
+<pre><code>点击发送，出现新的POST，再次点击，查看响应，出现</code></pre><div align = "center"><img src="https://img-blog.csdnimg.cn/20190908152647209.png" width="450" hegiht="113"></div>
+
+<pre><code>记得格式，所以flag为flag{85ff2ee4171396724bae20c0bd851f6b}</code></pre><p>   <strong>方法二：</strong> </p>
+<pre><code>在burp里面抓包，然后发送到repeater,在repeater中的headers里添加x-forwarded-for，点击GO，在右面response的raw中出现</code></pre><div align = "center"><img src="https://img-blog.csdnimg.cn/2019090815414286.png" width="450" hegiht="113"></div>  
+
+<p>   <em>*注：其实上面的方法原理是一样的，但第一种显然更简单</em>.务必按照顺序进行*</p>
+<h2 id="15-web4"><a href="#15-web4" class="headerlink" title="15.web4"></a>15.<a href="http://123.206.87.240:8002/web4/" target="_blank" rel="noopener">web4</a></h2><p>   在控制台运行源代码中（将eval改为alert）<br>   <div align = "center"><img src="https://img-blog.csdnimg.cn/20190908161509796.png" width="450" hegiht="113"></div><br>   页面弹出<br>    <div align = "center"><img src="https://img-blog.csdnimg.cn/20190908161425278.png" width="550" hegiht="113"></div><br>    这段js代码里面的if条件里面有一个字符串，不用想太多，直接把他在表单里面提交，然后就看到了flag<br>    <div align = "center"><img src="https://img-blog.csdnimg.cn/20190908162411957.png" width="300" hegiht="113"></div></p>
+<h2 id="16-flag在index里"><a href="#16-flag在index里" class="headerlink" title="16.flag在index里"></a>16.<a href="http://123.206.87.240:8005/post/" target="_blank" rel="noopener">flag在index里</a></h2><p> 点击页面出现的连接，发现网址<a href="http://123.206.87.240:8005/post/index.php?file=show.php" target="_blank" rel="noopener">http://123.206.87.240:8005/post/index.php?file=show.php</a>,file=show.php可以想到上传文件文件漏洞，如若访问index.php就能找到flag？不要犹豫，想到就去试。但是如何访问呢？在PHP里面独有个协议：<a href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html" target="_blank" rel="noopener">php://filter</a>, 用php://filter/read=convert.base64-<br>encode/resource=index.php（即以base64加密的方式读取resource的内容）来替换show.php，出现</p>
+<pre><code>PGh0bWw+DQogICAgPHRpdGxlPkJ1Z2t1LWN0ZjwvdGl0bGU+DQogICAgDQo8P3BocA0KCWVycm9yX3JlcG9ydGluZygwKTsNCglpZighJF9HRVRbZmlsZV0pe2VjaG8gJzxhIGhyZWY9Ii4vaW5kZXgucGhwP2ZpbGU9c2hvdy5waHAiPmNsaWNrIG1lPyBubzwvYT4nO30NCgkkZmlsZT0kX0dFVFsnZmlsZSddOw0KCWlmKHN0cnN0cigkZmlsZSwiLi4vIil8fHN0cmlzdHIoJGZpbGUsICJ0cCIpfHxzdHJpc3RyKCRmaWxlLCJpbnB1dCIpfHxzdHJpc3RyKCRmaWxlLCJkYXRhIikpew0KCQllY2hvICJPaCBubyEiOw0KCQlleGl0KCk7DQoJfQ0KCWluY2x1ZGUoJGZpbGUpOyANCi8vZmxhZzpmbGFne2VkdWxjbmlfZWxpZl9sYWNvbF9zaV9zaWh0fQ0KPz4NCjwvaHRtbD4NCg== </code></pre><p> 将其进行解码，得到flag，（大胆放开思维，打好基础）<br> <div align = "center"><img src="https://img-blog.csdnimg.cn/20190908174351676.png" width="500" hegiht="113"></div></p>
+<h2 id="17-输入密码查看flag"><a href="#17-输入密码查看flag" class="headerlink" title="17.输入密码查看flag"></a>17.<a href="http://123.206.87.240:8002/baopo/" target="_blank" rel="noopener">输入密码查看flag</a></h2><p> 这题挺简单的，5位数直接在burp里面爆破就行。但是这回在inruder中的payloads里面payload type选择numbers,然后下面的数字范围选择从10000 - 99999，如下图所示。<br>  <div align = "center"><img src="https://img-blog.csdnimg.cn/20190908180345607.png" width="350" hegiht="113"></div><br>  <div align = "center"><img src="https://img-blog.csdnimg.cn/20190908180532444.png" width="350" hegiht="113"></div><br>  但是这里有一个问题，就是我直接这样点击attack它会出现错误，提示：No payload positions defined.<br>  查了好长时间，终于找到了解决方法     </p>
+<p><a href="https://blog.csdn.net/Langtuteng17/article/details/80450354" target="_blank" rel="noopener">https://blog.csdn.net/Langtuteng17/article/details/80450354</a>，按照步骤最终得到flag</p>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190908195436460.png" width="350" hegiht="113"></div>
+
+<h2 id="18-点击一百万次"><a href="#18-点击一百万次" class="headerlink" title="18.点击一百万次"></a>18.<a href="http://123.206.87.240:9001/test/" target="_blank" rel="noopener">点击一百万次</a></h2><ul>
+<li>查看源代码，发现js代码里面，if条件当clicks&gt;=1000000，会提交。</li>
+<li>F12查看元素，试着改span中间次数，未果。</li>
+<li>直接改变POST方法，在hackbar里面直接将clicks&gt;=1000000,直接得到flag。<div align = "center"><img src="https://img-blog.csdnimg.cn/20190908211450638.png" width="400" hegiht="113"></div>
+<div align = "center"><img src="https://img-blog.csdnimg.cn/20190908211509358.png" width="400" hegiht="113"></div>
+
+</li>
+</ul>
+<h2 id="19-备份是个好习惯"><a href="#19-备份是个好习惯" class="headerlink" title="19 .备份是个好习惯"></a><del><font color="purple" size="5">19</del> .<a href="http://123.206.87.240:8002/web16/" target="_blank" rel="noopener">备份是个好习惯</a></font></h2><pre><code>看到一串字符串（字符串前后重复），直接想到的就是解码，但是试了几乎所有的，毫无意外以失败告终。
+用御剑扫描尝试，还是没有结果。（我搜了网上的答案，好多都是用御剑扫出来的，我的也不知道是咋回事）</code></pre><p>想到题目提示备份，默认访问的是地址的index.php文件，备份文件的后缀.一般都是这几种：rar   .zip   .7z   .tar.gz    .bak    .swp   .txt   .html，经过多次尝试，发现当地址被构造成 <a href="http://123.206.87.240:8002/web16/index.php.bak" target="_blank" rel="noopener">http://123.206.87.240:8002/web16/index.php.bak</a> 的时候会得到一个文件。<br>分析里面的PHP代码可得出结论：要想得到flag，就要使得key1不等于key2，但是他两的MD5只要相等。然后怎样绕过这个，还是参考一下大佬的答案吧！写的很是详细。<br>大佬答案：<a href="http://www.manongjc.com/article/107754.html" target="_blank" rel="noopener">http://www.manongjc.com/article/107754.html</a></p>
+<h2 id="20-成绩单"><a href="#20-成绩单" class="headerlink" title="20.成绩单"></a>20.<a href="http://123.206.87.240:8002/chengjidan/" target="_blank" rel="noopener">成绩单</a></h2><p><strong>Notice</strong>：</p>
+<ul>
+<li>TABLE_SCHEMA=后面是库名的16进制（<a href="http://www.5ixuexiwang.com/str/hex.php" target="_blank" rel="noopener">在线工具转16进制</a>）莫忘记加上* 0× *</li>
+<li>MySQL数据库特有的表是 —— information_schema.tables，access数据库特有的表是 —— msysobjects，SQLSever数据库特有的表是 —— syobjects</li>
+<li>union 联合查询适用于有显示列的注入</li>
+<li>具体sql注入问题，请访问  <a href="https://mp.weixin.qq.com/s/xJVOW5Z4xvl0COSZBWKFYw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/xJVOW5Z4xvl0COSZBWKFYw</a>，十分详细的教程</li>
+</ul>
+<p><strong>准备好sql注入：</strong></p>
+<ol>
+<li>获取字段数 ：由表中可知，字段数大于等于3，所以 1’ order by 4# —— 有回显； 1’ order by 5# —— 没有回显。可以确定字段数为4</li>
+<li>获取数据库名：-1’ union select 1,2,3,database()#  发现表中显示skctf_flag，猜想这就是数据库名</li>
+<li>获取skctf_flag库名下的所有表名信息：-1’ union select 1,2,3,group_concat(table_name) from information_schema.tables where table_schema=database()#  发现表中显示(fl4g,sc)，很显然fl4g是所要爆破的表名</li>
+<li>获取fl4g表名下的列名信息： -1’ union select 1,2,3,group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=0x666c3467#  发现表中显示skctf_flag，则这就是要获取的列名</li>
+<li>获取指定列名skctf_flag里面的数据，-1’ union select 1,2,3,skctf_flag from fl4g#  最后得到flag<div align = "center"><img src="https://img-blog.csdnimg.cn/20190920165240595.png" width="450" hegiht="113"></div>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>bugku</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装kali</title>
     <url>/2019/11/19/postName/</url>
     <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><h5 id="要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西-闪退，死机是常有的事。"><a href="#要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西-闪退，死机是常有的事。" class="headerlink" title="(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)"></a>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</h5><p>这主要分为以下三个步骤：</p>
