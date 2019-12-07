@@ -139,8 +139,8 @@ ewebeditor/admin_uploadfile.asp?id=14&amp;dir=../
     <url>/2019/11/23/bugku-Web%EF%BC%881-20%EF%BC%89/</url>
     <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1297807&auto=1&height=66"></iframe>
 <font color="red" size="5">刚入门ctf，望各位大佬指教</font>
-## 1.[web2](http://123.206.87.240:8002/web2/)
-这题直接右击查看页面源代码即可
+
+<h2 id="1-web2"><a href="#1-web2" class="headerlink" title="1.web2"></a>1.<a href="http://123.206.87.240:8002/web2/" target="_blank" rel="noopener">web2</a></h2><p>这题直接右击查看页面源代码即可</p>
 <div align = "center"><img src="https://img-blog.csdnimg.cn/20190906094958507.png" width="300" hegiht="113" ></div>
 
 <h2 id="2-计算器"><a href="#2-计算器" class="headerlink" title="2.计算器"></a>2.<a href="http://123.206.87.240:8002/yanzhengma/" target="_blank" rel="noopener">计算器</a></h2><p>在文本框内发现只能输入一位数字，在框内右击-查看元素，发现“maxlength=1”,将其值改为较大的，然后在框内输入正确的值，点击验证，出现flag。</p>
