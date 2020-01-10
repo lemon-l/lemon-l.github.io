@@ -421,10 +421,10 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <p>最后执行比较username=’admin’ 的时候，’admin’ 是一个latin1字符串。Mysql在转换字符集的时候，将不完整的字符给忽略了。</p>
 ]]></content>
       <categories>
-        <category>PHP</category>
+        <category>笔记</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
