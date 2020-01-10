@@ -3,7 +3,7 @@
   <entry>
     <title>ctf与PHP千丝万缕的联系</title>
     <url>/2020/01/10/ctf%E4%B8%8EPHP%E5%8D%83%E4%B8%9D%E4%B8%87%E7%BC%95%E7%9A%84%E8%81%94%E7%B3%BB/</url>
-    <content><![CDATA[<h1 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h1><h2 id="系统变量（超全局变量）"><a href="#系统变量（超全局变量）" class="headerlink" title="系统变量（超全局变量）"></a>系统变量（超全局变量）</h2><p>参考链接：<a href="https://www.restran.net/2016/09/26/php-security-notes/" target="_blank" rel="noopener">https://www.restran.net/2016/09/26/php-security-notes/</a>不得不说，大佬写的十分好</p><p>在全部作用域中始终可用的内置变量</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$GLOBALS <span class="comment">// 引用全局作用域中可用的全部变量</span></span><br><span class="line">$_POST <span class="comment">// 获取 post 数据，是一个字典</span></span><br><span class="line">$_GET <span class="comment">// 获取 get 数据，是一个字典</span></span><br><span class="line">$_COOKIE <span class="comment">// 获取 cookie</span></span><br><span class="line">$_SESSION <span class="comment">// 获取 session</span></span><br><span class="line">$_FILES <span class="comment">// 获取上传的文件</span></span><br><span class="line">$_REQUEST <span class="comment">// 获取 $_GET，$_POST，$_COOKIE 中的数据</span></span><br><span class="line">$_ENV <span class="comment">// 环境变量</span></span><br><span class="line">$_SERVER <span class="comment">// 服务器和执行环境信息</span></span><br></pre></td></tr></table></figure><a id="more"></a>
+    <content><![CDATA[<p>转发链接：<a href="https://www.restran.net/2016/09/26/php-security-notes/" target="_blank" rel="noopener">https://www.restran.net/2016/09/26/php-security-notes/</a></p><h1 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h1><h2 id="系统变量（超全局变量）"><a href="#系统变量（超全局变量）" class="headerlink" title="系统变量（超全局变量）"></a>系统变量（超全局变量）</h2><p>在全部作用域中始终可用的内置变量</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$GLOBALS <span class="comment">// 引用全局作用域中可用的全部变量</span></span><br><span class="line">$_POST <span class="comment">// 获取 post 数据，是一个字典</span></span><br><span class="line">$_GET <span class="comment">// 获取 get 数据，是一个字典</span></span><br><span class="line">$_COOKIE <span class="comment">// 获取 cookie</span></span><br><span class="line">$_SESSION <span class="comment">// 获取 session</span></span><br><span class="line">$_FILES <span class="comment">// 获取上传的文件</span></span><br><span class="line">$_REQUEST <span class="comment">// 获取 $_GET，$_POST，$_COOKIE 中的数据</span></span><br><span class="line">$_ENV <span class="comment">// 环境变量</span></span><br><span class="line">$_SERVER <span class="comment">// 服务器和执行环境信息</span></span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
 <h2 id="可变变量"><a href="#可变变量" class="headerlink" title="可变变量"></a>可变变量</h2><p>可变变量是 php 独有的特性，可变变量指的是变量名可变，将一个普通变量的值作为可变变量的变量名，而变量（即普通变量）指的是变量值可变。</p>
@@ -419,9 +419,6 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">utf8 --&gt; utf8 --&gt; latin1</span><br></pre></td></tr></table></figure>
 
 <p>最后执行比较username=’admin’ 的时候，’admin’ 是一个latin1字符串。Mysql在转换字符集的时候，将不完整的字符给忽略了。</p>
-<hr>
-<p>转发自大佬博客：<a href="https://www.restran.net/2016/09/26/php-security-notes/" target="_blank" rel="noopener">https://www.restran.net/2016/09/26/php-security-notes/</a></p>
-<hr>
 ]]></content>
       <categories>
         <category>PHP</category>
