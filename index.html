@@ -214,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/17/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -228,7 +228,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/01/17/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/" class="post-title-link" itemprop="url">文件上传绕过</a>
+            <a href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">sqli-labs环境配置</a>
         </h1>
 
         <div class="post-meta">
@@ -237,24 +237,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-01-17 15:57:49" itemprop="dateCreated datePublished" datetime="2020-01-17T15:57:49+08:00">2020-01-17</time>
+              <time title="创建时间：2020-01-22 11:58:41 / 修改时间：12:24:53" itemprop="dateCreated datePublished" datetime="2020-01-22T11:58:41+08:00">2020-01-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-18 13:54:32" itemprop="dateModified" datetime="2020-01-18T13:54:32+08:00">2020-01-18</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
                   </a>
                 </span>
             </span>
@@ -268,8 +262,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/01/17/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/17/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -279,14 +273,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
+              <span>515</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -298,18 +292,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong><div align='center'><font size=5 color ='red'>I —— 一句话木马 &amp; 菜刀原理</font></div></strong></p>
-<ul>
-<li><p><font color='orange' size=4>一句话木马了解</font></p>
-<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“一句话木马”服务端（本地存储的木马脚本木马文件）就是我们用来将恶意代码上川岛服务器的网站中执行权限，该语句触发后，接收入侵者通过客户端提交的数据，执行并完成乡音的操作。服务端的代码内容为<?php eval($_POST['hacker'])?>其中hacker的内容可以自己进行修改</p>
-<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“一句话木马”客户端（远程服务器上被插入一句话的asp可执行文件）用来向服务端提交控制数据的，提交的数据通过服务端构成完整的功能语句并执行，也就是我们所需要的木马文件</p>
-<p> 好处：一句话木马短小精悍，功能强大，隐蔽性非常好</p>
-<p> 参考博客： <a href="https://www.cnblogs.com/milantgh/p/3629199.html" target="_blank" rel="noopener">https://www.cnblogs.com/milantgh/p/3629199.html</a></p>
+          <div align="center"><font color="red" size="5">sqli-labs环境配置</font></div><p>本操作于虚拟机中进行(windows7系统)</p><ul>
+<li><p>sqli-labs下载：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a> (直接克隆 git clone + 网址)</p>
 </li>
-</ul>
+<li><p>phpstudy下载地址：<a href="http://down.php.cn/PhpStudy20180211.zip" target="_blank" rel="noopener">http://down.php.cn/PhpStudy20180211.zip</a> (不是最新版本)<br> 启动phpstudy，</p>
+ <div align="center"><img src="https://img-blog.csdnimg.cn/20200122122024972.png" width="400" hegiht="130"></div>
+
+</li>
+</ul><p>​    当浏览器访问127.0.0.1，显示Hello World时，表明phpstudy安装成功。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/01/17/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/#more" rel="contents">
+              <a class="btn" href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -438,6 +431,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="lemonl">
+      <meta itemprop="description" content="用于平时的学习记录和个人阶段性总结">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemonl's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/" class="post-title-link" itemprop="url">文件上传绕过</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-08 15:57:49" itemprop="dateCreated datePublished" datetime="2020-01-08T15:57:49+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-22 11:59:56" itemprop="dateModified" datetime="2020-01-22T11:59:56+08:00">2020-01-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong><div align='center'><font size=5 color ='red'>I —— 一句话木马 &amp; 菜刀原理</font></div></strong></p>
+<ul>
+<li><p><font color='orange' size=4>一句话木马了解</font></p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“一句话木马”服务端（本地存储的木马脚本木马文件）就是我们用来将恶意代码上川岛服务器的网站中执行权限，该语句触发后，接收入侵者通过客户端提交的数据，执行并完成乡音的操作。服务端的代码内容为<?php eval($_POST['hacker'])?>其中hacker的内容可以自己进行修改</p>
+<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“一句话木马”客户端（远程服务器上被插入一句话的asp可执行文件）用来向服务端提交控制数据的，提交的数据通过服务端构成完整的功能语句并执行，也就是我们所需要的木马文件</p>
+<p> 好处：一句话木马短小精悍，功能强大，隐蔽性非常好</p>
+<p> 参考博客： <a href="https://www.cnblogs.com/milantgh/p/3629199.html" target="_blank" rel="noopener">https://www.cnblogs.com/milantgh/p/3629199.html</a></p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/bugku-Web%EF%BC%881-20%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -469,7 +581,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-21 15:32:36" itemprop="dateModified" datetime="2020-01-21T15:32:36+08:00">2020-01-21</time>
+                <time title="修改时间：2020-01-22 11:58:16" itemprop="dateModified" datetime="2020-01-22T11:58:16+08:00">2020-01-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -830,7 +942,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -843,7 +955,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -890,7 +1002,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020-01-21</span>
+  <span itemprop="copyrightYear">2020-01-22</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -904,7 +1016,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">41 分钟</span>
+    <span title="站点阅读时长">42 分钟</span>
 </div>
 
 
