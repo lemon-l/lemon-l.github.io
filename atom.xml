@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-22T04:24:53.614Z</updated>
+  <updated>2020-01-22T04:35:08.157Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://yoursite.com/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</id>
     <published>2020-01-22T03:58:41.000Z</published>
-    <updated>2020-01-22T04:24:53.614Z</updated>
+    <updated>2020-01-22T04:35:08.157Z</updated>
     
-    <content type="html"><![CDATA[<div align="center"><font color="red" size="5">sqli-labs环境配置</font></div><p>本操作于虚拟机中进行(windows7系统)</p><ul><li><p>sqli-labs下载：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a> (直接克隆 git clone + 网址)</p></li><li><p>phpstudy下载地址：<a href="http://down.php.cn/PhpStudy20180211.zip" target="_blank" rel="noopener">http://down.php.cn/PhpStudy20180211.zip</a> (不是最新版本)<br> 启动phpstudy，</p> <div align="center"><img src="https://img-blog.csdnimg.cn/20200122122024972.png" width="400" hegiht="130"></div></li></ul><p>​    当浏览器访问127.0.0.1，显示Hello World时，表明phpstudy安装成功。</p><a id="more"></a><p>​    在phpstudy中，选择其它选项里面的网站根目录，进入www，将下载好的sqli-labs复制进此目录，然后访问127.0.0.1/sqli-labs, 显示</p><div align="center"><img src="https://img-blog.csdnimg.cn/2020012212085951.png" width="400" hegiht="130"></div><p>​接下来就是配置数据库了，进入sqli-labs\sql-connections\db-creds.inc 目录，修改$dbpass = ‘root’或者其他你想要的密码，保存，访问<a href="http://127.0.0.1/sqli-labs/sql-connections/setup-db.php" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/sql-connections/setup-db.php</a></p><div align="center"><img src="https://img-blog.csdnimg.cn/20200122121142893.png" width="400" hegiht="130"></div><p>进行第一关测试，根据提示构造payload，访问<a href="http://127.0.0.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://127.0.0.1/sqli/Less-1/?id=1</a></p><div align="center"><img src="https://img-blog.csdnimg.cn/20200122121127372.png" width="400" hegiht="130"></div><p>至此，环境配置完毕，可以进行学习了。</p>]]></content>
+    <content type="html"><![CDATA[<p>本操作于虚拟机中进行(windows7系统)</p><ul><li><p>sqli-labs下载：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a> (直接克隆 git clone + 网址)</p></li><li><p>phpstudy下载地址：<a href="http://down.php.cn/PhpStudy20180211.zip" target="_blank" rel="noopener">http://down.php.cn/PhpStudy20180211.zip</a> (不是最新版本)<br> 启动phpstudy，</p> <div align="center"><img src="https://img-blog.csdnimg.cn/20200122122024972.png" width="400" hegiht="130"></div></li></ul><p>​    当浏览器访问127.0.0.1，显示Hello World时，表明phpstudy安装成功。</p><a id="more"></a><p>​    在phpstudy中，选择其它选项里面的网站根目录，进入www，将下载好的sqli-labs复制进此目录，然后访问127.0.0.1/sqli-labs, 显示</p><div align="center"><img src="https://img-blog.csdnimg.cn/2020012212085951.png" width="400" hegiht="130"></div><p>​接下来就是配置数据库了，进入sqli-labs\sql-connections\db-creds.inc 目录，修改$dbpass = ‘root’或者其他你想要的密码，保存，访问<a href="http://127.0.0.1/sqli-labs/sql-connections/setup-db.php" target="_blank" rel="noopener">http://127.0.0.1/sqli-labs/sql-connections/setup-db.php</a></p><div align="center"><img src="https://img-blog.csdnimg.cn/20200122121142893.png" width="400" hegiht="130"></div><p>进行第一关测试，根据提示构造payload，访问<a href="http://127.0.0.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://127.0.0.1/sqli/Less-1/?id=1</a></p><div align="center"><img src="https://img-blog.csdnimg.cn/20200122121127372.png" width="400" hegiht="130"></div><p>至此，环境配置完毕，可以进行学习了。</p>]]></content>
     
     <summary type="html">
     
-      &lt;div align=&quot;center&quot;&gt;&lt;font color=&quot;red&quot; size=&quot;5&quot;&gt;sqli-labs环境配置&lt;/font&gt;&lt;/div&gt;&lt;p&gt;本操作于虚拟机中进行(windows7系统)&lt;/p&gt;&lt;ul&gt;
+      &lt;p&gt;本操作于虚拟机中进行(windows7系统)&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;sqli-labs下载：&lt;a href=&quot;https://github.com/Audi-1/sqli-labs&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Audi-1/sqli-labs&lt;/a&gt; (直接克隆 git clone + 网址)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;phpstudy下载地址：&lt;a href=&quot;http://down.php.cn/PhpStudy20180211.zip&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://down.php.cn/PhpStudy20180211.zip&lt;/a&gt; (不是最新版本)&lt;br&gt; 启动phpstudy，&lt;/p&gt;

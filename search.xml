@@ -3,7 +3,7 @@
   <entry>
     <title>sqli-labs环境配置</title>
     <url>/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div align="center"><font color="red" size="5">sqli-labs环境配置</font></div><p>本操作于虚拟机中进行(windows7系统)</p><ul>
+    <content><![CDATA[<p>本操作于虚拟机中进行(windows7系统)</p><ul>
 <li><p>sqli-labs下载：<a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a> (直接克隆 git clone + 网址)</p>
 </li>
 <li><p>phpstudy下载地址：<a href="http://down.php.cn/PhpStudy20180211.zip" target="_blank" rel="noopener">http://down.php.cn/PhpStudy20180211.zip</a> (不是最新版本)<br> 启动phpstudy，</p>
@@ -11,8 +11,6 @@
 
 </li>
 </ul><p>​    当浏览器访问127.0.0.1，显示Hello World时，表明phpstudy安装成功。</p><a id="more"></a>
-
-
 
 
 <p>​    在phpstudy中，选择其它选项里面的网站根目录，进入www，将下载好的sqli-labs复制进此目录，然后访问127.0.0.1/sqli-labs, 显示</p>
