@@ -26,6 +26,12 @@
 <p><font color="red" size="5">未完待续<del>~</del></font></p>
 <hr>
 ]]></content>
+      <categories>
+        <category>实战</category>
+      </categories>
+      <tags>
+        <tag>SQL注入</tag>
+      </tags>
   </entry>
   <entry>
     <title>sqli-labs环境配置</title>
