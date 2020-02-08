@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>python的一些奇淫巧计</title>
+    <url>/2020/02/08/python%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/</url>
+    <content><![CDATA[<h3 id="1-将电脑变成服务器"><a href="#1-将电脑变成服务器" class="headerlink" title="1. 将电脑变成服务器"></a>1. <font color="orang">将电脑变成服务器</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;如果要将电脑中的文件发到手机上面，你怀疑选择怎么做呢？数据线、微信文件助手。这些都有局限性，比如突然断网，WTF？别急，万能的python自有妙招。</p>
+<ul>
+<li><p>命令：<font color="orane">python -m SimpleHTTPServer 8000</font></p>
+</li>
+<li><p>然后查看本机IP，在手机端访问8000端口 (需要与电脑端的Ip相同)</p>
+ <div align="center"><img height="300px" width="400px" src="https://img-blog.csdnimg.cn/20200208170725351.png"></div>
+<a id="more"></a>
+ <div align="center"><img height="300px" width="350px" src="https://img-blog.csdnimg.cn/20200208170757109.png"></div>
+ nice!!!支持在线浏览和下载，简直不要太方便。吹爆此功能。
+ <br/><br/>
+<font color="red">持续更新中……</div>
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>实战</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sqli-labs (1-10)</title>
     <url>/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/</url>
     <content><![CDATA[<p>[学习链接]：<a href="https://www.bilibili.com/video/av66072415" target="_blank" rel="noopener">https://www.bilibili.com/video/av66072415</a></p><p><font color="blue" size="4">MySQL简单基本用法</font></p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">常用的几个函数：</span><br><span class="line">        system_user() —— 系统用户</span><br><span class="line">        user() —— 普通用户</span><br><span class="line">        current_user() —— 当前用户</span><br><span class="line">        database() —— 当前所用的数据库</span><br><span class="line">        version() —— 数据库的版本</span><br><span class="line">        @@datadir —— 安装路径</span><br><span class="line">        @@version_compile_os —— 本机系统</span><br></pre></td></tr></table></figure><a id="more"></a>
