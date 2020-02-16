@@ -60,15 +60,17 @@
 </script>
 
   <meta name="description" content="用于平时的学习记录和个人阶段性总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lemonl&#39;s Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0&#x2F;index.html">
+<meta name="keywords" content="XSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xss-labs">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;15&#x2F;xss-labs&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
 <meta property="og:description" content="用于平时的学习记录和个人阶段性总结">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-16T09:47:53.515Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+<link rel="canonical" href="http://yoursite.com/2020/02/15/xss-labs/">
 
 
 <script id="page-configurations">
@@ -76,13 +78,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: 文件上传 | lemonl's Blog</title>
+  <title>xss-labs | lemonl's Blog</title>
   
 
 
@@ -209,74 +211,148 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">文件上传
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/15/xss-labs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="lemonl">
+      <meta itemprop="description" content="用于平时的学习记录和个人阶段性总结">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemonl's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          xss-labs
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-15 17:46:28" itemprop="dateCreated datePublished" datetime="2020-02-15T17:46:28+08:00">2020-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-16 17:47:53" itemprop="dateModified" datetime="2020-02-16T17:47:53+08:00">2020-02-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E6%88%98/" itemprop="url" rel="index">
+                    <span itemprop="name">实战</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/15/xss-labs/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/15/xss-labs/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+      <div>
+      
+        
+      
+      </div>
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----------------本文结束<i class="fa fa-heart"></i>感谢阅读----------------</div>
+    
+</div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-13T20:39:37+08:00"
-              content="2020-02-13">
-          02-13
-        </time>
+        
       </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/13/upload-labs/" itemprop="url">
-            <span itemprop="name">upload-labs</span>
-          </a>
-      </h2>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/XSS/" rel="tag"># XSS</a>
+          </div>
 
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/02/13/upload-labs/" rel="next" title="upload-labs">
+                  <i class="fa fa-chevron-left"></i> upload-labs
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-08T15:57:49+08:00"
-              content="2020-01-08">
-          01-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/08/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87/" itemprop="url">
-            <span itemprop="name">文件上传绕过</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           

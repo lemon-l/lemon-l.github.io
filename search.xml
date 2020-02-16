@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>xss-labs</title>
+    <url>/2020/02/15/xss-labs/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>实战</category>
+      </categories>
+      <tags>
+        <tag>XSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>upload-labs</title>
-    <url>/2020/02/15/upload-labs/</url>
+    <url>/2020/02/13/upload-labs/</url>
     <content><![CDATA[<h3 id="Pass-01-nbsp"><a href="#Pass-01-nbsp" class="headerlink" title="Pass-01&nbsp;"></a><font color="#85da46">Pass-01</font>&nbsp;</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上传类型为 jpg |  png | gif的可以直接上传，类型为php的前端页面则提示 <font color="orange">该文件不允许上传，请上传 .jpg|.png|.gif类型的文件</font></p><ul>
 <li>将要上传的php文件后缀改为允许的，然后在burp上面改回原来的</li>
 <li>或者是浏览器禁用js后进行上传。</li>
