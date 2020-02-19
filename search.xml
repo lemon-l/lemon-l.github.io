@@ -3,8 +3,7 @@
   <entry>
     <title>xss-labs</title>
     <url>/2020/02/15/xss-labs/</url>
-    <content><![CDATA[<p><font color="red">靶场地址：<a href="https://github.com/paralax/xss-labs" target="_blank" rel="noopener">https://github.com/paralax/xss-labs</a> </font></p><h3 id="level-01"><a href="#level-01" class="headerlink" title="level-01"></a><font color="#85da46">level-01</font></h3><p>发现这道题有get请求，参数为name, 直接构造payload</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name=<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">alert(<span class="string">'xss'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure><div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/adac2201a6e2148c.png"></div><h3 id="level-02"><a href="#level-02" class="headerlink" title="level-02"></a><font color="#85da46">level-02</font></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">当提交 keyword=&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;的时候，查看源码显示&lt;input name=keyword  value=&quot;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;&quot;&gt;，很显然此时没有闭合，js代码必定不会被执行。</span><br><span class="line"></span><br><span class="line">keyword=&quot;/&gt;&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;// 时,将前面input标签进行了闭合，然后 // 注释掉了原来后面的内容，js代码被JavaScript引擎执行。</span><br></pre></td></tr></table></figure><a id="more"></a>
-
+    <content><![CDATA[<h3 id="level-01"><a href="#level-01" class="headerlink" title="level-01"></a><font color="#85da46">level-01</font></h3><p>发现这道题有get请求，参数为name, 直接构造payload</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name=<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">alert(<span class="string">'xss'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure><div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/adac2201a6e2148c.png"></div><h3 id="level-02"><a href="#level-02" class="headerlink" title="level-02"></a><font color="#85da46">level-02</font></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">当提交 keyword=&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;的时候，查看源码显示&lt;input name=keyword  value=&quot;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;&quot;&gt;，很显然此时没有闭合，js代码必定不会被执行。</span><br><span class="line"></span><br><span class="line">keyword=&quot;/&gt;&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;// 时,将前面input标签进行了闭合，然后 // 注释掉了原来后面的内容，js代码被JavaScript引擎执行。</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
 
@@ -62,10 +61,48 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?keyword=1&amp;t_link=1&amp;t_history=1&amp;t_sort=1</span><br></pre></td></tr></table></figure>
 
 <p>发现只有第三个input处的value被附了值。故可以确认此为注入点。</p>
-<p>但是此处过滤了尖括号。按照第三关进行注入：</p>
+<p>但是此处过滤了尖括号。按照第四关进行注入：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?t_sort=&quot;type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
 
 <p>其中type类型可有多种选择：text、radio、button、submit等。</p>
+<h3 id="level-11"><a href="#level-11" class="headerlink" title="level-11"></a><font color="#85da46">level-11</font></h3><p>从这一关开始，注入点就变了。用上工具burpsuit是很有必要的。</p>
+<p>查看元素，发现t_ref参数处的值是第10关处构造的url，则说明后台读取了HTT[请求包的Referer，并写入了HTML页面。</p>
+<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/462dfdefe7dcfbea.png"></div>
+
+<p>所以只需要利用工具HackBar，修改referer的值为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot; type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
+
+<h3 id="level-12"><a href="#level-12" class="headerlink" title="level-12"></a><font color="#85da46">level-12</font></h3><p>查看元素，发现t_ua后面value里面的参数和User-Agent里面的一模一样，则注入点可以确定在此。</p>
+<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/b3eb0ff117d28365.png"></div>
+
+<p>所以只需要利用工具HackBar，修改User-Agent的值为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot; type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
+
+<h3 id="level-13"><a href="#level-13" class="headerlink" title="level-13"></a><font color="#85da46">level-13</font></h3><p>根据返回的html判断cookie字段为web页面的自定义变量，则注入点可以确定在此。</p>
+<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/e32194a4f6c33c00.png"></div>
+
+<p>所以只需要利用工具HackBar，修改cookies的值为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">user=&quot; type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
+
+<h3 id="level-14"><a href="#level-14" class="headerlink" title="level-14"></a><font color="#85da46">level-14</font></h3><p>14关绝了，一直在加载。给的那个 <a href="http://www.exifviewer.org/" target="_blank" rel="noopener">http://www.exifviewer.org/</a> 也访问不了。</p>
+<p>查了好多的wp，都是直接跳过这关了。</p>
+<p>本关属于exif XSS，需要上传一个含有xss代码的图片触发xss。</p>
+<p>具体wp参考：<a href="https://xz.aliyun.com/t/1206?accounttraceid=74ab404d-2a01-4a1c-8b87-36ad367dbe11#toc-12" target="_blank" rel="noopener">巨人肩膀上的矮子</a></p>
+<h3 id="level-15"><a href="#level-15" class="headerlink" title="level-15"></a><font color="#85da46">level-15</font></h3><p>很明显，本关的注入点在<font color="orange"> src </font>那块.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AngularJS ng-include指令：</span><br><span class="line">	用于包含外部的HTML文件，包含的内容将作为指定元素的子节点。</span><br><span class="line">	ng-include属性的值可以是一个表达式，返回一个文件名。</span><br><span class="line">	默认情况下，包含的文件需要包含在同一个域名下。</span><br></pre></td></tr></table></figure>
+
+<p>原本调用的js地址有一点问题，可以修改为<a href="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js</a></p>
+<p>直接在包含的页面里用<code>&lt;script&gt;</code>触发不了，用了img标签</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">src=&apos;level1.php?name=test&lt;img src=1 onerror=alert(/xss/)&gt;&apos;</span><br></pre></td></tr></table></figure>
+
+<p>说实话，我没有搞懂这是如何构造的。</p>
+<h3 id="level-16"><a href="#level-16" class="headerlink" title="level-16"></a><font color="#85da46">level-16</font></h3><h3 id="level-17"><a href="#level-17" class="headerlink" title="level-17"></a><font color="#85da46">level-17</font></h3><h3 id="level-18"><a href="#level-18" class="headerlink" title="level-18"></a><font color="#85da46">level-18</font></h3><h3 id="level-19"><a href="#level-19" class="headerlink" title="level-19"></a><font color="#85da46">level-19</font></h3><h3 id="level-20"><a href="#level-20" class="headerlink" title="level-20"></a><font color="#85da46">level-20</font></h3><p><font color="red">靶场地址：<a href="https://github.com/paralax/xss-labs" target="_blank" rel="noopener">https://github.com/paralax/xss-labs</a> </font>，最近发现靶场源码被删了。嘿嘿，幸好早就放进了网盘。</p>
+<p>链接：<a href="https://pan.baidu.com/s/1cj13lPUs1MbMvLKmEY-pqw" target="_blank" rel="noopener">https://pan.baidu.com/s/1cj13lPUs1MbMvLKmEY-pqw</a><br>提取码：6p2d。</p>
+<p>需要注意一个我自己遇到的问题，在搭好环境后，我的burpsuit无法抓到包，但是其他的网页就可以。后来才找到了办法：</p>
+<p>为了方便切换多个代理设置，我用了插件<font color="#a74e0d"> Procxy SwitchyOmega </font>。</p>
+<div align="center"><img height="200" src="https://ftp.bmp.ovh/imgs/2020/02/26e96037126b6ce4.png"></div>
+
+<p>只需要删掉红线圈的那部分东西就好了。</p>
 ]]></content>
       <categories>
         <category>实战</category>
