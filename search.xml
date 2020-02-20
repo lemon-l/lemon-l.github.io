@@ -205,6 +205,10 @@
 <li>可以利用move_uploaded_file的 \x00截断。即 post: save_name = 1.php%00.jpg</li>
 <li>post: save_name = 1.php/. ，这样file_ext的值为空，可以绕过黑名单，函数忽略/. ，保存的文件类型为 .php</li>
 </ul>
+<hr>
+<h3 id="经典题型"><a href="#经典题型" class="headerlink" title="经典题型"></a><font color="#85da46">经典题型</font></h3><ol>
+<li><a href="https://www.cnblogs.com/-chenxs/p/11953933.html" target="_blank" rel="noopener">perl和ARGV任意文件读取</a></li>
+</ol>
 <p><font color="red">有哪些地方有问题的，望各位大佬指教。谢谢了！！！！</font></p>
 ]]></content>
       <categories>
