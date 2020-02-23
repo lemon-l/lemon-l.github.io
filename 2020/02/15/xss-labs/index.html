@@ -59,13 +59,13 @@
   };
 </script>
 
-  <meta name="description" content="level-01发现这道题有get请求，参数为name, 直接构造payload1name=&amp;lt;script&amp;gt;alert(&amp;apos;xss&amp;apos;)&amp;lt;&#x2F;script&amp;gt;level-02123当提交 keyword=&amp;lt;script&amp;gt;alert(&amp;apos;xss&amp;apos;)&amp;lt;&#x2F;script&amp;gt;的时候，查看源码显示&amp;lt;input name=keyword  value">
+  <meta name="description" content="level-01发现这道题有get请求，参数为name, 直接构造payload 1name=&amp;lt;script&amp;gt;alert(&amp;apos;xss&amp;apos;)&amp;lt;&#x2F;script&amp;gt;    level-02">
 <meta name="keywords" content="XSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xss-labs">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;15&#x2F;xss-labs&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
-<meta property="og:description" content="level-01发现这道题有get请求，参数为name, 直接构造payload1name=&amp;lt;script&amp;gt;alert(&amp;apos;xss&amp;apos;)&amp;lt;&#x2F;script&amp;gt;level-02123当提交 keyword=&amp;lt;script&amp;gt;alert(&amp;apos;xss&amp;apos;)&amp;lt;&#x2F;script&amp;gt;的时候，查看源码显示&amp;lt;input name=keyword  value">
+<meta property="og:description" content="level-01发现这道题有get请求，参数为name, 直接构造payload 1name=&amp;lt;script&amp;gt;alert(&amp;apos;xss&amp;apos;)&amp;lt;&#x2F;script&amp;gt;    level-02">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;adac2201a6e2148c.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;f4bcd78fde99833b.png">
@@ -78,8 +78,10 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;462dfdefe7dcfbea.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;b3eb0ff117d28365.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;e32194a4f6c33c00.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;a563d57d3e970581.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;98037e98f2e0db49.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;26e96037126b6ce4.png">
-<meta property="og:updated_time" content="2020-02-19T13:42:57.885Z">
+<meta property="og:updated_time" content="2020-02-23T06:42:14.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;02&#x2F;adac2201a6e2148c.png">
 
@@ -259,7 +261,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-19 21:42:57" itemprop="dateModified" datetime="2020-02-19T21:42:57+08:00">2020-02-19</time>
+                <time title="修改时间：2020-02-23 14:42:14" itemprop="dateModified" datetime="2020-02-23T14:42:14+08:00">2020-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,7 +295,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -312,12 +314,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="level-01"><a href="#level-01" class="headerlink" title="level-01"></a><font color="#85da46">level-01</font></h3><p>发现这道题有get请求，参数为name, 直接构造payload</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">alert(<span class="string">'xss'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure><div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/adac2201a6e2148c.png"></div><h3 id="level-02"><a href="#level-02" class="headerlink" title="level-02"></a><font color="#85da46">level-02</font></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当提交 keyword=&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;的时候，查看源码显示&lt;input name=keyword  value=&quot;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;&quot;&gt;，很显然此时没有闭合，js代码必定不会被执行。</span><br><span class="line"></span><br><span class="line">keyword=&quot;/&gt;&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;// 时,将前面input标签进行了闭合，然后 // 注释掉了原来后面的内容，js代码被JavaScript引擎执行。</span><br></pre></td></tr></table></figure><a id="more"></a>
+        <h3 id="level-01"><a href="#level-01" class="headerlink" title="level-01"></a><font color="#85da46">level-01</font></h3><p>发现这道题有get请求，参数为name, 直接构造payload</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript">alert(<span class="string">'xss'</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
+<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/adac2201a6e2148c.png"></div>
 
+<h3 id="level-02"><a href="#level-02" class="headerlink" title="level-02"></a><font color="#85da46">level-02</font></h3><a id="more"></a>
 
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">当提交 keyword=&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;的时候，查看源码显示&lt;input name=keyword  value=&quot;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;&quot;&gt;，很显然此时没有闭合，js代码必定不会被执行。</span><br><span class="line"></span><br><span class="line">keyword=&quot;/&gt;&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;// 时,将前面input标签进行了闭合，然后 // 注释掉了原来后面的内容，js代码被JavaScript引擎执行。</span><br></pre></td></tr></table></figure>
 
 <div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/f4bcd78fde99833b.png"></div>
 
@@ -335,17 +339,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.&quot;onclick=&quot;alert(/xss/)      </span><br><span class="line">2.&quot;onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
 
 <h3 id="level-05"><a href="#level-05" class="headerlink" title="level-05"></a><font color="#85da46">level-05</font></h3><p>直接按照第四关那样注入，出现了：</p>
-<div align="center"><img width="500" src="https://ftp.bmp.ovh/imgs/2020/02/4f095c9affabccee.png"></div>
+<div align="center"><img width="500"src="https://ftp.bmp.ovh/imgs/2020/02/4f095c9affabccee.png"></div>
 
 <p>按照第二关注入，出现了：</p>
-<div align="center"><img width="500" src="https://ftp.bmp.ovh/imgs/2020/02/17c26945cdfa049a.png"></div>
+<div align="center"><img width="500"src="https://ftp.bmp.ovh/imgs/2020/02/17c26945cdfa049a.png"></div>
 
 <p>尝试使用大小写转换，发现结果仍然一样。可以确定后台对script和on都进行了过滤。按照网上的提示使用编码的方式进行绕过过滤，发现网页无法识别。仔细思量，会发现此时尖括号并没有被过滤。于是可以构造payload:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/&gt;&lt;a href=&quot;javascript:alert(/xss/)&quot;/&gt;链接&lt;/a&gt;//</span><br></pre></td></tr></table></figure>
 
 <p>此时点击超链接，就可进入下一关。</p>
 <h3 id="level-06"><a href="#level-06" class="headerlink" title="level-06"></a><font color="#85da46">level-06</font></h3><p>按照第五关进行注入，出现：</p>
-<div align="center"><img width="500" src="https://ftp.bmp.ovh/imgs/2020/02/5f67bdd032631d22.png"></div>
+<div align="center"><img width="500"src="https://ftp.bmp.ovh/imgs/2020/02/5f67bdd032631d22.png"></div>
 
 <p>对href进行了过滤，变换大小写发现成功了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/&gt;&lt;a Href=&apos;javascript:alert(/xss/)&apos;&gt;链接&lt;/a&gt;//</span><br></pre></td></tr></table></figure>
@@ -376,19 +380,19 @@
 <p>其中type类型可有多种选择：text、radio、button、submit等。</p>
 <h3 id="level-11"><a href="#level-11" class="headerlink" title="level-11"></a><font color="#85da46">level-11</font></h3><p>从这一关开始，注入点就变了。用上工具burpsuit是很有必要的。</p>
 <p>查看元素，发现t_ref参数处的值是第10关处构造的url，则说明后台读取了HTT[请求包的Referer，并写入了HTML页面。</p>
-<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/462dfdefe7dcfbea.png"></div>
+<div align="center"><img  src="https://ftp.bmp.ovh/imgs/2020/02/462dfdefe7dcfbea.png"></div>
 
 <p>所以只需要利用工具HackBar，修改referer的值为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot; type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
 
 <h3 id="level-12"><a href="#level-12" class="headerlink" title="level-12"></a><font color="#85da46">level-12</font></h3><p>查看元素，发现t_ua后面value里面的参数和User-Agent里面的一模一样，则注入点可以确定在此。</p>
-<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/b3eb0ff117d28365.png"></div>
+<div align="center"><img  src="https://ftp.bmp.ovh/imgs/2020/02/b3eb0ff117d28365.png"></div>
 
 <p>所以只需要利用工具HackBar，修改User-Agent的值为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot; type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
 
 <h3 id="level-13"><a href="#level-13" class="headerlink" title="level-13"></a><font color="#85da46">level-13</font></h3><p>根据返回的html判断cookie字段为web页面的自定义变量，则注入点可以确定在此。</p>
-<div align="center"><img src="https://ftp.bmp.ovh/imgs/2020/02/e32194a4f6c33c00.png"></div>
+<div align="center"><img  src="https://ftp.bmp.ovh/imgs/2020/02/e32194a4f6c33c00.png"></div>
 
 <p>所以只需要利用工具HackBar，修改cookies的值为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user=&quot; type=&quot;text&quot; onmouseover=&quot;alert(/xss/)</span><br></pre></td></tr></table></figure>
@@ -400,19 +404,31 @@
 <h3 id="level-15"><a href="#level-15" class="headerlink" title="level-15"></a><font color="#85da46">level-15</font></h3><p>很明显，本关的注入点在<font color="orange"> src </font>那块.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AngularJS ng-include指令：</span><br><span class="line">	用于包含外部的HTML文件，包含的内容将作为指定元素的子节点。</span><br><span class="line">	ng-include属性的值可以是一个表达式，返回一个文件名。</span><br><span class="line">	默认情况下，包含的文件需要包含在同一个域名下。</span><br></pre></td></tr></table></figure>
 
-<p>原本调用的js地址有一点问题，可以修改为<a href="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js" target="_blank" rel="noopener">https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js</a></p>
-<p>直接在包含的页面里用<code>&lt;script&gt;</code>触发不了，用了img标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src=&apos;level1.php?name=test&lt;img src=1 onerror=alert(/xss/)&gt;&apos;</span><br></pre></td></tr></table></figure>
+<p>后台源码显示nginclude调用采用htmlspecialchars过滤输入的src变量，直接在包含的页面里用<code>&lt;script&gt;</code>触发不了，用了img标签。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src=&apos;level1.php?name=&lt;img src=x onerror=alert(/xss/)&gt;</span><br></pre></td></tr></table></figure>
 
-<p>说实话，我没有搞懂这是如何构造的。</p>
-<h3 id="level-16"><a href="#level-16" class="headerlink" title="level-16"></a><font color="#85da46">level-16</font></h3><h3 id="level-17"><a href="#level-17" class="headerlink" title="level-17"></a><font color="#85da46">level-17</font></h3><h3 id="level-18"><a href="#level-18" class="headerlink" title="level-18"></a><font color="#85da46">level-18</font></h3><h3 id="level-19"><a href="#level-19" class="headerlink" title="level-19"></a><font color="#85da46">level-19</font></h3><h3 id="level-20"><a href="#level-20" class="headerlink" title="level-20"></a><font color="#85da46">level-20</font></h3><p><font color="red">靶场地址：<a href="https://github.com/paralax/xss-labs" target="_blank" rel="noopener">https://github.com/paralax/xss-labs</a> </font>，最近发现靶场源码被删了。嘿嘿，幸好早就放进了网盘。</p>
+<h3 id="level-16"><a href="#level-16" class="headerlink" title="level-16"></a><font color="#85da46">level-16</font></h3><p>很容易发现keyword处存在注入。多次尝试发现过滤了script、空格和 /，</p>
+<div align='center'><img width="500" src="https://ftp.bmp.ovh/imgs/2020/02/a563d57d3e970581.png"></div>
+
+<p>用换行符<font color='orange'> %0a </font> 取代空格，构造payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keyword=&lt;img%0asrc=x%0aonerror=alert(1)&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="level-17"><a href="#level-17" class="headerlink" title="level-17"></a><font color="#85da46">level-17</font></h3><p>arg01和arg01的变量存在注入。当输入arg01=c&amp;arg02=bdaerfre，显示：</p>
+<div align='center'><img width="500" src="https://ftp.bmp.ovh/imgs/2020/02/98037e98f2e0db49.png"></div>
+
+<p>本题过滤了尖括号和双引号，用on关键字触发。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arg01=a&amp;arg02=b onmouseover=alert(/xss/)</span><br></pre></td></tr></table></figure>
+
+<p>但是这里有个小问题需要注意一下，就算你这道题做对了，他也没有任何弹窗的提示，因为火狐不能打开swf后缀的文件，换个IE或者360浏览器就可以了。</p>
+<h3 id="level-18"><a href="#level-18" class="headerlink" title="level-18"></a><font color="#85da46">level-18</font></h3><p>和上道题基本上一样，唯一不同的就是对双引号进行了过滤。构造的payload同上。</p>
+<h3 id="level-19"><a href="#level-19" class="headerlink" title="level-19"></a><font color="#85da46">level-19</font></h3><p>属于flash XSS，目前还不懂。</p>
+<h3 id="level-20"><a href="#level-20" class="headerlink" title="level-20"></a><font color="#85da46">level-20</font></h3><p>同样属于flash XSS，需要反编译，不会。</p>
+<hr>
+<p><font color="red">靶场地址：<a href="https://github.com/paralax/xss-labs" target="_blank" rel="noopener">https://github.com/paralax/xss-labs</a> </font>，最近发现靶场源码被删了。嘿嘿，幸好早就放进了网盘。</p>
 <p>链接：<a href="https://pan.baidu.com/s/1cj13lPUs1MbMvLKmEY-pqw" target="_blank" rel="noopener">https://pan.baidu.com/s/1cj13lPUs1MbMvLKmEY-pqw</a><br>提取码：6p2d。</p>
-<p>需要注意一个我自己遇到的问题，在搭好环境后，我的burpsuit无法抓到包，但是其他的网页就可以。后来才找到了办法：</p>
+<p>需要注意一个我自己遇到的问题，在搭好环境后，我的burpsuit无法抓到包。但是其他的网页就可以。后来才找到了办法：</p>
 <p>为了方便切换多个代理设置，我用了插件<font color="#a74e0d"> Procxy SwitchyOmega </font>。</p>
 <div align="center"><img height="200" src="https://ftp.bmp.ovh/imgs/2020/02/26e96037126b6ce4.png"></div>
-
-<p>只需要删掉红线圈的那部分东西就好了。</p>
-
     </div>
 
     
@@ -565,7 +581,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020-02-20</span>
+  <span itemprop="copyrightYear">2020-02-23</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
