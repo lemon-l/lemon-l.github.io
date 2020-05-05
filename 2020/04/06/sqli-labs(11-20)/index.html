@@ -59,16 +59,22 @@
   };
 </script>
 
-  <meta name="description" content="用于平时的学习记录和个人阶段性总结">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lemonl&#39;s Blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;%E6%95%99%E7%A8%8B&#x2F;index.html">
+  <meta name="description" content="Less-11post传输使用hackbar构建payload，当输入uname=admin&amp;amp;passwd=admin&amp;amp;submit=Submit时显示:当输入uname=admin&amp;#39;&amp;amp;passwd=admin&amp;amp;submit=Submit时显示：输入uname=&amp;#39;or 1=1 #&amp;amp;passwd=admin&amp;amp;submit=Submit,">
+<meta name="keywords" content="SQL注入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqli-labs (11-20)">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;06&#x2F;sqli-labs(11-20)&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
-<meta property="og:description" content="用于平时的学习记录和个人阶段性总结">
+<meta property="og:description" content="Less-11post传输使用hackbar构建payload，当输入uname=admin&amp;amp;passwd=admin&amp;amp;submit=Submit时显示:当输入uname=admin&amp;#39;&amp;amp;passwd=admin&amp;amp;submit=Submit时显示：输入uname=&amp;#39;or 1=1 #&amp;amp;passwd=admin&amp;amp;submit=Submit,">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;05&#x2F;92dea629a9e62722.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;05&#x2F;17beb7d14d18b968.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;05&#x2F;7ea1f9649e3ec846.png">
+<meta property="og:updated_time" content="2020-05-05T08:04:04.356Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;ftp.bmp.ovh&#x2F;imgs&#x2F;2020&#x2F;05&#x2F;92dea629a9e62722.png">
 
-<link rel="canonical" href="http://yoursite.com/categories/%E6%95%99%E7%A8%8B/">
+<link rel="canonical" href="http://yoursite.com/2020/04/06/sqli-labs(11-20)/">
 
 
 <script id="page-configurations">
@@ -76,13 +82,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>分类: 教程 | lemonl's Blog</title>
+  <title>sqli-labs (11-20) | lemonl's Blog</title>
   
 
 
@@ -209,77 +215,185 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">教程
-          <small>分类</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/06/sqli-labs(11-20)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="lemonl">
+      <meta itemprop="description" content="用于平时的学习记录和个人阶段性总结">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemonl's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sqli-labs (11-20)
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-06 14:16:32" itemprop="dateCreated datePublished" datetime="2020-04-06T14:16:32+08:00">2020-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-05 16:04:04" itemprop="dateModified" datetime="2020-05-05T16:04:04+08:00">2020-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E6%88%98/" itemprop="url" rel="index">
+                    <span itemprop="name">实战</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/04/06/sqli-labs(11-20)/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/06/sqli-labs(11-20)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <h4 id="Less-11"><a href="#Less-11" class="headerlink" title="Less-11"></a>Less-11</h4><p>post传输</p><p>使用hackbar构建payload，当输入<code>uname=admin&amp;passwd=admin&amp;submit=Submit</code>时显示:</p><div align="center"><img width="500" height="100" src="https://ftp.bmp.ovh/imgs/2020/05/92dea629a9e62722.png"></div><p>当输入<code>uname=admin&#39;&amp;passwd=admin&amp;submit=Submit</code>时显示：</p><div align="center"><img width="500" height="100" src="https://ftp.bmp.ovh/imgs/2020/05/17beb7d14d18b968.png"></div><p>输入<code>uname=&#39;or 1=1 #&amp;passwd=admin&amp;submit=Submit</code>,仍然显示成功<br>然后按照之前的order by 步骤进行注入，不过注入方式是post。</p><a id="more"></a>
+
+
+
+
+
+
+
+<p><strong>注意：</strong>在进行post注入的时候注释符用的是“#”而不是“–+”，原因是在get中涉及到了转码的问题，在post中使用“–+”是无效的。</p>
+<h4 id="Less-12"><a href="#Less-12" class="headerlink" title="Less-12"></a>Less-12</h4><p>与11关基本相同，就是把单引号改为双引号然后加上一个单括号，从而进行注入</p>
+<p>模版是<code>uname=&quot; or（此为要构造的） #&amp;passwd=admin&amp;submit=Submit</code></p>
+<h4 id="Less-13"><a href="#Less-13" class="headerlink" title="Less-13"></a>Less-13</h4><p>与11关部分相同，给单引号后面加上一个单括号，从而进行注入。但是发现页面只是单纯回显错误或者成功，所以我们可以采用盲注的方法，按照前面所用的时间盲注的方法进行注入。<br>可以用burpsuit辅助，速度能相对快一点，至于脚本后面会有所提及。</p>
+<p>模版是<code>uname=&#39;) or（此为要构造的）#&amp;passwd=admin&amp;submit=Submit</code></p>
+<h4 id="Less-14"><a href="#Less-14" class="headerlink" title="Less-14"></a>Less-14</h4><p>与第13关基本相同。<br>模版是<code>uname=&quot; or（此为要构造的）#&amp;passwd=admin&amp;submit=Submit</code><br>‘ “ ) 1=1</p>
+<h4 id="Less-15"><a href="#Less-15" class="headerlink" title="Less-15"></a>Less-15</h4><p>除了注入的位置之外，其它步骤均与上面相同<br>模版是<code>uname=admin&amp;passwd=&#39; or（此为要构造的） #&amp;submit=Submit</code></p>
+<h4 id="Less-16"><a href="#Less-16" class="headerlink" title="Less-16"></a>Less-16</h4><p>与15关基本相同，只需将单引号变为双引号和单括号<br>模版是：<code>uname=admin&amp;passwd=&quot;) or（此为要构造的） #&amp;submit=Submit</code></p>
+<h4 id="Less-17"><a href="#Less-17" class="headerlink" title="Less-17"></a>Less-17</h4><p><font color="ligreen"><b>基础知识补充：</b></font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">updatexml</span><br><span class="line">参考资料：</span><br><span class="line">        https://www.jb51.net/article/125599.htm</span><br><span class="line">        https://www.jb51.net/article/125607.htm</span><br></pre></td></tr></table></figure>
+<p>这一关要以知道用户名字为前提，然后才能进行后面的操作。</p>
+<p>模版为： <code>uname=admin&amp;passwd=&#39; and updatexml(1,concat(0x7e,(要构造的)),1) #&amp;submit=Submit</code></p>
+<h4 id="Less-18"><a href="#Less-18" class="headerlink" title="Less-18"></a>Less-18</h4><p>此时要使用第17关重新设置的密码进行登录，不然会报错。可以通过数据库的命令行，查看admin对应的密码。</p>
+<div align="center"><img width="500" src="https://ftp.bmp.ovh/imgs/2020/05/7ea1f9649e3ec846.png"></div>
+这一关用上面的方法是不可能成功的，页面有显示ip地址和user agent，所以猜想与http头部协议有关，burpsuit用起来。
+发现可以在user agent处进行注入。
+
+<ul>
+<li>模版为：<code>&#39; or updatexml(1,concat(0x7e,(要构造的)),1) or &#39;1&#39;=&#39;1</code></li>
+<li>模版为： <code>&#39; or updatexml(1,concat(0x7e,(要构造的)),1),&#39;&#39;,&#39;&#39;)#</code></li>
+</ul>
+<h4 id="Less-19"><a href="#Less-19" class="headerlink" title="Less-19"></a>Less-19</h4><p>与18关基本相同。登录成功显示referer信息，登录失败没有回显信息。分析后得知，需要进行闭合操作，两种方法：</p>
+<ul>
+<li>模版为：<code>&#39; or updatexml(1,concat(0x7e,(要构造的)),1) and &#39;1&#39;=&#39;1</code></li>
+<li>模版为：<code>&#39; or updataxml(1,concat(0x7e,(要构造的)),1),&#39;&#39;)#</code><br>然后通过mysql注入语句进行操作即可。</li>
+</ul>
+<h4 id="Less-20"><a href="#Less-20" class="headerlink" title="Less-20"></a>Less-20</h4><p>这一关显示了很多的信息，经发现可以通过注入cookie。<br>$sql=”select * from users where username=’$cookie’ limit 0,1”;在登陆之后后台会将username放入cookie中。当再次登陆的时候，只要cookie没有过期，就会去cookie里面取值，然后进行查询。<br>模版为：<code>&#39; union select 1,2,(要构造的) #</code></p>
+<h4 id="Less-21"><a href="#Less-21" class="headerlink" title="Less-21"></a>Less-21</h4><p>与20关基本相似。<br>模版为：<code>&#39;) union select 1,2,(要构造的) #</code><br>发现cookie处的username是一串base64编码的字符串。所以需要将mysql注入语句进行base64编码</p>
+<h4 id="Less-22"><a href="#Less-22" class="headerlink" title="Less-22"></a>Less-22</h4><p>只需将20关中的单引号改为双引号即可，其余全部相似。<br>模版为：<code>&quot; union select 1,2,(要构造的) #</code><br>然后base64编码。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+      <div>
+      
+        
+      
+      </div>
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">----------------本文结束<i class="fa fa-heart"></i>感谢阅读----------------</div>
+    
+</div>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-22T11:58:41+08:00"
-              content="2020-01-22">
-          01-22
-        </time>
+        
       </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">sqli-labs环境配置</span>
-          </a>
-      </h2>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag"># SQL注入</a>
+          </div>
 
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/02/15/xss-labs/" rel="next" title="xss-labs">
+                  <i class="fa fa-chevron-left"></i> xss-labs
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
   </article>
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
+  
+  
+  
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-19T21:43:11+08:00"
-              content="2019-11-19">
-          11-19
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/11/19/postName/" itemprop="url">
-            <span itemprop="name">安装kali</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+    <div class="comments" id="comments"></div>
 
         </div>
           
@@ -304,6 +418,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-11"><span class="nav-number">1.</span> <span class="nav-text">Less-11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-12"><span class="nav-number">2.</span> <span class="nav-text">Less-12</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-13"><span class="nav-number">3.</span> <span class="nav-text">Less-13</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-14"><span class="nav-number">4.</span> <span class="nav-text">Less-14</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-15"><span class="nav-number">5.</span> <span class="nav-text">Less-15</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-16"><span class="nav-number">6.</span> <span class="nav-text">Less-16</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-17"><span class="nav-number">7.</span> <span class="nav-text">Less-17</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-18"><span class="nav-number">8.</span> <span class="nav-text">Less-18</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-19"><span class="nav-number">9.</span> <span class="nav-text">Less-19</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-20"><span class="nav-number">10.</span> <span class="nav-text">Less-20</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-21"><span class="nav-number">11.</span> <span class="nav-text">Less-21</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-22"><span class="nav-number">12.</span> <span class="nav-text">Less-22</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
