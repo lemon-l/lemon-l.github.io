@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>常用编译器、软件、网站的nb插件</title>
+    <url>/2020/06/30/%E5%B8%B8%E7%94%A8%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E8%BD%AF%E4%BB%B6%E3%80%81%E7%BD%91%E7%AB%99%E7%9A%84nb%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h1><p>众所周知，vscode是一款游戏软件，音视频播放器，文件图片查看器，流程图绘制工具，你甚至可以用它来写代码。这里主要分享一些vscode实用的小插件和简单操作。</p><h2 id="必备"><a href="#必备" class="headerlink" title="必备"></a><font color="orange">必备</font></h2><ol>
+<li><font color="green">Visual Studio Intellicode</font>：帮助开发人员提供智能的代码完成建议，预先构建了对多种编程语言的支持</li>
+<li><font color="green">vscode-icons</font> ：设置文件图标主题</li>
+<li><font color="green">Chinese (Simplified) Language Pack for Visual Studio Code</font>：适用于VS Code的中文（简体）语言包</li>
+<li><font color="green">local history</font>：找回历史代码</li>
+<li><font color="green">Partial Diff</font>：文件比较，查看修改代码的地方，超看输出的日志信息</li>
+<li><font color="green">TODO Tree</font>：给不确定的代码做标记，相当于标签</li>
+<li><font color="green">Better Comments</font>：让VS Code注释信息更加人性化</li>
+<li><font color="green">Bracket Pair Colorizer</font>：括号匹配。多层括号嵌套时，给每一层次的括号显示不同的颜色</li>
+<li><font color="green">Better Align</font>：Ctrl+Shift+p 输入 “Align”，实现代码上下对齐</li>
+<li><font color="green">change-case</font>：Ctrl+Shift+p 输入 “change”，实现快速修改当前选定内容（命名规则）</li>
+<li><font color="green">Markdown All in One</font>：媲美 Typora 的 Markdown 编辑体验</li>
+<li><font color="green">Prettier - Code formatter</font>：强大的、自以为是的代码格式化程序</li>
+<li><font color="green">Debugger for Chrome</font>：直接在Visual Studio Code中调试JavaScript源文件</li>
+</ol><a id="more"></a>
+
+<h2 id="实用"><a href="#实用" class="headerlink" title="实用"></a><font color="orange">实用</font></h2><ol>
+<li><a href="https://mp.weixin.qq.com/s/J8nAA0IFkwCff1vWzc-kVg" target="_blank" rel="noopener">VSCode 画出完美的流程图、思维导图与 UML 图</a>，github地址：<a href="https://github.com/hediet/vscode-drawio" target="_blank" rel="noopener">vscode-drawio</a></li>
+<li><a href="https://github.com/jdneo/vscode-leetcode" target="_blank" rel="noopener">vscode-leetcode</a>：在 VSCode 上刷 LeetCode</li>
+</ol>
+<h2 id="上班摸鱼"><a href="#上班摸鱼" class="headerlink" title="上班摸鱼"></a><font color="orange">上班摸鱼</font></h2><ol>
+<li><a href="https://github.com/deepred5/daily-anime" target="_blank" rel="noopener">daily-anime</a> ：为喜爱二次元、动漫的人量身定做，在 VSCode 上划水追番，第一时间知道番剧的更新。</li>
+<li><a href="https://github.com/my-soul/read-vscode-e" target="_blank" rel="noopener">read-vscode-e</a>：边看小说边码代码，还不怕被老板发现。</li>
+<li><a href="https://github.com/nondanee/vsc-netease-music" target="_blank" rel="noopener">vsc-netease-music</a>：美妙的音乐配合上 VSCode 更显极客范。</li>
+</ol>
+<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><ol>
+<li><font color="green">Octotree</font>：展现当前项目的目录结构，快速浏览整个项目</li>
+<li><font color="green">Sourcegraph</font>：可以作为web IDE使用，不用将项目代码clone到本地，就可以很方便的浏览代码</li>
+<li><font color="green">Enhanced GitHub</font>：支持单个文件下载</li>
+<li><font color="green">GitHub Dark Theme</font>：支持git混夜间模式，对于喜欢暗黑风格的我来说很nice<h1 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h1></li>
+<li><a href="https://saladict.crimx.com/download.html" target="_blank" rel="noopener">沙拉查词</a>：超好用的聚合词典划词翻译，推荐指数 — 100</li>
+<li><font color="green">Adblock Plus</font>： 免费的广告终结器，妈妈再也不用担心我看到小黄窗口了！</li>
+<li><font color="green">Proxy SwitchyOmega</font>：轻松快捷地管理和切换多个代理设置</li>
+<li><font color="green">HTTP Header Live</font>：展示网页传送的头部信息</li>
+</ol>
+<hr>
+<p>会持续分享哦！！！</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>积累</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CTF与php千丝万缕的联系</title>
     <url>/2020/05/10/CTF%E4%B8%8Ephp%E5%8D%83%E4%B8%9D%E4%B8%87%E7%BC%95%E7%9A%84%E8%81%94%E7%B3%BB/</url>
     <content><![CDATA[<h1 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1. 基础知识"></a>1. 基础知识</h1><h2 id="系统变量（超全局变量）"><a href="#系统变量（超全局变量）" class="headerlink" title="系统变量（超全局变量）"></a>系统变量（超全局变量）</h2><p>在全部作用域中始终可用的内置变量</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$GLOBALS <span class="comment">// 引用全局作用域中可用的全部变量</span></span><br><span class="line">$_POST <span class="comment">// 获取 post 数据，是一个字典</span></span><br><span class="line">$_GET <span class="comment">// 获取 get 数据，是一个字典</span></span><br><span class="line">$_COOKIE <span class="comment">// 获取 cookie</span></span><br><span class="line">$_SESSION <span class="comment">// 获取 session</span></span><br><span class="line">$_FILES <span class="comment">// 获取上传的文件</span></span><br><span class="line">$_REQUEST <span class="comment">// 获取 $_GET，$_POST，$_COOKIE 中的数据</span></span><br><span class="line">$_ENV <span class="comment">// 环境变量</span></span><br><span class="line">$_SERVER <span class="comment">// 服务器和执行环境信息</span></span><br></pre></td></tr></table></figure><a id="more"></a>
@@ -1012,6 +1060,42 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
       </tags>
   </entry>
   <entry>
+    <title>安装kali</title>
+    <url>/2019/11/19/postName/</url>
+    <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
+<p>这主要分为以下三个步骤：</p>
+<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
+<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
+2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><a id="more"></a>
+
+<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
+<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
+<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
+<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
+<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
+<hr>
+<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
+<hr>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>kali</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单的makedown编译器</title>
     <url>/2019/11/19/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<h2 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h2><hr>
@@ -1065,42 +1149,6 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
       </categories>
       <tags>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装kali</title>
-    <url>/2019/11/19/postName/</url>
-    <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
-<p>这主要分为以下三个步骤：</p>
-<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
-<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
-2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><a id="more"></a>
-
-<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
-<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
-<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
-<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
-<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
-<hr>
-<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
-<hr>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>kali</tag>
       </tags>
   </entry>
 </search>
