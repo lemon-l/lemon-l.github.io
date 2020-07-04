@@ -776,13 +776,13 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <ul>
 <li>安装<font color="orange"> Tesseract-OCR </font></li>
 </ul>
-<div align="center"><img width="550" src="https://ftp.bmp.ovh/imgs/2020/04/1ec5aaeaed92fc07.png"></div>
+<div align="center"><img width="550" src="https://img-blog.csdnimg.cn/20200704182137448.png"></div>
 
 <ul>
 <li>代码实现见 <a href="https://github.com/lemon-l/Python-beginner/tree/master/%E5%AE%9E%E6%88%98/Screenshot_translation" target="_blank" rel="noopener">github</a>,其中包括最后打包好的程序。这里运行程序会报错，需要找到python安装路径下的pytesseract，然后将tesseract_cmd = ‘tesseract’改为tesseract_cmd = ‘填Tesseract-OCR的安装路径’</li>
 <li>将代码用pyinstaller打包成.exe程序。具体操作为：截取含有英文的图片 -&gt; 回车，然后出现中文翻译结果。运行时截到的图片会自动保存在与exe同一目录下</li>
 </ul>
-<div align="center"><img width="550" src="https://ftp.bmp.ovh/imgs/2020/04/41d241c8a4568c07.png"></div>
+<div align="center"><img width="600" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20200704181806.png"></div>
 
 <h3 id="3-‘字符雨’特效"><a href="#3-‘字符雨’特效" class="headerlink" title="3.  ‘字符雨’特效"></a>3.  <font color="orang">‘字符雨’特效</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;相信很多人都看过黑客帝国这部电影，一提到它我们会想到经典的“子弹时间”，但是里面的“字符雨”也是让人难以忘怀。接下来我们就来用python来实现里面的这个特效吧！</p>
 <p>&nbsp;&nbsp; &nbsp;&nbsp;用户will8211在github上面上传了unimatrix这个项目，操作方法如下：</p>
@@ -791,13 +791,22 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <li>按照项目里面Manual进行操作(在终端里面运行)<br>&nbsp;&nbsp; &nbsp;&nbsp;这是我运行示例的结果，简直太炫了：</li>
 </ul>
 <div align="center"><font color="blue" size=5>unimatrix -c green -u 'Matrix'</font></div>
-<div align="center"><img width="550" src="https://ftp.bmp.ovh/imgs/2020/05/6961a088c3b6832d.gif"></div>
+<div align="center"><img width="550" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif2(1).gif"></div>
 
 <div align="center"><font color="blue" size=5>unimatrix -c yellow -l 'e'</font></div>
-<div align="center"><img width="550" src="https://ftp.bmp.ovh/imgs/2020/05/dd17a17b4a692693.gif"></div>
+<div align="center"><img width="550" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif5.gif"></div>
 
 
+<h3 id="3-转动微信地图"><a href="#3-转动微信地图" class="headerlink" title="3.  转动微信地图"></a>3.  <font color="orang">转动微信地图</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;启动微信的那一刻，我们往往会看到张小龙（微信创始人）眺望着地球，但你是否有想过将它面前的地球转动起来，下面我们来完成此操作。</p>
+<ul>
+<li>准备素材：地球表面素材；云图素材；微信地球的抠图素材</li>
+<li>Gif压缩：<a href="https://www.iloveimg.com/zh-cn/compress-image/compress-gif" target="_blank" rel="noopener">https://www.iloveimg.com/zh-cn/compress-image/compress-gif</a></li>
+<li>完整代码：<a href="https://alltodata.cowtransfer.com/s/afc708b596774f" target="_blank" rel="noopener">https://alltodata.cowtransfer.com/s/afc708b596774f</a></li>
+</ul>
+<p>效果图：</p>
+<div align="center"><img width="250" height="400" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/earth.gif"></div>
 
+<p>参考链接：<a href="https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA</a></p>
 <p><font color="red">持续更新中……</div></p>
 ]]></content>
       <categories>
@@ -1065,42 +1074,6 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
       </tags>
   </entry>
   <entry>
-    <title>安装kali</title>
-    <url>/2019/11/19/postName/</url>
-    <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
-<p>这主要分为以下三个步骤：</p>
-<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
-<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
-2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><a id="more"></a>
-
-<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
-<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
-<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
-<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
-<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
-<hr>
-<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
-<hr>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>kali</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>简单的makedown编译器</title>
     <url>/2019/11/19/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<h2 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h2><hr>
@@ -1154,6 +1127,42 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
       </categories>
       <tags>
         <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装kali</title>
+    <url>/2019/11/19/postName/</url>
+    <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
+<p>这主要分为以下三个步骤：</p>
+<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
+<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
+2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><a id="more"></a>
+
+<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
+<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
+<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
+<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
+<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
+<hr>
+<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
+<hr>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>kali</tag>
       </tags>
   </entry>
 </search>
