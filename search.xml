@@ -797,7 +797,7 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <div align="center"><img width="550" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif5.gif"></div>
 
 
-<h3 id="3-转动微信地图"><a href="#3-转动微信地图" class="headerlink" title="3.  转动微信地图"></a>3.  <font color="orang">转动微信地图</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;启动微信的那一刻，我们往往会看到张小龙（微信创始人）眺望着地球，但你是否有想过将它面前的地球转动起来，下面我们来完成此操作。</p>
+<h3 id="4-转动微信地图"><a href="#4-转动微信地图" class="headerlink" title="4.  转动微信地图"></a>4.  <font color="orang">转动微信地图</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;启动微信的那一刻，我们往往会看到张小龙（微信创始人）眺望着地球，但你是否有想过将它面前的地球转动起来，下面我们来完成此操作。</p>
 <ul>
 <li>准备素材：地球表面素材；云图素材；微信地球的抠图素材</li>
 <li>Gif压缩：<a href="https://www.iloveimg.com/zh-cn/compress-image/compress-gif" target="_blank" rel="noopener">https://www.iloveimg.com/zh-cn/compress-image/compress-gif</a></li>
@@ -807,6 +807,27 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <div align="center"><img width="250" height="400" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/earth.gif"></div>
 
 <p>参考链接：<a href="https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA</a></p>
+<h3 id="5-二维码生成器"><a href="#5-二维码生成器" class="headerlink" title="5.  二维码生成器"></a>5.  <font color="orang">二维码生成器</font></h3><ul>
+<li>首先安装myqr库  <code>pip3 install myqr</code></li>
+<li>常规链接二维码生成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> MyQR <span class="keyword">import</span> myqr</span><br><span class="line">myqr.run(<span class="string">'https://www.bilibili.com/video/BV1WZ4y1H7Th/'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>图片链接二维码生成<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> MyQR <span class="keyword">import</span> myqr</span><br><span class="line">myqr.run(<span class="string">'https://www.bilibili.com/video/BV1WZ4y1H7Th/'</span>, picture=<span class="string">'2.jpg'</span>, colorized=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<div align="center"><img width="400" height="400" src="https://img-blog.csdnimg.cn/20200706082003277.png"></div>
+
+<ul>
+<li>动态链接二维码生成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> MyQR <span class="keyword">import</span> myqr</span><br><span class="line">myqr.run(<span class="string">'https://www.bilibili.com/video/BV1WZ4y1H7Th/'</span>,</span><br><span class="line">         picture=<span class="string">'mygif3.gif'</span>,</span><br><span class="line">         colorized=<span class="literal">True</span>,</span><br><span class="line">         save_name=<span class="string">"动态qr.gif"</span>)</span><br></pre></td></tr></table></figure>
+
+<div align="center"><img width="400" height="400" src="https://img-blog.csdnimg.cn/20200706082725679.gif"></div>
+
+
 <p><font color="red">持续更新中……</div></p>
 ]]></content>
       <categories>
