@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title> 豆瓣《隐秘的角落》评论爬取 </title>
+    <url>/2020/07/08/%E8%B1%86%E7%93%A3%E3%80%8A%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD%E3%80%8B%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/</url>
+    <content><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a><font color="lighblue">引言</font></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我一直是不追电视剧的，一方面觉得剧集太多了没有那么多的时间去消耗，另一方面就是好的电视剧是真的没有几部（贼讨厌古装）。期末考试那段时间，看到微博、朋友圈刷爆了《隐秘的角落》，觉得那些出圈的梗 “我们一起去爬山”，“我还有机会吗”也不过如此。前几天有点无聊，然后打开视频软件，直接热度第一的就是《隐秘的角落》，本来只打算看个开头。哎呀，真香！我竟然一晚上就看了8集。直至现在，我不仅看完了电视剧，就连B站上面的细节解析、幕后花絮都刷了很多。不得不承认，是真的好看！好看的程度体现在了秦昊成为了我现阶段的男神。那么是什么原因导致这部剧能够大火呢，数据不会说谎！</p><a id="more"></a>
+<h1 id="爬取数据"><a href="#爬取数据" class="headerlink" title="爬取数据"></a><font color="lighblue">爬取数据</font></h1><p>利用 <code>requests + xpath</code>爬取豆瓣评价。</p>
+<ol>
+<li>获取页面内容</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 爬取页面 url</span></span><br><span class="line">douban_url = douban_url = <span class="string">'https://movie.douban.com/subject/33404425/comments?status=P'</span></span><br><span class="line"><span class="comment"># requests 发送请求</span></span><br><span class="line">get_response = requests.get(douban_url)</span><br><span class="line"><span class="comment"># 将的到的数据转换成文本</span></span><br><span class="line">get_data = get_response.text</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>分析页面，利用Xpath Helper插件获取用户、评论的内容和评论用户的总数<div align="center"><img width="650" src="https://img-blog.csdnimg.cn/20200707234754854.png"></div>
+<div align="center"><img width="650" src="https://img-blog.csdnimg.cn/20200707234836477.png"></div>
+<div align="center"><img width="650" src="https://img-blog.csdnimg.cn/20200707234917996.png"></div>
+
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 解析页面</span></span><br><span class="line">tree = etree.HTML(get_data)</span><br><span class="line"><span class="comment"># 用户</span></span><br><span class="line">commentator = tree.xpath(<span class="string">'/html/body/div[3]/div[1]/div/div[1]/div[4]/div/div[2]/h3/span[2]/a/text()'</span>)</span><br><span class="line"><span class="comment"># 评论内容</span></span><br><span class="line">comment_content = tree.xpath(<span class="string">'/html/body/div[3]/div[1]/div/div[1]/div[4]/div/div[2]/p/span/text()'</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li><p>获得多页评论</p>
+<p> 观察url地址 <code>page_url = &#39;https://movie.douban.com/subject/33404425/comments?start=20&amp;limit=20&amp;sort=new_score&amp;status=P&#39;</code>可以发现，下一页的地址start值是上一页值增加20的结果，其余都不发生变化。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 页面url</span></span><br><span class="line">page_url = <span class="string">'https://movie.douban.com/subject/33404425/comments?start=&#123;0&#125;&amp;limit=20&amp;sort=new_score&amp;status=P'</span>.format(i*<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>将得到的数据表格化处理并保存</p>
+<p> DataFrame是Python中Pandas库中的一种数据结构，它类似excel，是一种二维表。DataFrame的单元格可以存放数值、字符串等，这和excel表很像，同时DataFrame可以设置列名columns与行名index</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = [<span class="string">'用户'</span>, <span class="string">'评论内容'</span>]</span><br><span class="line">file = pd.DataFrame(columns=name, data=content)</span><br></pre></td></tr></table></figure>
+
+<p><font color="yellow">点击获取</font> <a href="https://github.com/lemon-l/spider/blob/master/Douban%20comments/Hidden%20corner.py" target="_blank" rel="noopener">代码</a></p>
+<h1 id="生成词云"><a href="#生成词云" class="headerlink" title="生成词云"></a><font color="lighblue">生成词云</font></h1><ol>
+<li><p>解析数据</p>
+<p> 打开上面保存的文件，将评论内容保存在content里面</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> codecs.open(<span class="string">r'./comment_content.cvs'</span>, <span class="string">'r'</span>, <span class="string">'utf-8'</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    content = <span class="string">''</span></span><br><span class="line">    reader = csv.reader(csvfile)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> reader:</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">0</span> <span class="keyword">or</span> i == <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            content = content + file[<span class="number">1</span>]</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 去除所有评论里面多余的字符</span></span><br><span class="line">    content = re.sub(<span class="string">'[… “ ” ）：《 》？！（ 、,，。. \r\n]'</span>, <span class="string">''</span>, content)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分析数据</p>
+<p> 利用jieba库切词，去掉停用的词并统计词频，降序排列</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 切词，用jieba库</span></span><br><span class="line">segment = jieba.lcut(content)</span><br><span class="line"><span class="comment"># 去停用词（文本去噪）</span></span><br><span class="line">words_df = pd.DataFrame(&#123;<span class="string">'segment'</span>: segment&#125;)</span><br><span class="line">stopwords = pd.read_csv(<span class="string">r"./豆瓣影评/stopwords.txt"</span>, index_col=<span class="literal">False</span>,</span><br><span class="line">                       quoting=<span class="number">3</span>, sep=<span class="string">"\t"</span>, names=[<span class="string">'stopword'</span>], encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">words_df = words_df[~words_df.segment.isin(stopwords.stopword)]</span><br><span class="line"><span class="comment"># 统计词频、降序排列</span></span><br><span class="line">words_stat = words_df.groupby(<span class="string">'segment'</span>).agg(计数=pd.NamedAgg(</span><br><span class="line">   column=<span class="string">'segment'</span>, aggfunc=<span class="string">'size'</span>)).reset_index().sort_values(by=<span class="string">'计数'</span>, ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p>stopwords.txt 文件下载：<a href="http://www.datasoldier.net/archives/636" target="_blank" rel="noopener">http://www.datasoldier.net/archives/636</a></p>
+</li>
+<li><p>数据可视化</p>
+<p>生成词云，取词频最高的前1000个词</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 做词云</span></span><br><span class="line">bimg = imread(<span class="string">r'./豆瓣影评/hhh.jpg'</span>)</span><br><span class="line">matplotlib.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">10.0</span>, <span class="number">6.0</span>)</span><br><span class="line"><span class="comment"># 设置中文字体 背景颜色等</span></span><br><span class="line">wordcloud = WordCloud(font_path=<span class="string">'C:/Windows/Fonts/simfang.ttf'</span>,</span><br><span class="line">                    mask=bimg, background_color=<span class="string">'white'</span>, max_font_size=<span class="number">80</span>)</span><br><span class="line"><span class="comment"># 字典推导式</span></span><br><span class="line">word_frequence = &#123;x[<span class="number">0</span>]: x[<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> words_stat.head(</span><br><span class="line">    <span class="number">1000</span>).values&#125;  <span class="comment"># 取词频最高的前1000个词 (词，词频)-&gt;&#123;词：词频&#125;</span></span><br><span class="line">wordcloud = wordcloud.fit_words(word_frequence)</span><br><span class="line">bimgColors = ImageColorGenerator(bimg)</span><br><span class="line">result = wordcloud.recolor(color_func=bimgColors)</span><br><span class="line">plt.axis(<span class="string">"off"</span>)</span><br><span class="line">plt.imshow(result)</span><br><span class="line">plt.show()</span><br><span class="line">result.to_file(<span class="string">r'./豆瓣影评/词云.jpg'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>词云展示</p>
+<p> 背景图片是张朝阳哦！</p>
+<div align="center"><img width="450" src="https://img-blog.csdnimg.cn/20200708002828987.jpg"></div>
+
+
+
+
+</li>
+</ol>
+<p>参考链接：<a href="https://www.cnblogs.com/ctsch/p/8590551.html" target="_blank" rel="noopener">https://www.cnblogs.com/ctsch/p/8590551.html</a></p>
+<p><font color="yellow">点击获取</font> <a href="https://github.com/lemon-l/spider/blob/master/Douban%20comments/Data%20Analysis.py" target="_blank" rel="noopener">代码</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><font color="lighblue">总结</font></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过生成的词云不难看出剧中演员的塑造能力，剧情的逻辑性和节奏性，故事的细节处理和镜头的质感都是这部国产悬疑改编网剧能够吸引人眼球的原因。当然也期待未来能有更多的好剧出现在大众视野。再次表白我男神秦昊，演技顶呱呱！</p>
+<hr>
+<p>完整内容github获取：<a href="https://github.com/lemon-l/spider/tree/master/Douban%20comments" target="_blank" rel="noopener">https://github.com/lemon-l/spider/tree/master/Douban%20comments</a></p>
+]]></content>
+      <categories>
+        <category>实战</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用编译器、软件、网站的nb插件</title>
     <url>/2020/06/30/%E5%B8%B8%E7%94%A8%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E8%BD%AF%E4%BB%B6%E3%80%81%E7%BD%91%E7%AB%99%E7%9A%84nb%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h1><p>众所周知，vscode是一款游戏软件，音视频播放器，文件图片查看器，流程图绘制工具，你甚至可以用它来写代码。这里主要分享一些vscode实用的小插件和简单操作。</p><h2 id="必备"><a href="#必备" class="headerlink" title="必备"></a><font color="orange">必备</font></h2><ol>
@@ -804,7 +874,7 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 <li>完整代码：<a href="https://alltodata.cowtransfer.com/s/afc708b596774f" target="_blank" rel="noopener">https://alltodata.cowtransfer.com/s/afc708b596774f</a></li>
 </ul>
 <p>效果图：</p>
-<div align="center"><img width="250" height="400" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/earth.gif"></div>
+<div align="center"><img width="220" height="400" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/earth.gif"></div>
 
 <p>参考链接：<a href="https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA</a></p>
 <h3 id="5-二维码生成器"><a href="#5-二维码生成器" class="headerlink" title="5.  二维码生成器"></a>5.  <font color="orang">二维码生成器</font></h3><ul>
@@ -827,7 +897,13 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
 
 <div align="center"><img width="400" height="400" src="https://img-blog.csdnimg.cn/20200706082725679.gif"></div>
 
-
+<h3 id="6-Free-Python-Games"><a href="#6-Free-Python-Games" class="headerlink" title="6.  Free Python Games"></a>6.  <font color="orang">Free Python Games</font></h3><p>这个python项目实现经典的贪吃蛇、迷宫、扫雷、Flappy Bird游戏只需要简单的50-100行代码，对于新手来说是一个很好的python学习、锻炼探索和理解能力的工具。另外，如果你仅仅只是为了玩而玩，只需要简单的安装就可以在电脑上玩这些经典游戏了。</p>
+<ul>
+<li>安装  <code>python3 -m pip install freegames</code></li>
+<li>游戏列表 <code>python3 -m freegames list</code></li>
+<li>打开游戏 <code>python3 -m freegames.snake</code></li>
+</ul>
+<p>项目地址：<a href="http://www.grantjenks.com/docs/freegames/" target="_blank" rel="noopener">http://www.grantjenks.com/docs/freegames/</a></p>
 <p><font color="red">持续更新中……</div></p>
 ]]></content>
       <categories>
@@ -1095,6 +1171,42 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
       </tags>
   </entry>
   <entry>
+    <title>安装kali</title>
+    <url>/2019/11/19/postName/</url>
+    <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
+<p>这主要分为以下三个步骤：</p>
+<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
+<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
+2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><a id="more"></a>
+
+<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
+<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
+<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
+<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
+<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
+<hr>
+<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
+<hr>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>kali</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单的makedown编译器</title>
     <url>/2019/11/19/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/</url>
     <content><![CDATA[<h2 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h2><hr>
@@ -1148,42 +1260,6 @@ var_dump，返回变量的数据类型和值</code></pre><figure class="highligh
       </categories>
       <tags>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装kali</title>
-    <url>/2019/11/19/postName/</url>
-    <content><![CDATA[<h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
-<p>这主要分为以下三个步骤：</p>
-<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
-<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
-2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）</code></pre><a id="more"></a>
-
-<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377</code></pre><p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
-<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
-<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。</code></pre><h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了</code></pre><h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
-<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a href="https://blog.csdn.net/qq_39536876/article/details/79501471" target="_blank" rel="noopener">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
-<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
-<hr>
-<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a href="https://www.shentoushi.top/" target="_blank" rel="noopener">https://www.shentoushi.top/</a></p>
-<hr>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>kali</tag>
       </tags>
   </entry>
 </search>
