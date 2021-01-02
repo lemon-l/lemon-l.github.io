@@ -59,12 +59,12 @@
   };
 </script>
 
-  <meta name="description" content="第五章 运输层可靠传输的实现机制： 面向连接、流量控制、拥塞控制 差错检测、确认、编号、定时器一、 运输层两个主要协议的特点，提供的功能    TCP协议这种逻辑通信信道就相当于一条全双工的可靠信道，UDP协议这种逻辑通信信道是一条不可靠信道。UDP：一种无连接协议主要特点： UDP是无连接的，发送数据之前不需要建立连接 UDP使用尽最大努力交付，不保证可靠交付 UDP是面向报文的，UDP一次交付">
+  <meta name="description" content="第五章 运输层">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络（期末复习5、6章）">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;01&#x2F;01&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A05%E3%80%816%E7%AB%A0%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="lemonl&#39;s Blog">
-<meta property="og:description" content="第五章 运输层可靠传输的实现机制： 面向连接、流量控制、拥塞控制 差错检测、确认、编号、定时器一、 运输层两个主要协议的特点，提供的功能    TCP协议这种逻辑通信信道就相当于一条全双工的可靠信道，UDP协议这种逻辑通信信道是一条不可靠信道。UDP：一种无连接协议主要特点： UDP是无连接的，发送数据之前不需要建立连接 UDP使用尽最大努力交付，不保证可靠交付 UDP是面向报文的，UDP一次交付">
+<meta property="og:description" content="第五章 运输层">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;lemon-l&#x2F;Imageshack&#x2F;Image&#x2F;20210101194100.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;lemon-l&#x2F;Imageshack&#x2F;Image&#x2F;20210101200517.png">
@@ -87,7 +87,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;lemon-l&#x2F;Imageshack&#x2F;Image&#x2F;20210102132002.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;lemon-l&#x2F;Imageshack&#x2F;Image&#x2F;20210102145732.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;lemon-l&#x2F;Imageshack&#x2F;Image&#x2F;20210102143403.png">
-<meta property="og:updated_time" content="2021-01-02T07:48:53.814Z">
+<meta property="og:updated_time" content="2021-01-02T08:02:34.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;lemon-l&#x2F;Imageshack&#x2F;Image&#x2F;20210101194100.png">
 
@@ -267,7 +267,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-02 15:48:53" itemprop="dateModified" datetime="2021-01-02T15:48:53+08:00">2021-01-02</time>
+                <time title="修改时间：2021-01-02 16:02:34" itemprop="dateModified" datetime="2021-01-02T16:02:34+08:00">2021-01-02</time>
               </span>
 
           
@@ -309,37 +309,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h2><center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101194100.png"></center><p>可靠传输的实现机制：</p><ul>
+        <h2 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h2><center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101194100.png"></center>
+<a id="more"></a>
+
+<p>可靠传输的实现机制：</p>
+<ul>
 <li>面向连接、流量控制、拥塞控制</li>
-<li>差错检测、确认、编号、定时器<br><font color="red">一、 运输层两个主要协议的特点，提供的功能</font><center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101200517.png"></center>
+<li>差错检测、确认、编号、定时器<br><font color=red>一、 运输层两个主要协议的特点，提供的功能</font><center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101200517.png"></center>
 
 
 </li>
-</ul><p>TCP协议这种逻辑通信信道就相当于一条全双工的可靠信道，UDP协议这种逻辑通信信道是一条不可靠信道。</p><p><strong><center><font color="blue">UDP：一种无连接协议</font></center></strong></p><center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101202814.png"></center><p>主要特点：</p><ol>
-<li><font color="red">UDP是无连接的，</font>发送数据之前不需要建立连接</li>
-<li><font color="red">UDP使用尽最大努力交付，</font>不保证可靠交付</li>
-<li><font color="red">UDP是面向报文的，</font>UDP一次交付一个完整的报文</li>
-<li><font color="red">UDP没有拥塞控制，</font>网络出现拥塞不会使源主机的发送速率降低</li>
-<li><font color="red">UDP支持一对一、一对多、多对一和多对多的交互通信</font></li>
-<li><font color="red">UDP的首部开销小，</font>只有8个字节，比TCP的20个字节的首部要短。 </li>
-</ol><a id="more"></a>
+</ul>
+<p>TCP协议这种逻辑通信信道就相当于一条全双工的可靠信道，UDP协议这种逻辑通信信道是一条不可靠信道。</p>
+<p><strong><center><font color=blue>UDP：一种无连接协议</font></center></strong></p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101202814.png"></center>
 
-
-
-
-
-
-
-
-
+<p>主要特点：</p>
+<ol>
+<li><font color=red>UDP是无连接的，</font>发送数据之前不需要建立连接</li>
+<li><font color=red>UDP使用尽最大努力交付，</font>不保证可靠交付</li>
+<li><font color=red>UDP是面向报文的，</font>UDP一次交付一个完整的报文</li>
+<li><font color=red>UDP没有拥塞控制，</font>网络出现拥塞不会使源主机的发送速率降低</li>
+<li><font color=red>UDP支持一对一、一对多、多对一和多对多的交互通信</font></li>
+<li><font color=red>UDP的首部开销小，</font>只有8个字节，比TCP的20个字节的首部要短。 </li>
+</ol>
 <p>主要功能：只在IP的数据报服务之上增加了复用、分用和差错检测的功能。</p>
 <p>计算校验和的例子：</p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101203001.png"></center>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101203001.png"></center>
 
 
 
-<p><strong><center><font color="blue">TCP：一种面向连接的协议</font></center></strong></p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101212238.png"></center>
+<p><strong><center><font color=blue>TCP：一种面向连接的协议</font></center></strong></p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101212238.png"></center>
 
 <p>主要特点：</p>
 <ol>
@@ -365,14 +366,14 @@
 <li>TCP也可等待积累有足够多的字节后再构成报文段发送出去</li>
 </ul>
 <p>TCP的连接：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TCP连接的端点叫做套接字或插口。端口号拼接到IP地址即构成了套接字。<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;套接字socket = (IP地址 ：端口号)</p>
-<p><font color="red">二、 TCP发送窗口机制</font><br>TCP连接的每一端都必须设有两个窗口（发送窗口和接收窗口），TCP两端的四个窗口经常处于动态变化之中。</p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102095316.png"></center>
+<p><font color=red>二、 TCP发送窗口机制</font><br>TCP连接的每一端都必须设有两个窗口（发送窗口和接收窗口），TCP两端的四个窗口经常处于动态变化之中。</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102095316.png"></center>
 
-<p><strong><font color="orange">具体的内容可以看书本的221~224页，图太多，我就不截了</font></strong></p>
+<p><strong><font color=orange>具体的内容可以看书本的221~224页，图太多，我就不截了</font></strong></p>
 <p>超时重传时间设置：<br>TCP采用了一种自适应算法，它记录一个报文段发出的时间，以及收到相应的确认的时间，这两个时间之差就是报文段的往返时间RTT。</p>
 <p>新的RTTs(加权平均往返时间) = (1-α) x (旧的RTTs) + α x (新的RTT样本)</p>
 <p>注意：0 ≤ α &lt; 1，若接近于零，表示RTT值更新较慢；若接近于1，表示RTT值更新较快。</p>
-<p><font color="red">三、 TCP建立连接</font></p>
+<p><font color=red>三、 TCP建立连接</font></p>
 <p>运输连接有三个阶段：</p>
 <ul>
 <li>连接建立</li>
@@ -387,19 +388,19 @@
 </ol>
 <p>TCP连接的建立采用客户服务器方式。主动发起连接建立的应用进程叫做客户，被动等待连接建立的应用进程叫做服务器。</p>
 <p>TCP建立连接的过程叫做握手，握手需要在客户和服务器之间交换三个TCP报文段，称之为三报文握手。采用三报文握手主要是为了防止已失效的连接请求报文段突然又传送到了，因而产生错误。</p>
-<center><img width="600" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102113151.png"></center>
-<font color="red">四、 TCP的拥塞算法及应用</font>
+<center><img width=600 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102113151.png"></center>
+<font color=red>四、 TCP的拥塞算法及应用</font>
 
 <p>拥塞：某段时间，若对网络中某资源的需求超过了该资源所能提供的可用部分，网络的性能就要变坏。</p>
 <p>拥塞引起的重传并不会缓解网络的拥塞，反而会加剧网络的拥塞。</p>
 <p>TCP采用基于窗口的方法进行拥塞控制，这种方法属于闭环控制方法。</p>
-<center><font color="gren">TCP拥塞控制流程图</font></center>
-<center><img width="600" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111423.png"></center>
+<center><font color=gren>TCP拥塞控制流程图</font></center>
+<center><img width=600 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111423.png"></center>
 
 <p>TCP的四种拥塞控制算法：</p>
 <ul>
-<li><p><font color="purple">慢开始</font><br> 拥塞窗口cwnd控制方法：在每收到一个对新的报文段的确认后，可以把拥塞窗口增加最多一个SMSS的数值。拥塞窗口cwnd每次的增加量 = min(N,SMSS)<br> 一个传输轮次所经历的时间其实就是往返时间</p>
- <center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102103626.png"></center>
+<li><p><font color=purple>慢开始</font><br> 拥塞窗口cwnd控制方法：在每收到一个对新的报文段的确认后，可以把拥塞窗口增加最多一个SMSS的数值。拥塞窗口cwnd每次的增加量 = min(N,SMSS)<br> 一个传输轮次所经历的时间其实就是往返时间</p>
+ <center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102103626.png"></center>
 
 <p> 慢开始门限ssthresh的用法：</p>
 <ul>
@@ -408,22 +409,22 @@
 <li>当cwnd = ssthresh时，都可以使用</li>
 </ul>
 </li>
-<li><p><font color="purple">拥塞避免</font><br>思路：让拥塞窗口cwnd缓慢增大，即每经过一个往返时间RTT就把发送放的拥塞窗口cwnd加1，而不是加倍，使拥塞窗口cwnd按线性规律缓慢增长</p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102105150.png"></center>
+<li><p><font color=purple>拥塞避免</font><br>思路：让拥塞窗口cwnd缓慢增大，即每经过一个往返时间RTT就把发送放的拥塞窗口cwnd加1，而不是加倍，使拥塞窗口cwnd按线性规律缓慢增长</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102105150.png"></center>
 “拥塞避免”并非指完全能够避免了拥塞，只是说在拥塞避免阶段把拥塞窗口控制为按线性规律增长，使网络比较不容易出现拥塞。</li>
-<li><p><font color="purple">快重传</font><br>采用快重传算法可以让发送方尽早知道发生了个别报文段的丢失。</p>
+<li><p><font color=purple>快重传</font><br>采用快重传算法可以让发送方尽早知道发生了个别报文段的丢失。</p>
 <p>快重传算法首先要求接收方不要等待自己发送数据时才进行捎带确认，而是要立即发送确认，即使收到了失序的报文段也要立即发出对已收到的报文段的重复确认。</p>
 <p>发送方只要一连接收到三个重复确认，就知道接收方确实没有收到报文段，因而应该立即进行重传。</p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110438.png"></center></li>
-<li><p><font color="purple">快恢复</font><br>当发送端收到连续三个重复的确认时，由于发送方现在认为网络很可能没有发生拥塞，因此现在不执行慢开始算法，而是执行快恢复算法。</p>
- <center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110630.png"></center>
- <center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111207.png"></center>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110438.png"></center></li>
+<li><p><font color=purple>快恢复</font><br>当发送端收到连续三个重复的确认时，由于发送方现在认为网络很可能没有发生拥塞，因此现在不执行慢开始算法，而是执行快恢复算法。</p>
+ <center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110630.png"></center>
+ <center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111207.png"></center>
 
 
 </li>
 </ul>
 <p><strong><a href="https://blog.csdn.net/lonelyooacz/article/details/102986921" target="_blank" rel="noopener">详细版本</a></strong></p>
-<p><strong><font color="orang" size="4">探研：</font></strong></p>
+<p><strong><font color=orang size=4>探研：</strong></font></p>
 <hr>
 <ol>
 <li><p><code>若一个应用进程使用运输层的用户数据报UDP，但继续向下交给IP层后，又封装成IP数据报。既然都是数据报，是否可以跳过UDP直接交给IP层？哪些功能UDP提供但IP没有提供？</code></p>
@@ -445,7 +446,7 @@
 <p>答：TCP首部除固定长度部分外，还有选项，因此TCP首部长度是可变的。UDP首部长度是固定的</p>
 </li>
 </ol>
-<p><strong><font color="orang" size="4">习题：</font></strong></p>
+<p><strong><font color=orang size=4>习题：</strong></font></p>
 <hr>
 <ol>
 <li><p><code>运输层在协议栈中的地位和作用。运输层的通信和网络的通信有什么重要的区别？为什么运输层是必不可少的？</code></p>
@@ -454,7 +455,7 @@
 <p>各种应用进程之间通信需要“可靠或尽力而为”的两类服务质量，必须由运输层以复用和分用的形式加载到网络层。</p>
 </li>
 <li><p><code>一个UDP用户数据报的数据字段为8192字节。在链路层要使用以太网来传送，试问应当划分为几个IP数据报片？说明每一个IP数据报片的数据字段长度和偏移字段的值</code></p>
-<p> 答：<center><img width="600" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101205310.png"></center></p>
+<p> 答：<center><img width=600 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101205310.png"></center></p>
 </li>
 <li><p><code>主机A和B使用TCP通信。在B发送过的报文段中，有这样两个先后到达的报文段：ACK=120和ACK=100，即前一个报文段的确认序号大于后一个。请解释原因。</code></p>
 <p>答：ACK=120 的报文 比 ACK=100的先到。<br>虽然ACK=100 是先发出来的，但是路径开销比ACK=120 的报文要大。<br>就好像两辆车从A地出发到B低去，A车先走，B车其次。A车走国道，B车走高速。所以B先到了。</p>
@@ -463,7 +464,7 @@
 <p>答：1、2、4、8、9、10、11、12、1、2、4、6、7、8、9</p>
 </li>
 <li><p><code>一个UDP用户数据报的首部的十六进制表示是06 32 00 45 00 1C E2 17。求源端口、目的端口、用户数据报总长度、数据部分长度。</code></p>
-<p>解：<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102114758.png"></center></p>
+<p>解：<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102114758.png"></center></p>
 </li>
 <li><p><code>主机A向主机B发送一个很长的文件，其长度为L字节。假定TCP使用的MSS有1460字节。在TCP的序号不重复使用的条件下，L的最大值是多少？假定使用上面计算出文件长度，而运输层、网络层和数据链路层所使用的首部开销共66字节，链路的数据率为10Mb/s，试求这个文件所需的最短发送时间。</code></p>
 <p>解：<br>(1) L_max的最大值是2^32=4GB,G=2^30.<br>(2) 满载分片数Q={L_max/MSS}取整=2941758，发送的总报文数N=Q*(MSS+66)+{(L_max-Q*MSS)+66}=4489122708+682=4489123390字节，发送字节需时间为：N*8/（10*10^6）=3591.3秒，即59.85分，约1小时。</p>
@@ -471,25 +472,25 @@
 </li>
 <li><p><code>通信信道带宽为1Gbit/s，端到端时延为10ms。TCP的发送窗口为65535字节。试问： 可能达到的最大吞吐量是多少？信道的利用率是多少？</code></p>
 <p>解：发送时延 = 数据长度 / 信道带宽，信道利用率 = 最大吞吐量 / 信道带宽 </p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102122347.png"></center>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102122347.png"></center>
 
 
 </li>
 </ol>
-<h2 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h2><center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102124034.png"></center>
+<h2 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h2><center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102124034.png"></center>
 
-<p><font color="red">一、 DNS的基本概念、作用及解析过程</font></p>
+<p><font color=red>一、 DNS的基本概念、作用及解析过程</font></p>
 <p>域名：因特网上主机的名字，体现其逻辑位置</p>
 <p>特点：与IP地址对应，更容易记忆。</p>
 <p>作用：域名系统DNS是因特网使用的命名系统，用来把便于人们使用的域名转换为IP地址。</p>
 <p>域名的解析过程：</p>
 <ul>
 <li>主机向本地域名服务器的查询一般都是采用递归查询</li>
-<li>本地域名服务器向根域名服务器的查询通常采用迭代查询<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102125932.png"></center>
+<li>本地域名服务器向根域名服务器的查询通常采用迭代查询<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102125932.png"></center>
 
 </li>
 </ul>
-<p><font color="red">二、 FTP的基本概念及两个连接机制</font></p>
+<p><font color=red>二、 FTP的基本概念及两个连接机制</font></p>
 <p>文件传送协议FTP是互联网上使用得最广泛的文件传送协议。FTP提供交互式的访问，允许客户指明文件的类型与格式，并允许文件具有存取权限。FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。</p>
 <p>FTP特点：</p>
 <ul>
@@ -505,26 +506,26 @@
 <p>使用两个不同端口号(建立连接请求端口：21、传送数据端口：20)的好处：</p>
 <ul>
 <li>使协议更加简单和更容易实现</li>
-<li>在传输文件时还可以利用控制连接<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102132002.png"></center>
+<li>在传输文件时还可以利用控制连接<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102132002.png"></center>
 
 
 </li>
 </ul>
-<p><font color="red">三、 万维网的基本概念，URL的格式</font></p>
+<p><font color=red>三、 万维网的基本概念，URL的格式</font></p>
 <p>万维网是一个大规模的、联机式的信息储藏所。万维网用链接的方法能非常方便地从互联网上的一个站点访问另一个站点，从而主动地按需获取丰富的信息，这种访问方式称为“链接”</p>
 <p>统一资源定位符URL：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是对可以从因特网上得到的资源的位置和访问方法的一种简洁的表示。URL给资源的位置提供一种抽象的识别方法，并用这种方法给资源定位。</p>
 <p>URL的一般形式是：</p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102145732.png"></center>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102145732.png"></center>
 
 
 
-<p><font color="red">四、 电子邮件系统构成、协议，SMTP通信的三个阶段</font></p>
+<p><font color=red>四、 电子邮件系统构成、协议，SMTP通信的三个阶段</font></p>
 <p>电子邮件系统由三部分构成：用户代理、邮件服务器以及邮件发送协议和邮件读取协议。</p>
 <p>电子邮件构成：信封和内容</p>
-<p><strong><center><font size="4" color="blue">协议</font></center></strong></p>
+<p><strong><center><font size=4 color=blue>协议</font></center></strong></p>
 <ol>
 <li><p>简单邮件发送协议SMTP：</p>
-<center><img width="500" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102143403.png"></center>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102143403.png"></center>
 </li>
 <li><p>邮件读取协议POP3:</p>
 <ul>
@@ -547,7 +548,7 @@
 <li>邮件传送</li>
 <li>连接释放：邮件发送完毕后，SMTP应释放TCP连接</li>
 </ol>
-<p><strong><font color="orang" size="4">探研：</font></strong></p>
+<p><strong><font color=orang size=4>探研：</strong></font></p>
 <hr>
 <ol>
 <li><p><code>设想有一天整个因特网的DNS系统都瘫痪了，试问还有可能给朋友发送电子邮件吗？</code></p>
@@ -578,7 +579,7 @@
 <p>答：由于RIP协议是基于UDP协议而创建的，所以RIP协议应放在UDP协议的上一层。</p>
 </li>
 </ol>
-<p><strong><font color="orang" size="4">习题：</font></strong></p>
+<p><strong><font color=orang size=4>习题：</strong></font></p>
 <hr>
 <ol>
 <li><p><code>如果本地域名服务器无缓存，当采用递归方法解析另一个网络某主机域名时，用户主机和本地域名服务器发送的域名请求条数分别为 1条、1条</code></p>
