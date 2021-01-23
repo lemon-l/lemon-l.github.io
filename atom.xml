@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-01-21T10:17:43.490Z</updated>
+  <updated>2021-01-23T03:58:06.620Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小小的社工</title>
+    <link href="http://yoursite.com/2021/01/23/%E5%B0%8F%E5%B0%8F%E7%9A%84%E7%A4%BE%E5%B7%A5/"/>
+    <id>http://yoursite.com/2021/01/23/%E5%B0%8F%E5%B0%8F%E7%9A%84%E7%A4%BE%E5%B7%A5/</id>
+    <published>2021-01-23T03:07:57.000Z</published>
+    <updated>2021-01-23T03:58:06.620Z</updated>
+    
+    <content type="html"><![CDATA[<center><font color="red">用hexo搭建的个人博客有必要加密吗？</font></center><h4 id="找大佬的博客"><a href="#找大佬的博客" class="headerlink" title="找大佬的博客"></a><font color="blue">找大佬的博客</font></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般而言，大多数人的各个平台的ID基本上都是一样的。所以首先来到大佬的QQ界面，发现他的昵称，然后直接在百度上面搜索发现Gitee账号，但是这个风格显然与大佬的不同，pass掉！</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除了昵称，在QQ界面还发现了一个邮箱的账号，有没有可能成功呢？百度搜索后找到了一个Github的账号，点进去发现头像与QQ头像风格相似。发现了一个xx.github.io的一个库，刚好自己也通过github搭建过自己的博客平台，很轻松就找到了个人博客的地址。进入博客发现昵称与大佬QQ昵称一模一样，很显然我成功了。</p><a id="more"></a><h4 id="部分文章需要密码如何破解"><a href="#部分文章需要密码如何破解" class="headerlink" title="部分文章需要密码如何破解"></a><font color="blue">部分文章需要密码如何破解</font></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不得不说，大佬真的厉害，博客更新的也很勤快，令人敬佩！但是翻到后面我发现某些文章需要密码才能进入，这可如何是好？</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有源码都上传到了github上面，所以密码也必定能找到。首先我把xx.github.io那个库全部都克隆到本地。参考 <a href="https://www.jianshu.com/p/a2330937de6c" target="_blank" rel="noopener">Hexo文章简单加密访问</a>知道一般加密都在文章的头部，然而并没有什么卵用。</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;仔细观察原博客，发现只要点击加密的文章就会跳转到一个固定的页面。在源码中查找该页面，直接得到密码。输入密码，成功进入文章。</p><center><img src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210123114234.png"></center><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除此之外，还能得到大佬的Gitee账号地址，虽然什么东西都没有！笑哭.jpg</p><h4 id="启示"><a href="#启示" class="headerlink" title="启示"></a><font color="blue">启示</font></h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以看到这种机密方式是十分不安全的(实际上，静态网站怎么加密也没多大意义)。如果真的想让文章仅个人浏览，建议把仓库设为私密！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;&lt;font color=&quot;red&quot;&gt;用hexo搭建的个人博客有必要加密吗？&lt;/font&gt;&lt;/center&gt;&lt;h4 id=&quot;找大佬的博客&quot;&gt;&lt;a href=&quot;#找大佬的博客&quot; class=&quot;headerlink&quot; title=&quot;找大佬的博客&quot;&gt;&lt;/a&gt;&lt;font color=&quot;blue&quot;&gt;找大佬的博客&lt;/font&gt;&lt;/h4&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;一般而言，大多数人的各个平台的ID基本上都是一样的。所以首先来到大佬的QQ界面，发现他的昵称，然后直接在百度上面搜索发现Gitee账号，但是这个风格显然与大佬的不同，pass掉！&lt;/p&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;除了昵称，在QQ界面还发现了一个邮箱的账号，有没有可能成功呢？百度搜索后找到了一个Github的账号，点进去发现头像与QQ头像风格相似。发现了一个xx.github.io的一个库，刚好自己也通过github搭建过自己的博客平台，很轻松就找到了个人博客的地址。进入博客发现昵称与大佬QQ昵称一模一样，很显然我成功了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实战" scheme="http://yoursite.com/categories/%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="社工" scheme="http://yoursite.com/tags/%E7%A4%BE%E5%B7%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>从安全法规角度对网络暴力浅析</title>
