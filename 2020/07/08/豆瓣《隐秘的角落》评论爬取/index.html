@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="爬虫," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="引言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我一直是不追电视剧的，一方面觉得剧集太多了没有那么多的时间去消耗，另一方面就是好的电视剧是真的没有几部（贼讨厌古装）。期末考试那段时间，看到微博、朋友圈刷爆了《隐秘的角落》，觉得那些出圈的梗 “我们一起去爬山”，“我还有机会吗”也不过如此。前几天有点无聊，然后打开视频软件，直接热度第一的就是《隐秘的角落》，本来">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" 豆瓣《隐秘的角落》评论爬取 ">
+<meta property="og:url" content="http://example.com/2020/07/08/%E8%B1%86%E7%93%A3%E3%80%8A%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD%E3%80%8B%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="引言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;我一直是不追电视剧的，一方面觉得剧集太多了没有那么多的时间去消耗，另一方面就是好的电视剧是真的没有几部（贼讨厌古装）。期末考试那段时间，看到微博、朋友圈刷爆了《隐秘的角落》，觉得那些出圈的梗 “我们一起去爬山”，“我还有机会吗”也不过如此。前几天有点无聊，然后打开视频软件，直接热度第一的就是《隐秘的角落》，本来">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200707234754854.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200707234836477.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200707234917996.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200708002828987.jpg">
+<meta property="article:published_time" content="2020-07-08T09:47:15.000Z">
+<meta property="article:modified_time" content="2020-07-08T10:01:55.657Z">
+<meta property="article:author" content="lemonl">
+<meta property="article:tag" content="爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200707234754854.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/07/08/豆瓣《隐秘的角落》评论爬取/"/>
+
+
+
+
+
+  <title> 豆瓣《隐秘的角落》评论爬取  | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/08/%E8%B1%86%E7%93%A3%E3%80%8A%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD%E3%80%8B%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> 豆瓣《隐秘的角落》评论爬取 </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-08T17:47:15+08:00">
+                2020-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E6%88%98/" itemprop="url" rel="index">
+                    <span itemprop="name">实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a><font color="lighblue">引言</font></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我一直是不追电视剧的，一方面觉得剧集太多了没有那么多的时间去消耗，另一方面就是好的电视剧是真的没有几部（贼讨厌古装）。期末考试那段时间，看到微博、朋友圈刷爆了《隐秘的角落》，觉得那些出圈的梗 “我们一起去爬山”，“我还有机会吗”也不过如此。前几天有点无聊，然后打开视频软件，直接热度第一的就是《隐秘的角落》，本来只打算看个开头。哎呀，真香！我竟然一晚上就看了8集。直至现在，我不仅看完了电视剧，就连B站上面的细节解析、幕后花絮都刷了很多。不得不承认，是真的好看！好看的程度体现在了秦昊成为了我现阶段的男神。那么是什么原因导致这部剧能够大火呢，数据不会说谎！</p>
+<h1 id="爬取数据"><a href="#爬取数据" class="headerlink" title="爬取数据"></a><font color="lighblue">爬取数据</font></h1><p>利用 <code>requests + xpath</code>爬取豆瓣评价。</p>
+<ol>
+<li>获取页面内容</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 爬取页面 url</span></span><br><span class="line">douban_url = douban_url = <span class="string">&#x27;https://movie.douban.com/subject/33404425/comments?status=P&#x27;</span></span><br><span class="line"><span class="comment"># requests 发送请求</span></span><br><span class="line">get_response = requests.get(douban_url)</span><br><span class="line"><span class="comment"># 将的到的数据转换成文本</span></span><br><span class="line">get_data = get_response.text</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>分析页面，利用Xpath Helper插件获取用户、评论的内容和评论用户的总数<div align="center"><img width="650" src="https://img-blog.csdnimg.cn/20200707234754854.png"></div>
+<div align="center"><img width="650" src="https://img-blog.csdnimg.cn/20200707234836477.png"></div>
+<div align="center"><img width="650" src="https://img-blog.csdnimg.cn/20200707234917996.png"></div></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解析页面</span></span><br><span class="line">tree = etree.HTML(get_data)</span><br><span class="line"><span class="comment"># 用户</span></span><br><span class="line">commentator = tree.xpath(<span class="string">&#x27;/html/body/div[3]/div[1]/div/div[1]/div[4]/div/div[2]/h3/span[2]/a/text()&#x27;</span>)</span><br><span class="line"><span class="comment"># 评论内容</span></span><br><span class="line">comment_content = tree.xpath(<span class="string">&#x27;/html/body/div[3]/div[1]/div/div[1]/div[4]/div/div[2]/p/span/text()&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li><p>获得多页评论</p>
+<p> 观察url地址 <code>page_url = &#39;https://movie.douban.com/subject/33404425/comments?start=20&amp;limit=20&amp;sort=new_score&amp;status=P&#39;</code>可以发现，下一页的地址start值是上一页值增加20的结果，其余都不发生变化。</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 页面url</span></span><br><span class="line">page_url = <span class="string">&#x27;https://movie.douban.com/subject/33404425/comments?start=&#123;0&#125;&amp;limit=20&amp;sort=new_score&amp;status=P&#x27;</span>.<span class="built_in">format</span>(i*<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>将得到的数据表格化处理并保存</p>
+<p> DataFrame是Python中Pandas库中的一种数据结构，它类似excel，是一种二维表。DataFrame的单元格可以存放数值、字符串等，这和excel表很像，同时DataFrame可以设置列名columns与行名index</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name = [<span class="string">&#x27;用户&#x27;</span>, <span class="string">&#x27;评论内容&#x27;</span>]</span><br><span class="line">file = pd.DataFrame(columns=name, data=content)</span><br></pre></td></tr></table></figure>
+
+<p><font color="yellow">点击获取</font> <a target="_blank" rel="noopener" href="https://github.com/lemon-l/spider/blob/master/Douban%20comments/Hidden%20corner.py">代码</a></p>
+<h1 id="生成词云"><a href="#生成词云" class="headerlink" title="生成词云"></a><font color="lighblue">生成词云</font></h1><ol>
+<li><p>解析数据</p>
+<p> 打开上面保存的文件，将评论内容保存在content里面</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> codecs.<span class="built_in">open</span>(<span class="string">r&#x27;./comment_content.cvs&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> csvfile:</span><br><span class="line">    content = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    reader = csv.reader(csvfile)</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> reader:</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">0</span> <span class="keyword">or</span> i == <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            content = content + file[<span class="number">1</span>]</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 去除所有评论里面多余的字符</span></span><br><span class="line">    content = re.sub(<span class="string">&#x27;[… “ ” ）：《 》？！（ 、,，。. \r\n]&#x27;</span>, <span class="string">&#x27;&#x27;</span>, content)</span><br></pre></td></tr></table></figure></li>
+<li><p>分析数据</p>
+<p> 利用jieba库切词，去掉停用的词并统计词频，降序排列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切词，用jieba库</span></span><br><span class="line">segment = jieba.lcut(content)</span><br><span class="line"><span class="comment"># 去停用词（文本去噪）</span></span><br><span class="line">words_df = pd.DataFrame(&#123;<span class="string">&#x27;segment&#x27;</span>: segment&#125;)</span><br><span class="line">stopwords = pd.read_csv(<span class="string">r&quot;./豆瓣影评/stopwords.txt&quot;</span>, index_col=<span class="literal">False</span>,</span><br><span class="line">                       quoting=<span class="number">3</span>, sep=<span class="string">&quot;\t&quot;</span>, names=[<span class="string">&#x27;stopword&#x27;</span>], encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">words_df = words_df[~words_df.segment.isin(stopwords.stopword)]</span><br><span class="line"><span class="comment"># 统计词频、降序排列</span></span><br><span class="line">words_stat = words_df.groupby(<span class="string">&#x27;segment&#x27;</span>).agg(计数=pd.NamedAgg(</span><br><span class="line">   column=<span class="string">&#x27;segment&#x27;</span>, aggfunc=<span class="string">&#x27;size&#x27;</span>)).reset_index().sort_values(by=<span class="string">&#x27;计数&#x27;</span>, ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p>stopwords.txt 文件下载：<a target="_blank" rel="noopener" href="http://www.datasoldier.net/archives/636">http://www.datasoldier.net/archives/636</a></p>
+</li>
+<li><p>数据可视化</p>
+<p>生成词云，取词频最高的前1000个词</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 做词云</span></span><br><span class="line">bimg = imread(<span class="string">r&#x27;./豆瓣影评/hhh.jpg&#x27;</span>)</span><br><span class="line">matplotlib.rcParams[<span class="string">&#x27;figure.figsize&#x27;</span>] = (<span class="number">10.0</span>, <span class="number">6.0</span>)</span><br><span class="line"><span class="comment"># 设置中文字体 背景颜色等</span></span><br><span class="line">wordcloud = WordCloud(font_path=<span class="string">&#x27;C:/Windows/Fonts/simfang.ttf&#x27;</span>,</span><br><span class="line">                    mask=bimg, background_color=<span class="string">&#x27;white&#x27;</span>, max_font_size=<span class="number">80</span>)</span><br><span class="line"><span class="comment"># 字典推导式</span></span><br><span class="line">word_frequence = &#123;x[<span class="number">0</span>]: x[<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> words_stat.head(</span><br><span class="line">    <span class="number">1000</span>).values&#125;  <span class="comment"># 取词频最高的前1000个词 (词，词频)-&gt;&#123;词：词频&#125;</span></span><br><span class="line">wordcloud = wordcloud.fit_words(word_frequence)</span><br><span class="line">bimgColors = ImageColorGenerator(bimg)</span><br><span class="line">result = wordcloud.recolor(color_func=bimgColors)</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.imshow(result)</span><br><span class="line">plt.show()</span><br><span class="line">result.to_file(<span class="string">r&#x27;./豆瓣影评/词云.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p>词云展示</p>
+<p> 背景图片是张朝阳哦！</p>
+<div align="center"><img width="450" src="https://img-blog.csdnimg.cn/20200708002828987.jpg"></div></li>
+</ol>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ctsch/p/8590551.html">https://www.cnblogs.com/ctsch/p/8590551.html</a></p>
+<p><font color="yellow">点击获取</font> <a target="_blank" rel="noopener" href="https://github.com/lemon-l/spider/blob/master/Douban%20comments/Data%20Analysis.py">代码</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a><font color="lighblue">总结</font></h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过生成的词云不难看出剧中演员的塑造能力，剧情的逻辑性和节奏性，故事的细节处理和镜头的质感都是这部国产悬疑改编网剧能够吸引人眼球的原因。当然也期待未来能有更多的好剧出现在大众视野。再次表白我男神秦昊，演技顶呱呱！</p>
+<hr>
+<p>完整内容github获取：<a target="_blank" rel="noopener" href="https://github.com/lemon-l/spider/tree/master/Douban%20comments">https://github.com/lemon-l/spider/tree/master/Douban%20comments</a></p>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"><i class="fa fa-tag"></i>爬虫</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/30/%E5%B8%B8%E7%94%A8%E7%BC%96%E8%AF%91%E5%99%A8%E3%80%81%E8%BD%AF%E4%BB%B6%E3%80%81%E7%BD%91%E7%AB%99%E7%9A%84nb%E6%8F%92%E4%BB%B6/" rel="next" title="常用编译器、软件、网站的nb插件">
+                <i class="fa fa-chevron-left"></i> 常用编译器、软件、网站的nb插件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-1-3%E7%AB%A0%EF%BC%89/" rel="prev" title="计算机网络（期末复习 1~3章）">
+                计算机网络（期末复习 1~3章） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%88%AC%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">爬取数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E8%AF%8D%E4%BA%91"><span class="nav-number">3.</span> <span class="nav-text">生成词云</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

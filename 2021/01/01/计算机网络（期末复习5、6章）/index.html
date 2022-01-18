@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第五章 运输层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络（期末复习5、6章）">
+<meta property="og:url" content="http://example.com/2021/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A05%E3%80%816%E7%AB%A0%EF%BC%89/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="第五章 运输层">
+<meta property="og:locale">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101194100.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101200517.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101202814.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101203001.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101212238.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102095316.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102113151.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111423.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102103626.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102105150.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110438.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110630.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111207.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101205310.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102114758.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102122347.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102124034.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102125932.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102132002.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102145732.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102143403.png">
+<meta property="article:published_time" content="2021-01-01T11:31:03.000Z">
+<meta property="article:modified_time" content="2021-01-02T08:15:51.073Z">
+<meta property="article:author" content="lemonl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101194100.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/01/01/计算机网络（期末复习5、6章）/"/>
+
+
+
+
+
+  <title>计算机网络（期末复习5、6章） | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A05%E3%80%816%E7%AB%A0%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络（期末复习5、6章）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-01T19:31:03+08:00">
+                2021-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h2><center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101194100.png"></center>
+<span id="more"></span>
+
+<p>可靠传输的实现机制：</p>
+<ul>
+<li>面向连接、流量控制、拥塞控制</li>
+<li>差错检测、确认、编号、定时器<br><font color=red>一、 运输层两个主要协议的特点，提供的功能</font><center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101200517.png"></center></li>
+</ul>
+<p>TCP协议这种逻辑通信信道就相当于一条全双工的可靠信道，UDP协议这种逻辑通信信道是一条不可靠信道。</p>
+<p><strong><center><font color=blue>UDP：一种无连接协议</font></center></strong></p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101202814.png"></center>
+
+<p>主要特点：</p>
+<ol>
+<li><font color=red>UDP是无连接的，</font>发送数据之前不需要建立连接</li>
+<li><font color=red>UDP使用尽最大努力交付，</font>不保证可靠交付</li>
+<li><font color=red>UDP是面向报文的，</font>UDP一次交付一个完整的报文</li>
+<li><font color=red>UDP没有拥塞控制，</font>网络出现拥塞不会使源主机的发送速率降低</li>
+<li><font color=red>UDP支持一对一、一对多、多对一和多对多的交互通信</font></li>
+<li><font color=red>UDP的首部开销小，</font>只有8个字节，比TCP的20个字节的首部要短。 </li>
+</ol>
+<p>主要功能：只在IP的数据报服务之上增加了复用、分用和差错检测的功能。</p>
+<p>计算校验和的例子：</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101203001.png"></center>
+
+
+
+<p><strong><center><font color=blue>TCP：一种面向连接的协议</font></center></strong></p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101212238.png"></center>
+
+<p>主要特点：</p>
+<ol>
+<li>TCP是面向连接的运输层协议</li>
+<li>每一条TCP连接只能有两个端点，每一条TCP连接只能是点对点的</li>
+<li>TCP提供可靠交付的服务</li>
+<li>TCP提供全双工通信</li>
+<li>面向字节流</li>
+</ol>
+<p>TCP协议主要功能：</p>
+<ol>
+<li>完成对数据报的确认、流量控制和网络拥塞</li>
+<li>自动检测数据报，并提供错误重发的功能</li>
+<li>将多条路径传送的数据报按照原来的顺序进行排列</li>
+<li>控制超时重发，自动调整超时值</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ul>
+<li>TCP连接时一条虚连接而不是一条真正的物理连接</li>
+<li>TCP对应用进程一次把多长的报文发送到TCP的缓存中是不关心的</li>
+<li>TCP根据对方给出的窗口只和当前网络拥塞的程度来决定一个报文段应包含多少个字节</li>
+<li>TCP可把太长的数据块划分短一些再传送</li>
+<li>TCP也可等待积累有足够多的字节后再构成报文段发送出去</li>
+</ul>
+<p>TCP的连接：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TCP连接的端点叫做套接字或插口。端口号拼接到IP地址即构成了套接字。<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;套接字socket = (IP地址 ：端口号)</p>
+<p><font color=red>二、 TCP发送窗口机制</font><br>TCP连接的每一端都必须设有两个窗口（发送窗口和接收窗口），TCP两端的四个窗口经常处于动态变化之中。</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102095316.png"></center>
+
+<p><strong><font color=orange>具体的内容可以看书本的221~224页，图太多，我就不截了</font></strong></p>
+<p>超时重传时间设置：<br>TCP采用了一种自适应算法，它记录一个报文段发出的时间，以及收到相应的确认的时间，这两个时间之差就是报文段的往返时间RTT。</p>
+<p>新的RTTs(加权平均往返时间) = (1-α) x (旧的RTTs) + α x (新的RTT样本)</p>
+<p>注意：0 ≤ α &lt; 1，若接近于零，表示RTT值更新较慢；若接近于1，表示RTT值更新较快。</p>
+<p><font color=red>三、 TCP建立连接</font></p>
+<p>运输连接有三个阶段：</p>
+<ul>
+<li>连接建立</li>
+<li>数据传送</li>
+<li>连接释放</li>
+</ul>
+<p>建立连接过程解决的三个问题：</p>
+<ol>
+<li>要使每一方都能够确知对方的存在</li>
+<li>要允许双方协商一些参数</li>
+<li>能够对运输实体资源进行分配</li>
+</ol>
+<p>TCP连接的建立采用客户服务器方式。主动发起连接建立的应用进程叫做客户，被动等待连接建立的应用进程叫做服务器。</p>
+<p>TCP建立连接的过程叫做握手，握手需要在客户和服务器之间交换三个TCP报文段，称之为三报文握手。采用三报文握手主要是为了防止已失效的连接请求报文段突然又传送到了，因而产生错误。</p>
+<center><img width=600 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102113151.png"></center>
+<font color=red>四、 TCP的拥塞算法及应用</font>
+
+<p>拥塞：某段时间，若对网络中某资源的需求超过了该资源所能提供的可用部分，网络的性能就要变坏。</p>
+<p>拥塞引起的重传并不会缓解网络的拥塞，反而会加剧网络的拥塞。</p>
+<p>TCP采用基于窗口的方法进行拥塞控制，这种方法属于闭环控制方法。</p>
+<center><font color=gren>TCP拥塞控制流程图</font></center>
+<center><img width=600 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111423.png"></center>
+
+<p>TCP的四种拥塞控制算法：</p>
+<ul>
+<li><p><font color=purple>慢开始</font><br> 拥塞窗口cwnd控制方法：在每收到一个对新的报文段的确认后，可以把拥塞窗口增加最多一个SMSS的数值。拥塞窗口cwnd每次的增加量 = min(N,SMSS)<br> 一个传输轮次所经历的时间其实就是往返时间</p>
+ <center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102103626.png"></center>
+ 
+<p> 慢开始门限ssthresh的用法：</p>
+<ul>
+<li>当cwnd &lt; ssthresh时，使用慢开始算法</li>
+<li>当cwnd &gt; ssthresh时，停止使用慢开始算法而该用拥塞避免算法</li>
+<li>当cwnd = ssthresh时，都可以使用</li>
+</ul>
+</li>
+<li><p><font color=purple>拥塞避免</font><br>思路：让拥塞窗口cwnd缓慢增大，即每经过一个往返时间RTT就把发送放的拥塞窗口cwnd加1，而不是加倍，使拥塞窗口cwnd按线性规律缓慢增长</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102105150.png"></center>
+“拥塞避免”并非指完全能够避免了拥塞，只是说在拥塞避免阶段把拥塞窗口控制为按线性规律增长，使网络比较不容易出现拥塞。</li>
+<li><p><font color=purple>快重传</font><br>采用快重传算法可以让发送方尽早知道发生了个别报文段的丢失。</p>
+<p>快重传算法首先要求接收方不要等待自己发送数据时才进行捎带确认，而是要立即发送确认，即使收到了失序的报文段也要立即发出对已收到的报文段的重复确认。</p>
+<p>发送方只要一连接收到三个重复确认，就知道接收方确实没有收到报文段，因而应该立即进行重传。</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110438.png"></center></li>
+<li><p><font color=purple>快恢复</font><br>当发送端收到连续三个重复的确认时，由于发送方现在认为网络很可能没有发生拥塞，因此现在不执行慢开始算法，而是执行快恢复算法。</p>
+ <center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102110630.png"></center>
+ <center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102111207.png"></center></li>
+</ul>
+<p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/lonelyooacz/article/details/102986921">详细版本</a></strong></p>
+<p><strong><font color=orang size=4>探研：</strong></font></p>
+<hr>
+<ol>
+<li><p><code>若一个应用进程使用运输层的用户数据报UDP，但继续向下交给IP层后，又封装成IP数据报。既然都是数据报，是否可以跳过UDP直接交给IP层？哪些功能UDP提供但IP没有提供？</code></p>
+<p>答：IP数据报只能找到目的主机而无法找到目的进程。UDP提供对应用进程的复用和分用功能，并提供对数据部分的差错检验。</p>
+</li>
+<li><p><code>在停止等待协议中如果不使用编号是否可行</code></p>
+<p>答：在现实的数据传输中，很难保证数据的传输既不丢失也不出现差错，所以在停止等待协议中应当使用序号。</p>
+</li>
+<li><p><code>在使用TCP传送数据时，如果有一个确认报文段丢失了，也不一定会引起与该确认报文段对应的数据的重传。试说明理由。</code></p>
+<p>答：因为发送方还未超时重传，就收到了接收方对更高序号的确认。在采用tcp进行数据传输时，接收端发送的确认报文段是对前面收到的正确无误数据的确认，同时告诉发送端自己欲接收的下一个报文段序号值。</p>
+</li>
+<li><p><code>若收到的报文段无差错，只是未按序号，中间还缺少一些序号的数据，那么能否设法只传送缺少的数据而不重传已经正确到达接收方的数据？</code></p>
+<p>答：选择确认SACK就是一种可行的处理方法。</p>
+</li>
+<li><p><code>tcp在进行拥塞控制时是以分组的丢失作为产生拥塞的标志，有没有不是因为拥塞而引起的分组丢失的情况？举例</code></p>
+<p>答：有。一是信道误码导致中间结点将分组丢弃；二是路由错误导致分组在网络中兜圈子最后被路由器丢弃；三是中间路由器在接收了分组还没有转发出去时故障，导致分组丢失。这些情况发生的概率都比较小。</p>
+</li>
+<li><p><code>为什么在TCP首部中有一个首部长度字段，而UDP的首部中就没有这个字段？</code></p>
+<p>答：TCP首部除固定长度部分外，还有选项，因此TCP首部长度是可变的。UDP首部长度是固定的</p>
+</li>
+</ol>
+<p><strong><font color=orang size=4>习题：</strong></font></p>
+<hr>
+<ol>
+<li><p><code>运输层在协议栈中的地位和作用。运输层的通信和网络的通信有什么重要的区别？为什么运输层是必不可少的？</code></p>
+<p>答：运输层处于面向通信部分的最高层，同时也是用户功能中的最底层，向它上面的应用层提供服务。</p>
+<p>运输层为应用进程之间提供端到端的逻辑通信，但网络层是为主机之间提供逻辑通信（面向主机，承担路由功能，即主机寻址及有效的分组交换）。</p>
+<p>各种应用进程之间通信需要“可靠或尽力而为”的两类服务质量，必须由运输层以复用和分用的形式加载到网络层。</p>
+</li>
+<li><p><code>一个UDP用户数据报的数据字段为8192字节。在链路层要使用以太网来传送，试问应当划分为几个IP数据报片？说明每一个IP数据报片的数据字段长度和偏移字段的值</code></p>
+<p> 答：<center><img width=600 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210101205310.png"></center></p>
+</li>
+<li><p><code>主机A和B使用TCP通信。在B发送过的报文段中，有这样两个先后到达的报文段：ACK=120和ACK=100，即前一个报文段的确认序号大于后一个。请解释原因。</code></p>
+<p>答：ACK=120 的报文 比 ACK=100的先到。<br>虽然ACK=100 是先发出来的，但是路径开销比ACK=120 的报文要大。<br>就好像两辆车从A地出发到B低去，A车先走，B车其次。A车走国道，B车走高速。所以B先到了。</p>
+</li>
+<li><p><code>设TCP的ssthresh的初始值为8.当拥塞窗口上升到12时网络发生了超时，TCP使用慢开始和拥塞避免，试分别求出第1~15次传输的各拥塞窗口大小</code></p>
+<p>答：1、2、4、8、9、10、11、12、1、2、4、6、7、8、9</p>
+</li>
+<li><p><code>一个UDP用户数据报的首部的十六进制表示是06 32 00 45 00 1C E2 17。求源端口、目的端口、用户数据报总长度、数据部分长度。</code></p>
+<p>解：<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102114758.png"></center></p>
+</li>
+<li><p><code>主机A向主机B发送一个很长的文件，其长度为L字节。假定TCP使用的MSS有1460字节。在TCP的序号不重复使用的条件下，L的最大值是多少？假定使用上面计算出文件长度，而运输层、网络层和数据链路层所使用的首部开销共66字节，链路的数据率为10Mb/s，试求这个文件所需的最短发送时间。</code></p>
+<p>解：<br>(1) L_max的最大值是2^32=4GB,G=2^30.<br>(2) 满载分片数Q={L_max/MSS}取整=2941758，发送的总报文数N=Q*(MSS+66)+{(L_max-Q*MSS)+66}=4489122708+682=4489123390字节，发送字节需时间为：N*8/（10*10^6）=3591.3秒，即59.85分，约1小时。</p>
+<p>计算总报文数的另一种方法：L_max + (Q+1)*66</p>
+</li>
+<li><p><code>通信信道带宽为1Gbit/s，端到端时延为10ms。TCP的发送窗口为65535字节。试问： 可能达到的最大吞吐量是多少？信道的利用率是多少？</code></p>
+<p>解：发送时延 = 数据长度 / 信道带宽，信道利用率 = 最大吞吐量 / 信道带宽 </p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102122347.png"></center></li>
+</ol>
+<h2 id="第六章-应用层"><a href="#第六章-应用层" class="headerlink" title="第六章 应用层"></a>第六章 应用层</h2><center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102124034.png"></center>
+
+<p><font color=red>一、 DNS的基本概念、作用及解析过程</font></p>
+<p>域名：因特网上主机的名字，体现其逻辑位置</p>
+<p>特点：与IP地址对应，更容易记忆。</p>
+<p>作用：域名系统DNS是因特网使用的命名系统，用来把便于人们使用的域名转换为IP地址。</p>
+<p>域名的解析过程：</p>
+<ul>
+<li>主机向本地域名服务器的查询一般都是采用递归查询</li>
+<li>本地域名服务器向根域名服务器的查询通常采用迭代查询<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102125932.png"></center></li>
+</ul>
+<p><font color=red>二、 FTP的基本概念及两个连接机制</font></p>
+<p>文件传送协议FTP是互联网上使用得最广泛的文件传送协议。FTP提供交互式的访问，允许客户指明文件的类型与格式，并允许文件具有存取权限。FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传送文件。</p>
+<p>FTP特点：</p>
+<ul>
+<li>只提供文件传送的一些基本的服务，它使用TCP可靠的运输服务</li>
+<li>主要功能是减少或消除在不同操作系统下处理文件的不兼容性</li>
+<li>使用客户服务器方式。FTP的服务器进程由两部分组成：一个主进程，负责接收新的请求；另外有若干个从属进程，负责处理单个请求。</li>
+</ul>
+<p>两个连接：</p>
+<ul>
+<li>控制连接在整个会话期间一直保持打开，FTP客户发出的传送请求通过控制连接发送给服务器端的控制进程，但控制连接不用来传送文件</li>
+<li>实际用于传输文件的是“数据连接”。服务器端的控制进程在接收到FTP客户发送来的文件传输请求后就创建“数据传送进程”和“数据连接”，用来连接客户端和服务器端的数据传送进程。数据传送进程实际完成文件的传送，在传送完毕后关闭“数据传送连接”并结束运行。</li>
+</ul>
+<p>使用两个不同端口号(建立连接请求端口：21、传送数据端口：20)的好处：</p>
+<ul>
+<li>使协议更加简单和更容易实现</li>
+<li>在传输文件时还可以利用控制连接<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102132002.png"></center></li>
+</ul>
+<p><font color=red>三、 万维网的基本概念，URL的格式</font></p>
+<p>万维网是一个大规模的、联机式的信息储藏所。万维网用链接的方法能非常方便地从互联网上的一个站点访问另一个站点，从而主动地按需获取丰富的信息，这种访问方式称为“链接”</p>
+<p>统一资源定位符URL：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是对可以从因特网上得到的资源的位置和访问方法的一种简洁的表示。URL给资源的位置提供一种抽象的识别方法，并用这种方法给资源定位。</p>
+<p>URL的一般形式是：</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102145732.png"></center>
+
+
+
+<p><font color=red>四、 电子邮件系统构成、协议，SMTP通信的三个阶段</font></p>
+<p>电子邮件系统由三部分构成：用户代理、邮件服务器以及邮件发送协议和邮件读取协议。</p>
+<p>电子邮件构成：信封和内容</p>
+<p><strong><center><font size=4 color=blue>协议</font></center></strong></p>
+<ol>
+<li><p>简单邮件发送协议SMTP：</p>
+<center><img width=500 src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20210102143403.png"></center></li>
+<li><p>邮件读取协议POP3:</p>
+<ul>
+<li>邮局协议POP是一个非常简单但是功能有限的邮件都区协议，现在使用的是它的第三个版本POP3。</li>
+<li>POP也使用客户-服务器的工作方式</li>
+<li>在接收邮件的用户pc机中必须运行POP客户程序，而在用户所连接的ISP的邮件服务器中则运行POP服务器程序</li>
+</ul>
+</li>
+<li><p>邮件读取协议IMAP:</p>
+<ul>
+<li>IMAP也是按客户服务器方式工作，现在较新的是版本4</li>
+<li>用户在自己的pc机上就可以操纵ISP的邮件服务器的邮箱，就像在本地操纵一样</li>
+<li>IMSP是一个联机协议。当用户pc机上的IMAP客户程序打开IMAP服务器的邮箱时，用户就可看到邮件的首部。若用户需要打开某个邮件，则该邮件才传到用户的计算机上。</li>
+</ul>
+</li>
+</ol>
+<p>SMTP通信三个阶段：</p>
+<ol>
+<li>连接建立：连接实在发送主机的SMTP客户和接收主机的SMTP服务器之间建立的。SMTP不使用中间的邮件服务器</li>
+<li>邮件传送</li>
+<li>连接释放：邮件发送完毕后，SMTP应释放TCP连接</li>
+</ol>
+<p><strong><font color=orang size=4>探研：</strong></font></p>
+<hr>
+<ol>
+<li><p><code>设想有一天整个因特网的DNS系统都瘫痪了，试问还有可能给朋友发送电子邮件吗？</code></p>
+<p>答：能。</p>
+</li>
+<li><p><code>域名系统的主要功能是什么？域名系统中的本地域名服务器、根域名服务器、顶级域名服务器以及权限名服务器有何区别？</code></p>
+<p>答：域名系统DNS是因特网使用的命名系统，用来把便于人们使用的机器名字（域名）转换为IP地址</p>
+<ul>
+<li>本地域名服务器离用户较近，一般不超过几个路由器的距离。当一个主机发出DNS查询请求时，这个查询请求报文就发送给本地域名服务器。当所要查询的主机也属于同一个本地ISP时，该本地域名服务器立即就能将所查询的主机名转换为它的IP地址，而不需要再去询问其他的域名服务器。</li>
+<li>根域名服务器是最高层次的域名服务器，也是最重要的域名服务器。所有的根域名服务器都知道所有的顶级域名服务器的域名和IP地址。不管是哪一个本地域名服务器，若要对因特网上任何一个域名进行解析，只要自己无法解析，就首先求助于根域名服务器。</li>
+<li>顶级域名服务器负责管理在该顶级域名服务器注册的所有二级域名。当收到DNS查询请求时，就给出相应的回答（可能是最后的结果，也可能是下一步应当找的域名服务器的IP地址）。</li>
+<li>权限域名服务器是负责一个区的域名服务器，用来保存该区中的所有主机的域名到IP地址的映射。当一个权限域名服务器还不能给出最后的查询回答时，就会告诉发出查询请求的DNS客户，下一步应当找哪一个权限域名服务器。</li>
+</ul>
+</li>
+<li><p><code>基于万维网的电子邮件系统有什么特点？在传送邮件时使用什么协议？</code></p>
+<p>答：特点：不管在什么地方，只要能上网，在打开万维网浏览器后，就可以收发电子邮件。这时，邮件系统中的用户代理就是普通的万维网。电子邮件从A发送到网易邮件服务器是使用HTTP协议。两个邮件服务器之间的传送使用SMTP。邮件从新浪邮件服务器传送到B使用HTTP协议。</p>
+</li>
+<li><p><code>DHCP 协议用在什么情况下？当一台计算机第一次运行引导程序时，其 ROM 中有没有该主机的 IP 地址、子网掩码或某个域名服务器的 IP 地址？</code></p>
+<p>答：动态主机配置协议DHCP提供了即插即用连网的机制。这种机制允许一台计算机加入新的网络和获取IP地址而不用手工参与。ROM中当然不可能有IP相关的信息。</p>
+</li>
+<li><p><code>为什么有的应用层协议要使用TCP而有的却要使用UDP？</code></p>
+<p>答：正确答案：应用层协议根据各自功能的需求，有的需要使用面向连接的TCP服务，提供可靠的数据传输服务，如FTP，HTTP等；有的协议使用无连接的UDP服务，提供比较灵活的服务，如DHCP，SNMP等。</p>
+</li>
+<li><p><code>为什么MIME花在SMTP上面？</code></p>
+<p>答：MIME协议是扩展了的SMP协议，是基于SMTP的，所以要放在SMTP上面画。</p>
+</li>
+<li><p><code>为什么路由选择协议RIP放在应用层？</code></p>
+<p>答：由于RIP协议是基于UDP协议而创建的，所以RIP协议应放在UDP协议的上一层。</p>
+</li>
+</ol>
+<p><strong><font color=orang size=4>习题：</strong></font></p>
+<hr>
+<ol>
+<li><p><code>如果本地域名服务器无缓存，当采用递归方法解析另一个网络某主机域名时，用户主机和本地域名服务器发送的域名请求条数分别为 1条、1条</code></p>
+<p>解析：当采用递归查询的方法解析域名时，如果主机所询问的本地域名服务器不知道被查询域名的IP地址，那么本地域名服务器就以DNS客户的身份，向其他根域名服务器继续发出查询请求报文，这种方法中用户主机和本地域名服务器发送的域名请求条数均为1条。</p>
+</li>
+<li><p><code>当使用鼠标点击一个万维网文档时，若该文档除了有文本外，还有一个本地.gif图像和两个远地.gif图像。试问；需要使用那个应用程序，以及需要建立几次UDP连接和几次TCP连接？</code></p>
+<p>答：若使用HTTP/1.0，需要建立0次UDP连接，4次TCP连接；若使用HTTP/1.1，需要建立0次UDP连接，1次TCP连接。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AC%AC4%E7%AB%A0%EF%BC%89/" rel="next" title="计算机网络（期末复习第4章）">
+                <i class="fa fa-chevron-left"></i> 计算机网络（期末复习第4章）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/21/%E4%BB%8E%E5%AE%89%E5%85%A8%E6%B3%95%E8%A7%84%E8%A7%92%E5%BA%A6%E5%AF%B9%E7%BD%91%E7%BB%9C%E6%9A%B4%E5%8A%9B%E6%B5%85%E6%9E%90/" rel="prev" title="从安全法规角度对网络暴力浅析">
+                从安全法规角度对网络暴力浅析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82"><span class="nav-number">1.</span> <span class="nav-text">第五章 运输层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">第六章 应用层</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

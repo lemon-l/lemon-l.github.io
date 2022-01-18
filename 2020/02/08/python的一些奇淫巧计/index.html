@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1. 将电脑变成服务器&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;如果要将电脑中的文件发到手机上面，你会选择怎么做呢？数据线、微信文件助手。这些都有局限性，比如突然断网，WTF？别急，万能的python自有妙招。  命令：python -m SimpleHTTPServer 8000  然后查看本机IP，在手机端访问8000端口 (需要与电脑端的Ip相同)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的一些奇淫巧计">
+<meta property="og:url" content="http://example.com/2020/02/08/python%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="1. 将电脑变成服务器&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;如果要将电脑中的文件发到手机上面，你会选择怎么做呢？数据线、微信文件助手。这些都有局限性，比如突然断网，WTF？别急，万能的python自有妙招。  命令：python -m SimpleHTTPServer 8000  然后查看本机IP，在手机端访问8000端口 (需要与电脑端的Ip相同)">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200208170725351.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200208170757109.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200704182137448.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20200704181806.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif2(1).gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif5.gif">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/earth.gif">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200706082003277.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200706082725679.gif">
+<meta property="article:published_time" content="2020-02-08T08:53:45.000Z">
+<meta property="article:modified_time" content="2020-07-06T01:44:25.718Z">
+<meta property="article:author" content="lemonl">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200208170725351.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/02/08/python的一些奇淫巧计/"/>
+
+
+
+
+
+  <title>python的一些奇淫巧计 | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/08/python%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python的一些奇淫巧计</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-08T16:53:45+08:00">
+                2020-02-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E6%88%98/" itemprop="url" rel="index">
+                    <span itemprop="name">实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  840
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-将电脑变成服务器"><a href="#1-将电脑变成服务器" class="headerlink" title="1. 将电脑变成服务器"></a>1. <font color="orang">将电脑变成服务器</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;如果要将电脑中的文件发到手机上面，你会选择怎么做呢？数据线、微信文件助手。这些都有局限性，比如突然断网，WTF？别急，万能的python自有妙招。</p>
+<ul>
+<li><p>命令：<font color="orane">python -m SimpleHTTPServer 8000</font></p>
+</li>
+<li><p>然后查看本机IP，在手机端访问8000端口 (需要与电脑端的Ip相同)</p>
+ <div align="center"><img height="300px" width="400px" src="https://img-blog.csdnimg.cn/20200208170725351.png"></div>
+<span id="more"></span>‘
+ <div align="center"><img height="300px" width="350px" src="https://img-blog.csdnimg.cn/20200208170757109.png"></div>
+ nice!!! 支持在线浏览和下载，简直不要太方便。吹爆此功能。
+ <br/><br/></li>
+</ul>
+<h3 id="2-截图翻译"><a href="#2-截图翻译" class="headerlink" title="2. 截图翻译"></a>2. <font color="orang">截图翻译</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;我们经常遇到英文不会翻译，但是文字又不能复制的情况。针对这种情况，可以用python编写一个程序实现截图翻译的功能。具体步骤如下：</p>
+<ul>
+<li>安装<font color="orange"> Tesseract-OCR </font></li>
+</ul>
+<div align="center"><img width="550" src="https://img-blog.csdnimg.cn/20200704182137448.png"></div>
+
+<ul>
+<li>代码实现见 <a target="_blank" rel="noopener" href="https://github.com/lemon-l/Python-beginner/tree/master/%E5%AE%9E%E6%88%98/Screenshot_translation">github</a>,其中包括最后打包好的程序。这里运行程序会报错，需要找到python安装路径下的pytesseract，然后将tesseract_cmd = ‘tesseract’改为tesseract_cmd = ‘填Tesseract-OCR的安装路径’</li>
+<li>将代码用pyinstaller打包成.exe程序。具体操作为：截取含有英文的图片 -&gt; 回车，然后出现中文翻译结果。运行时截到的图片会自动保存在与exe同一目录下</li>
+</ul>
+<div align="center"><img width="600" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/20200704181806.png"></div>
+
+<h3 id="3-‘字符雨’特效"><a href="#3-‘字符雨’特效" class="headerlink" title="3.  ‘字符雨’特效"></a>3.  <font color="orang">‘字符雨’特效</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;相信很多人都看过黑客帝国这部电影，一提到它我们会想到经典的“子弹时间”，但是里面的“字符雨”也是让人难以忘怀。接下来我们就来用python来实现里面的这个特效吧！</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;用户will8211在github上面上传了unimatrix这个项目，操作方法如下：</p>
+<ul>
+<li>在linux系统里面克隆这个项目 <code>pip install git+https://github.com/will8211/unimatrix.git</code></li>
+<li>按照项目里面Manual进行操作(在终端里面运行)<br>&nbsp;&nbsp; &nbsp;&nbsp;这是我运行示例的结果，简直太炫了：</li>
+</ul>
+<div align="center"><font color="blue" size=5>unimatrix -c green -u 'Matrix'</font></div>
+<div align="center"><img width="550" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif2(1).gif"></div>
+
+<div align="center"><font color="blue" size=5>unimatrix -c yellow -l 'e'</font></div>
+<div align="center"><img width="550" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/mygif5.gif"></div>
+
+
+<h3 id="4-转动微信地图"><a href="#4-转动微信地图" class="headerlink" title="4.  转动微信地图"></a>4.  <font color="orang">转动微信地图</font></h3><p>&nbsp;&nbsp; &nbsp;&nbsp;启动微信的那一刻，我们往往会看到张小龙（微信创始人）眺望着地球，但你是否有想过将它面前的地球转动起来，下面我们来完成此操作。</p>
+<ul>
+<li>准备素材：地球表面素材；云图素材；微信地球的抠图素材</li>
+<li>Gif压缩：<a target="_blank" rel="noopener" href="https://www.iloveimg.com/zh-cn/compress-image/compress-gif">https://www.iloveimg.com/zh-cn/compress-image/compress-gif</a></li>
+<li>完整代码：<a target="_blank" rel="noopener" href="https://alltodata.cowtransfer.com/s/afc708b596774f">https://alltodata.cowtransfer.com/s/afc708b596774f</a></li>
+</ul>
+<p>效果图：</p>
+<div align="center"><img width="220" height="400" src="https://cdn.jsdelivr.net/gh/lemon-l/Imageshack/Image/earth.gif"></div>
+
+<p>参考链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA">https://mp.weixin.qq.com/s/ayKCLWXWjjpvlpzqcv3pgA</a></p>
+<h3 id="5-二维码生成器"><a href="#5-二维码生成器" class="headerlink" title="5.  二维码生成器"></a>5.  <font color="orang">二维码生成器</font></h3><ul>
+<li>首先安装myqr库  <code>pip3 install myqr</code></li>
+<li>常规链接二维码生成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> MyQR <span class="keyword">import</span> myqr</span><br><span class="line">myqr.run(<span class="string">&#x27;https://www.bilibili.com/video/BV1WZ4y1H7Th/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>图片链接二维码生成<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> MyQR <span class="keyword">import</span> myqr</span><br><span class="line">myqr.run(<span class="string">&#x27;https://www.bilibili.com/video/BV1WZ4y1H7Th/&#x27;</span>, picture=<span class="string">&#x27;2.jpg&#x27;</span>, colorized=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<div align="center"><img width="400" height="400" src="https://img-blog.csdnimg.cn/20200706082003277.png"></div>
+
+<ul>
+<li>动态链接二维码生成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> MyQR <span class="keyword">import</span> myqr</span><br><span class="line">myqr.run(<span class="string">&#x27;https://www.bilibili.com/video/BV1WZ4y1H7Th/&#x27;</span>,</span><br><span class="line">         picture=<span class="string">&#x27;mygif3.gif&#x27;</span>,</span><br><span class="line">         colorized=<span class="literal">True</span>,</span><br><span class="line">         save_name=<span class="string">&quot;动态qr.gif&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div align="center"><img width="400" height="400" src="https://img-blog.csdnimg.cn/20200706082725679.gif"></div>
+
+<h3 id="6-Free-Python-Games"><a href="#6-Free-Python-Games" class="headerlink" title="6.  Free Python Games"></a>6.  <font color="orang">Free Python Games</font></h3><p>这个python项目实现经典的贪吃蛇、迷宫、扫雷、Flappy Bird游戏只需要简单的50-100行代码，对于新手来说是一个很好的python学习、锻炼探索和理解能力的工具。另外，如果你仅仅只是为了玩而玩，只需要简单的安装就可以在电脑上玩这些经典游戏了。</p>
+<ul>
+<li>安装  <code>python3 -m pip install freegames </code></li>
+<li>游戏列表 <code>python3 -m freegames list</code></li>
+<li>打开游戏 <code>python3 -m freegames.snake</code></li>
+</ul>
+<p>项目地址：<a target="_blank" rel="noopener" href="http://www.grantjenks.com/docs/freegames/">http://www.grantjenks.com/docs/freegames/</a></p>
+<p><font color="red">持续更新中……</div></p>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i>python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/23/SQL%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" rel="next" title="sqli-labs (1-10)">
+                <i class="fa fa-chevron-left"></i> sqli-labs (1-10)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/13/upload-labs/" rel="prev" title="upload-labs">
+                upload-labs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B0%86%E7%94%B5%E8%84%91%E5%8F%98%E6%88%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">1. 将电脑变成服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%88%AA%E5%9B%BE%E7%BF%BB%E8%AF%91"><span class="nav-number">2.</span> <span class="nav-text">2. 截图翻译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E2%80%98%E5%AD%97%E7%AC%A6%E9%9B%A8%E2%80%99%E7%89%B9%E6%95%88"><span class="nav-number">3.</span> <span class="nav-text">3.  ‘字符雨’特效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%BD%AC%E5%8A%A8%E5%BE%AE%E4%BF%A1%E5%9C%B0%E5%9B%BE"><span class="nav-number">4.</span> <span class="nav-text">4.  转动微信地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">5.  二维码生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Free-Python-Games"><span class="nav-number">6.</span> <span class="nav-text">6.  Free Python Games</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

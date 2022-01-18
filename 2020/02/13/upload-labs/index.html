@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="文件上传," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Pass-01&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;上传类型为 jpg |  png | gif的可以直接上传，类型为php的前端页面则提示 该文件不允许上传，请上传 .jpg|.png|.gif类型的文件  将要上传的php文件后缀改为允许的，然后在burp上面改回原来的 或者是浏览器禁用js后进行上传。  Pass-02&amp;nbsp;&amp;nbsp;&amp;n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="upload-labs">
+<meta property="og:url" content="http://example.com/2020/02/13/upload-labs/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="Pass-01&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;上传类型为 jpg |  png | gif的可以直接上传，类型为php的前端页面则提示 该文件不允许上传，请上传 .jpg|.png|.gif类型的文件  将要上传的php文件后缀改为允许的，然后在burp上面改回原来的 或者是浏览器禁用js后进行上传。  Pass-02&amp;nbsp;&amp;nbsp;&amp;n">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216112001411.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216145355494.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216152224978.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200216164642632.png">
+<meta property="article:published_time" content="2020-02-13T12:39:37.000Z">
+<meta property="article:modified_time" content="2020-02-20T10:42:02.820Z">
+<meta property="article:author" content="lemonl">
+<meta property="article:tag" content="文件上传">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200216112001411.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/02/13/upload-labs/"/>
+
+
+
+
+
+  <title>upload-labs | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/13/upload-labs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">upload-labs</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-13T20:39:37+08:00">
+                2020-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E6%88%98/" itemprop="url" rel="index">
+                    <span itemprop="name">实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Pass-01-nbsp"><a href="#Pass-01-nbsp" class="headerlink" title="Pass-01&nbsp;"></a><font color="#85da46">Pass-01</font>&nbsp;</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上传类型为 jpg |  png | gif的可以直接上传，类型为php的前端页面则提示 <font color="orange">该文件不允许上传，请上传 .jpg|.png|.gif类型的文件</font></p>
+<ul>
+<li>将要上传的php文件后缀改为允许的，然后在burp上面改回原来的</li>
+<li>或者是浏览器禁用js后进行上传。</li>
+</ul>
+<h3 id="Pass-02"><a href="#Pass-02" class="headerlink" title="Pass-02"></a><font color="#85da46">Pass-02</font></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据提示： 本pass在服务端对数据包的MIME进行检查。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查看源码，发现PHP代码只对content-Type进行了检查，在burp里面进行修改。</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20200216112001411.png"></div>
+
+<h3 id="Pass-03"><a href="#Pass-03" class="headerlink" title="Pass-03"></a><font color="#85da46">Pass-03</font></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据提示：本pass禁止上传 .asp|.aspx|.php|.jsp后缀文件。很显然这是一个黑名单绕过的题。可以通过用后缀为<font color="purple">  .php3 .phtml .php5 .phps .pht .htaccess </font>文件进行绕过。</p>
+<h3 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a><font color="#85da46">Pass-04</font></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据提示：本pass禁止上传了很多文件，但是<font color="purple"> .htaccess</font> 文件没有进行限制。于是我们可以来构造 .htaccess文件，内容为  <font color="red"> SetHandler application/x-httpd-php</font>  意思是可以让 .jpg格式文件以php格式进行解析。可以把要上传的php文件后缀名改为.jpg格式就可绕过了。</p>
+<p>需要注意的是：<a target="_blank" rel="noopener" href="https://blog.csdn.net/cmzhuang/article/details/53537591">.htaccess详解及.htaccess参数说明</a></p>
+<h3 id="Pass-05"><a href="#Pass-05" class="headerlink" title="Pass-05"></a><font color="#85da46">Pass-05</font></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;观察之前的源码，都会发现下面的一句代码，但是本题显然没有，所以可以用大小写进行绕过。即上传一个<font color="red">1.PHP</font> 文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_ext</span> = strtolower(<span class="variable">$file_ext</span>);  <span class="comment">// 转换为小写</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Pass-06"><a href="#Pass-06" class="headerlink" title="Pass-06"></a><font color="#85da46">Pass-06</font></h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;观察源码，发现本题没有进行首尾去空格。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_ext</span> = trim(<span class="variable">$file_ext</span>) <span class="comment">// 首尾去空</span></span><br></pre></td></tr></table></figure>
+
+<p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        于是上传一个<font color="red">1.php[空格] </font> 文件</p>
+<h3 id="Pass-07"><a href="#Pass-07" class="headerlink" title="Pass-07"></a><font color="#85da46">Pass-07</font></h3><p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        观察源码，发现本题没有去掉尾部的点。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_ext</span> = deldot(<span class="variable">$file_name</span>); <span class="comment">// 删除文件名末尾的点</span></span><br></pre></td></tr></table></figure>
+
+<p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        于是上传一个<font color="red">1.php. </font> 文件</p>
+<h3 id="Pass-08"><a href="#Pass-08" class="headerlink" title="Pass-08"></a><font color="#85da46">Pass-08</font></h3><p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        观察源码，发现本题没有去处文件名的 ::$DATA</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_ext</span> = str_ireplace(<span class="string">&#x27;::DATA&#x27;</span>, <span class="string">&#x27;&#x27;</span>, <span class="variable">$file_ext</span>); <span class="comment">// 去处字符串：::$DATA</span></span><br></pre></td></tr></table></figure>
+
+<p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​        于是上传一个<font color="red">1.php::$DATA </font> 文件</p>
+<h3 id="Pass-09"><a href="#Pass-09" class="headerlink" title="Pass-09"></a><font color="#85da46">Pass-09</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        仔细查看源码，发现代码执行顺序为：删除文件名末尾的点 — 首尾去空，所以可以构造文件后缀后面为 <font color="purple">. .</font> 即上传一个<font color="red">1.php. . </font> 文件</p>
+<h3 id="Pass-10"><a href="#Pass-10" class="headerlink" title="Pass-10"></a><font color="#85da46">Pass-10</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看源码，发现文件后缀被替换为空，可以利用双写绕过。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$deny_ext</span> = <span class="keyword">array</span>(<span class="string">&quot;php&quot;</span>,<span class="string">&quot;php5&quot;</span>,<span class="string">&quot;php4&quot;</span>,<span class="string">&quot;php3&quot;</span>,<span class="string">&quot;php2&quot;</span>,<span class="string">&quot;html&quot;</span>,<span class="string">&quot;htm&quot;</span>,<span class="string">&quot;phtml&quot;</span>,<span class="string">&quot;jsp&quot;</span>,<span class="string">&quot;jspa&quot;</span>,<span class="string">&quot;jspx&quot;</span>,<span class="string">&quot;jsw&quot;</span>,<span class="string">&quot;jsv&quot;</span>,<span class="string">&quot;jspf&quot;</span>,<span class="string">&quot;jtml&quot;</span>,<span class="string">&quot;asp&quot;</span>,<span class="string">&quot;aspx&quot;</span>,<span class="string">&quot;asa&quot;</span>,<span class="string">&quot;asax&quot;</span>,<span class="string">&quot;ascx&quot;</span>,<span class="string">&quot;ashx&quot;</span>,<span class="string">&quot;asmx&quot;</span>,<span class="string">&quot;cer&quot;</span>,<span class="string">&quot;swf&quot;</span>,<span class="string">&quot;htaccess&quot;</span>);</span><br><span class="line"><span class="variable">$file_name</span> = str_ireplace(<span class="variable">$deny_ext</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$file_name</span>); <span class="comment">// 即那个文件后缀替换为空</span></span><br></pre></td></tr></table></figure>
+
+<p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        于是上传一个<font color="red">1.pphphp </font> 文件</p>
+<h3 id="Pass-11"><a href="#Pass-11" class="headerlink" title="Pass-11"></a><font color="#85da46">Pass-11</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看提示：本pass上传路径可控。 查看源码，发现是白名单判断，文件存储路径为直接拼接而成，可以利用%00截断进行绕过。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$img_path</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.rand(<span class="number">10</span>, <span class="number">99</span>).date(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<div align="center"><img src="https://img-blog.csdnimg.cn/20200216145355494.png"></div>
+
+<p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尽管方法是对的，但是老是提醒上传失败，烦人。</p>
+<p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;后来发现这里应该是php版本的问题了。<font color="purple">%00截断</font> 在5.3.4以后就修复了。</p>
+<h3 id="Pass-12"><a href="#Pass-12" class="headerlink" title="Pass-12"></a><font color="#85da46">Pass-12</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        此题与上一题类似，只是将get改为了post, 故同样也可采用%00截断的方式绕过。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$img_path</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.rand(<span class="number">10</span>, <span class="number">99</span>).date(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br></pre></td></tr></table></figure>
+
+<p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        此时文件路径在 POST数据里面，但是POST数据不能被url自动解码，所以需要在hex数据里面修改。为了方便找到位置，可以做个标记。</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20200216152224978.png"></div>
+
+<p>然后再hex里面找到对应 <font color="purple"> )</font> 的16进制 0d, 将其改为 00 ，即可。</p>
+<p>当然也可以直接对%00进行url解码。</p>
+<p>与上题一样，同样因为版本问题，上传失败。</p>
+<h3 id="Pass-13"><a href="#Pass-13" class="headerlink" title="Pass-13"></a><font color="#85da46">Pass-13</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看提示：本pass检查图标内容开头2个字节。即通过检查文件头判断文件类型。绕过方法为：制作图片木马，将php语句隐藏在图片中，然后执行php.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">制作图片木马：copy 1.jpg /b + 1.php /a webshell.jpg </span><br><span class="line">其中b代表二进制，a代表ascii编码</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pass-14"><a href="#Pass-14" class="headerlink" title="Pass-14"></a><font color="#85da46">Pass-14</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看提示：本pass使用getimagesize()检查是否为图片文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getimagesize() 函数用于获取图像大小及相关信息，成功则返回一个数组。</span><br><span class="line"></span><br><span class="line">语法格式：array getimagesize ( string $filename [, array &amp;$imageinfo ] )</span><br><span class="line"></span><br><span class="line">getimagesize() 函数将测定任何 GIF，JPG，PNG，SWF，SWC，PSD，TIFF，BMP，IFF，JP2，JPX，JB2，JPC，XBM 或 WBMP 图像文件的大小并返回图像的尺寸以及文件类型及图片高度与宽度。</span><br></pre></td></tr></table></figure>
+
+<p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        与上题绕过方式相同。</p>
+<h3 id="Pass-15"><a href="#Pass-15" class="headerlink" title="Pass-15"></a><font color="#85da46">Pass-15</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看提示：本pass使用exif_imagetype()检查是否为图片文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exif_imagetype() 读取一个图像的第一个字节并检查其签名，从而判断一个图像的类型</span><br><span class="line"></span><br><span class="line">语法格式：exif_imagetype ( string $filename ) : int</span><br></pre></td></tr></table></figure>
+
+<p>​    ​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    绕过方法同样与13题相同。</p>
+<h3 id="Pass-16"><a href="#Pass-16" class="headerlink" title="Pass-16"></a><font color="#85da46">Pass-16</font></h3><p>​    ​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    查看提示：本pass重新渲染了图片。查看源码，发现代码先是判断了文件后缀和文件content-Type是否保持一致，然后用 imagecreatefrom[jpg][gif][png] 函数判断是否是图片格式，如果是的话再用image[jpg][gif][png]进行二次渲染。</p>
+<p>​    ​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    本题较为困难，目前我只能完全理解上传gif格式文件，即像上述方法一样构造图片木马，然后将成功上传的图片下载到本地，对比二次渲染图片和原来上传的图片，会发现末尾的PHP代码消失了，重新将PHP代码写入到两张图片相同的地方，此时便是真正成功上传了带有PHP代码的图片了。至于png和JPEG格式的，参考链接 <a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2657">https://xz.aliyun.com/t/2657</a></p>
+<h3 id="Pass-17"><a href="#Pass-17" class="headerlink" title="Pass-17"></a><font color="#85da46">Pass-17</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看提示：需要代码审计。查看源码发现，代码执行顺序为： 现将文件上传到服务器端，如果文件类型在白名单之类就重命名，不在的话就用UNlink进行删除。看别人写wp，都将这个叫做条件竞争。这个是之前没有接触过的。    </p>
+<p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        绕过方法： 首先在burp不断发送上传webshell的数据包，然后不断在浏览器中访问，可以通过竞争访问到文件，但是缺陷是概率太低，经常会返回404.</p>
+<p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        之后找到了一个较为方便的方法(参照大佬)：</p>
+<ul>
+<li><p>用burp开启两个intruder模块，一个用于重复上传，另一个用于重复访问</p>
+<ol>
+<li><p>先设置上传请求，文件名为 1.php</p>
+</li>
+<li><p>无参数需要爆破，故只需重复发起请求，设置访问次数为5000次，线程为50个</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20200216164642632.png"></div></li>
+<li><p>浏览器构造payload：<a target="_blank" rel="noopener" href="http://web-labs.rinue.top/upload-labs/upload/1.php">http://web-labs.rinue.top/upload-labs/upload/1.php</a> 进行访问，然后用burp抓包</p>
+</li>
+<li><p>burp抓包后发送至intruder模块，然后设置payload，和第二步参数设置相同</p>
+</li>
+<li><p>设置好两个模块后同时启动，观察结果，当访问成功的时候，会返回PHP的配置信息。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Pass-18"><a href="#Pass-18" class="headerlink" title="Pass-18"></a><font color="#85da46">Pass-18</font></h3><p>​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;​        本关对文件后缀做了白名单的判断，然后检查文件大小，文件上传后对文件重新命名，同样存在条件竞争的漏洞。仍然利用burp不断上传图片马的数据包，由于条件竞争，程序会出现来不及rename的情况，从而上传成功。</p>
+<h3 id="Pass-19"><a href="#Pass-19" class="headerlink" title="Pass-19"></a><font color="#85da46">Pass-19</font></h3><p>​​&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        查看提示：本pass的取文件名通过$_POST来获取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pathinfo() 函数以数组的形式返回文件路径的信息</span><br><span class="line"></span><br><span class="line">语法：pathinof(path, options)</span><br><span class="line">options : PATHINFO_DIRNAME - 只返回 dirname;PATHINFO_BASENAME - 只返回 basename;</span><br><span class="line">PATHINFO_EXTENSION - 只返回 extension</span><br><span class="line"></span><br><span class="line">举例：&lt;?php print_r(pathinfo(&quot;/testweb/test.txt&quot;));?&gt;</span><br><span class="line">输出：</span><br><span class="line">    Array</span><br><span class="line">    (</span><br><span class="line">    [dirname] =&gt; /testweb</span><br><span class="line">    [basename] =&gt; test.txt</span><br><span class="line">    [extension] =&gt; txt</span><br><span class="line">    )</span><br><span class="line">    </span><br><span class="line">move_uploaded_file函数会忽略文件末尾的 /. </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以利用move_uploaded_file的 \x00截断。即 post: save_name = 1.php%00.jpg</li>
+<li>post: save_name = 1.php/. ，这样file_ext的值为空，可以绕过黑名单，函数忽略/. ，保存的文件类型为 .php</li>
+</ul>
+<hr>
+<h3 id="经典题型"><a href="#经典题型" class="headerlink" title="经典题型"></a><font color="#85da46">经典题型</font></h3><ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/-chenxs/p/11953933.html">perl和ARGV任意文件读取</a></li>
+</ol>
+<p><font color="red">有哪些地方有问题的，望各位大佬指教。谢谢了！！！！</font></p>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" rel="tag"><i class="fa fa-tag"></i>文件上传</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/08/python%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A5%87%E6%B7%AB%E5%B7%A7%E8%AE%A1/" rel="next" title="python的一些奇淫巧计">
+                <i class="fa fa-chevron-left"></i> python的一些奇淫巧计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/15/xss-labs/" rel="prev" title="xss-labs">
+                xss-labs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-01-nbsp"><span class="nav-number">1.</span> <span class="nav-text">Pass-01 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-02"><span class="nav-number">2.</span> <span class="nav-text">Pass-02</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-03"><span class="nav-number">3.</span> <span class="nav-text">Pass-03</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-04"><span class="nav-number">4.</span> <span class="nav-text">Pass-04</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-05"><span class="nav-number">5.</span> <span class="nav-text">Pass-05</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-06"><span class="nav-number">6.</span> <span class="nav-text">Pass-06</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-07"><span class="nav-number">7.</span> <span class="nav-text">Pass-07</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-08"><span class="nav-number">8.</span> <span class="nav-text">Pass-08</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-09"><span class="nav-number">9.</span> <span class="nav-text">Pass-09</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-10"><span class="nav-number">10.</span> <span class="nav-text">Pass-10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-11"><span class="nav-number">11.</span> <span class="nav-text">Pass-11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-12"><span class="nav-number">12.</span> <span class="nav-text">Pass-12</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-13"><span class="nav-number">13.</span> <span class="nav-text">Pass-13</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-14"><span class="nav-number">14.</span> <span class="nav-text">Pass-14</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-15"><span class="nav-number">15.</span> <span class="nav-text">Pass-15</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-16"><span class="nav-number">16.</span> <span class="nav-text">Pass-16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-17"><span class="nav-number">17.</span> <span class="nav-text">Pass-17</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-18"><span class="nav-number">18.</span> <span class="nav-text">Pass-18</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pass-19"><span class="nav-number">19.</span> <span class="nav-text">Pass-19</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E9%A2%98%E5%9E%8B"><span class="nav-number">20.</span> <span class="nav-text">经典题型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

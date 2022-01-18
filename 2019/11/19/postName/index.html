@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="kali," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="用虚拟机安装Kali系统(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。) 这主要分为以下三个步骤： 一.安装VMware虚拟机（官网下载）&amp;nbsp;&amp;nbsp;注意: 1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)  1.https:&#x2F;&#x2F;www.cnblogs.com&#x2F;v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装kali">
+<meta property="og:url" content="http://example.com/2019/11/19/postName/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="用虚拟机安装Kali系统(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。) 这主要分为以下三个步骤： 一.安装VMware虚拟机（官网下载）&amp;nbsp;&amp;nbsp;注意: 1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)  1.https:&#x2F;&#x2F;www.cnblogs.com&#x2F;v">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2019-11-19T13:43:11.000Z">
+<meta property="article:modified_time" content="2019-12-02T15:24:12.573Z">
+<meta property="article:author" content="lemonl">
+<meta property="article:tag" content="kali">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2019/11/19/postName/"/>
+
+
+
+
+
+  <title>安装kali | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/11/19/postName/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">安装kali</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-19T21:43:11+08:00">
+                2019-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  765
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="用虚拟机安装Kali系统"><a href="#用虚拟机安装Kali系统" class="headerlink" title="用虚拟机安装Kali系统"></a>用虚拟机安装Kali系统</h2><p>(要安装这个虚拟机，电脑性能要过关，起码内存得大于4G，不然会卡到运行不了任何东西,闪退，死机是常有的事。)</p>
+<p>这主要分为以下三个步骤：</p>
+<h5 id="一-安装VMware虚拟机（官网下载）"><a href="#一-安装VMware虚拟机（官网下载）" class="headerlink" title="一.安装VMware虚拟机（官网下载）"></a>一.安装VMware虚拟机（官网下载）</h5><p>&nbsp;&nbsp;<font size=4 color='red'>注意:</font></p>
+<h6 id="1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的"><a href="#1-在安装过程中需要输入秘钥-给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：-当然还是建议大家自己买的" class="headerlink" title="1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)"></a>1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</h6><pre><code>  1.https://www.cnblogs.com/vhhi/p/10202204.html，里面有一些免费的秘钥 ，但一定要看好版本；
+  2.链接：https://pan.baidu.com/s/1yvPkmLVMzYfhtayqj7YE-g 提取码：qyxj （下载的软件会自动生成秘钥，但是需要一个一个试，比较麻烦。不过，成功的话还是很有成就感的。）
+</code></pre>
+<span id="more"></span>
+
+<h6 id="2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"><a href="#2-电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。" class="headerlink" title="2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。"></a>2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</h6><pre><code>提供一个链接：https://zhidao.baidu.com/question/374340852330543564.htmlword=vm%E8%99%9A%E6%8B%9F%E6%9C%BAinter%20vt-x&amp;ms=1&amp;rid=8282772747998700377
+</code></pre>
+<p>他这个资料里面说如果是4G的内存就分2G给虚拟机，这个并不可取，虽然是4G，但是实际上的内存会小于4G，也就是说你若分了2G给虚拟机，那么你的主机几乎就是歇菜的。</p>
+<p>这个里面也还是有一些不同的，每个电脑进入bios的方法不同，我的是联想，当时在外面无论是按F1、F2、还是F1+Fn等等，都没有用，最后还是在里面进的，所以最好查查自己电脑的进入BIOS的方式，最后提醒一下，下图中BIOS中的设置顺序是不同的，需要耐心查找。<br><img src="https://img-blog.csdnimg.cn/20190407004823233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_5,color_FFFFFF,t_20" alt="在这里插入图片描述"></p>
+<h6 id="3-进入VMware的时候会让输入用户名和密码"><a href="#3-进入VMware的时候会让输入用户名和密码" class="headerlink" title="3.进入VMware的时候会让输入用户名和密码"></a>3.进入VMware的时候会让输入用户名和密码</h6><pre><code>linux初始的用户名是root，密码就是安装系统时的密码；如果当初安装系统的时候没有设置密码，那么密码为toor;也可以在终端sudo passwd root，然后进去重置密码就行。
+</code></pre>
+<h5 id="二-下载Kali-Linux系统安装包"><a href="#二-下载Kali-Linux系统安装包" class="headerlink" title="二.下载Kali Linux系统安装包"></a>二.下载Kali Linux系统安装包</h5><pre><code>这个直接在官网下载就好了
+</code></pre>
+<h5 id="三-进行安装"><a href="#三-进行安装" class="headerlink" title="三.进行安装"></a>三.进行安装</h5><p>具体操作：<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html">https://jingyan.baidu.com/article/9faa7231b1ffb9473d28cb7e.html</a><br> (这一部分耗时较长，可以玩点其他的东西)</p>
+<p>对了，再说一下进入Kali后如何安装VMware Tools吧！<br>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39536876/article/details/79501471">https://blog.csdn.net/qq_39536876/article/details/79501471</a><br><img src="https://img-blog.csdnimg.cn/20190407010932789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上图所示部分可能会出现一点小错误，记得将输入改为“sudo ./ vmware-install.pl”就好了。</p>
+<p><font color='orange'>以上的所有问题均为我在安装时候出现的bug，如果你遇到了什么解决不了的问题，欢迎在下方留言，我一定帮你找到解决方法。为了防止入坑，关注我吧，我会实时更新博客，让你可以和我这个信息安全方面的小白共同进步。</font></p>
+<hr>
+<p>网站：i春秋，黑白之道，绿盟，freebuf,<br>刷题平台：ctf编码，geek学习吧，bugku,实验吧，<br>渗透式导航：<a target="_blank" rel="noopener" href="https://www.shentoushi.top/">https://www.shentoushi.top/</a></p>
+<hr>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20190407011756813.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzMzcyODYy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kali/" rel="tag"><i class="fa fa-tag"></i>kali</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/19/%E7%AE%80%E5%8D%95%E7%9A%84makedown%E7%BC%96%E8%AF%91%E5%99%A8/" rel="next" title="简单的makedown编译器">
+                <i class="fa fa-chevron-left"></i> 简单的makedown编译器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/23/bugku-Web%EF%BC%881-20%EF%BC%89/" rel="prev" title="bugku - Web（1~20）">
+                bugku - Web（1~20） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Kali%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">用虚拟机安装Kali系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80-%E5%AE%89%E8%A3%85VMware%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%EF%BC%89"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一.安装VMware虚拟机（官网下载）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%9C%A8%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E7%A7%98%E9%92%A5-%E7%BB%99%E7%9A%84%E7%BD%91%E5%9D%80%E6%93%8D%E4%BD%9C%E4%B8%AD%E7%9A%84%E7%A7%98%E9%92%A5%E7%94%A8%E4%B8%8D%E4%BA%86%EF%BC%8C%E5%9C%A8%E6%AD%A4%E6%8E%A8%E8%8D%90%E5%87%A0%E4%B8%AA%E6%96%B9%E6%B3%95%E4%BA%B2%E8%AF%95%E6%9C%89%E6%95%88%EF%BC%9A-%E5%BD%93%E7%84%B6%E8%BF%98%E6%98%AF%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E8%87%AA%E5%B7%B1%E4%B9%B0%E7%9A%84"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">1.在安装过程中需要输入秘钥,给的网址操作中的秘钥用不了，在此推荐几个方法亲试有效：(当然还是建议大家自己买的)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E7%94%B5%E8%84%91%E6%9C%AC%E8%BA%AB%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%A2%AB%E7%A6%81%E7%94%A8VMware%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%8C%E8%BF%99%E4%B8%AA%E7%9C%9F%E7%9A%84%E6%98%AF%E8%AE%A9%E4%BA%BA%E5%A4%B4%E7%A7%83%EF%BC%8C%E4%B8%8D%E8%BF%87%EF%BC%8C%E6%80%BB%E6%98%AF%E4%BC%9A%E6%9C%89%E5%8A%9E%E6%B3%95%E7%9A%84%E3%80%82"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">2.电脑本身可能会被禁用VMware虚拟机，这个真的是让人头秃，不过，总是会有办法的。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E8%BF%9B%E5%85%A5VMware%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%9A%E8%AE%A9%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">3.进入VMware的时候会让输入用户名和密码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C-%E4%B8%8B%E8%BD%BDKali-Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">二.下载Kali Linux系统安装包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89-%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">三.进行安装</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

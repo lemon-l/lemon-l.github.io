@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机网络," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章  概述一、计算机网络概念、分类 计算机网络是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路连接，在网络操作系统，网络管理软件及网络通信协议管理和协调下，实现资源共享和信息传递的计算机系统。 按照网络的作用范围进行分类：  广域网WAN：作用范围通常为几十到几千公里 城域网MAN：作用距离约5~公里 局域网LAN：局限在较小的范围 个人局域网PAN：范围很小，大约在10米">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络（期末复习 1~3章）">
+<meta property="og:url" content="http://example.com/2020/12/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-1-3%E7%AB%A0%EF%BC%89/index.html">
+<meta property="og:site_name" content="lemon&#39;s Blog">
+<meta property="og:description" content="第一章  概述一、计算机网络概念、分类 计算机网络是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路连接，在网络操作系统，网络管理软件及网络通信协议管理和协调下，实现资源共享和信息传递的计算机系统。 按照网络的作用范围进行分类：  广域网WAN：作用范围通常为几十到几千公里 城域网MAN：作用距离约5~公里 局域网LAN：局限在较小的范围 个人局域网PAN：范围很小，大约在10米">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.chenyoude.com/Python%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/150-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84.png?x-oss-process=style/watermark">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226172731538.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226173139459.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226173251932.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226174321398.png?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226175815870.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020122618174112.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226182144890.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226205431342.png?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201226205602136.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202101021538372.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227101906269.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227102157810.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227111557577.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227112044917.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227112044917.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227120641975.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227121111877.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227124125498.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227155409300.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227140740307.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227141655880.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227154119379.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227154549921.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227152524394.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020122715285880.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227160929163.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227163805855.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227171313170.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227170000963.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227170638250.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227180018692.png?">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227182038846.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227183801162.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020122718434040.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227185435225.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227194127504.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227165524194.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201227210655226.png">
+<meta property="article:published_time" content="2020-12-27T10:29:38.000Z">
+<meta property="article:modified_time" content="2021-01-02T07:49:01.011Z">
+<meta property="article:author" content="lemonl">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.chenyoude.com/Python%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/150-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84.png?x-oss-process=style/watermark">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2020/12/27/计算机网络（期末复习-1-3章）/"/>
+
+
+
+
+
+  <title>计算机网络（期末复习 1~3章） | lemon's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lemon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Normally Insane</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-1-3%E7%AB%A0%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lemon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络（期末复习 1~3章）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-27T18:29:38+08:00">
+                2020-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章  概述"></a>第一章  概述</h2><p><font color="red">一、计算机网络概念、分类</font></p>
+<p>计算机网络是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路连接，在网络操作系统，网络管理软件及网络通信协议管理和协调下，实现资源共享和信息传递的计算机系统。</p>
+<p>按照网络的作用范围进行分类：</p>
+<ol>
+<li>广域网WAN：作用范围通常为几十到几千公里</li>
+<li>城域网MAN：作用距离约5~公里</li>
+<li>局域网LAN：局限在较小的范围</li>
+<li>个人局域网PAN：范围很小，大约在10米左右</li>
+</ol>
+<span id="more"></span>
+<p>按照网络的使用者进行分类：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公用网（按规定缴纳费用）和专用网（免费试用）</p>
+<p><font color="red">二、两种通信方式（C/S P2P) </font></p>
+<p>C/S: 服务器-客户机，C/S结构通常采取两层结构。服务器负责数据的管理，客户机完成与用户的交互任务。</p>
+<p>P2P：对等连接。又称点对点通信，指两台主机在通信时并不区分哪一个是服务请求放哪一个是服务提供方。只要两台主机都运行了对等连接软件，它们就可以进行平等的、对等连接通信。</p>
+<p><font color="red"> 三、互联网的组成、分组交换技术的优点和要点 </font></p>
+<p>互联网具有两个重要基本特点：连通性和共享性<br>因特网的核心部分由大量网络和路由器组成，为边缘部分提供连通性和交换服务。</p>
+<div align="center"><img src="http://www.chenyoude.com/Python%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/150-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90-%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84.png?x-oss-process=style/watermark"></div>
+
+<center>分组交换技术</center>
+
+<p>在分组交换网络中，采用存储转发方式工作，数据以短的分组形式传送。如果一个源站有一个长的报文要发送，该报文就会被分割成一系列的分组。每个分组包含用户数据的一部分加上一些控制信息。控制信息至少要包括网络为了把分组送到目的地做路由选择所需要的信息。在路径上的每个结点，分组被接收，短时间存储，然后传递给下一结点。</p>
+<p>分组交换奇数的优点：高效，灵活，迅速，可靠。</p>
+<p>电路交换 —— 整个报文的比特流连续的从源点直达终点，好像在一个管道中传送</p>
+<p>报文交换 —— 整个报文先传送到相邻结点，全部存储下来后查找转发表，转发到下一个结点</p>
+<p>分组交换  —— 单个分组传送到相邻接点，存储下来后查找转发表，转发到下一个结点</p>
+<p> <font color="red">四、协议的概念、三要素</font></p>
+<p> 网络协议，简称为协议，是为进行网络中的数据交换而建立的规则、标准或约定。</p>
+<p> 协议的三个组成要素：</p>
+<ol>
+<li>语法：数据与控制信息的结构或格式</li>
+<li>语义：需要发出何种控制信息，完成何种动作以及做出何种响应</li>
+<li>同步：事件实现顺序的详细说明</li>
+</ol>
+<p><font color="red"> 五、网络的主要性能指标的含义、计算机相关应用（带宽、时延、往返时延、利用率等）</font></p>
+<ol>
+<li><p>速率<br>速率是计算机网络中最重要的一个性能指标，指的是数据的传送速率，也称为数据率或比特率。单位为bit/s 或 kbit/s、Mbits/s、Gbit/s等。</p>
+</li>
+<li><p>带宽<br>用来表示网络中某通道所传送数据的能力。表示在单位时间内网络中的某信道所能通过的“最高数据率”，单位是bit/s。在时间轴上信号的宽度随带宽的增大而变窄</p>
+</li>
+<li><p>吞吐量<br>表示单位时间内通过某个网络（或信道、接口）的数据量。吞吐受网络的带宽或网络的额定速率的限制。</p>
+</li>
+<li><p>时延<br>时延是指数据（一个报文或分组，甚至比特）从网络（或链路）的一端传送到另一端所需的时间。<br>网络中的时延：发送时延、传播时延、处理时延、排队时延</p>
+<ul>
+<li><p>发送时延</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201226172731538.png"></div></li>
+<li><p> 传播时延</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201226173139459.png"></div>
+<br /></li>
+<li><p>总时延</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201226173251932.png"></div></li>
+</ul>
+</li>
+</ol>
+<p>例：</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201226174321398.png?"></div>
+
+<p>带宽的变化会引起发送时延的变化；上网时感觉网络时快时慢，主要是（排队时延）引起的；</p>
+<ol>
+<li><p>时延带宽积<br>链路的时延带宽积又称为以比特为单位的链路长度<br><font color="red" font-weight="bold">时延带宽积 = 传播时延 X 带宽</font></p>
+</li>
+<li><p>往返时间RTT<br>往返时间表示从发送方发送数据开始，到发送方收到来自接收方的确认，总共经历的时间。</p>
+</li>
+<li><p>利用率<br>分为信道利用率和网络利用率<br>信道利用率：指出某信道有百分之几的时间是被利用的（有数据通过）<br>网络利用率：全网络的信道利用率的加权平均值</p>
+</li>
+</ol>
+<p>信道利用率并非越高越好。当某信道的利用率增大时，该信道引起的时延也就迅速增加。</p>
+<p> <font color="red">六、体系结构的概念、标准，OSI和TCP/IP的层次模型</font></p>
+<center>计算机系统结构</center>
+
+<p>计算机网络的体系结构是计算机网络的各层及其协议的集合，体系结构就是这个计算机网络及其部件所应完成的功能的精确定义。</p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201226175815870.png"></div>
+
+
+<center>具有五层协议的体系结构</center>
+
+<div align="center"><img src="https://img-blog.csdnimg.cn/2020122618174112.png"></div>
+
+
+
+<center>TCP/IP体系结构的另一种表达方法</center>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201226182144890.png"></div>
+
+<p>例题：<br>1-10、试在下列条件下比较电路交换和分组交换。要传送的报文共x（bit），从源站到目的站共经过k段链路，每段链路的传播时延为d（s），数据率为C（bit/s）。在电路交换时电路的建立时间为s（s）。在分组交换时分组长度为p（bit），且各结点的排队等待时间可忽略不计。问在怎样的条件下，分组交换的时延比电路交换的要小？</p>
+<p>解：<div align="center"><img width="500" src="https://img-blog.csdnimg.cn/20201226205431342.png?"></div></p>
+<p>1-11、在上题的分组交换网中，设报文长度和分组长度分别为x和（p+h）（bit），其中p为分组的数据部分的长度，而h为每个分组所带的控制信息固定长度，与p的大小无关。通信的两端共经过k段链路。链路的数据率为b（bit/s），但传播时延和结点的排队时间均可忽略不计。若打算使总的时延为最小，问分组的数据部分长度p应取为多大？</p>
+<p>解：<div align="center"><img width="400" src="https://img-blog.csdnimg.cn/20201226205602136.png"></div></p>
+<h2 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h2><div align="center"><img width="400" src="https://img-blog.csdnimg.cn/202101021538372.png"></div>
+
+<p><font color="red"> 一、 物理层接口的基本特性</font></p>
+<p> 机械特性：指明接口所用接线器的形状和尺寸、引线数目和排列、固定和锁定装置等（<code>语法</code>）<br> 电气特性：指明在接口电缆的各条线上出现的电压的范围（<code>语义</code>）<br> 功能特性：指明某条线上出现的某一电平的电压表示何种意义<br> 过程特性：指明对于不同功能的各种可能时间的出现顺序（<code>同步</code>）</p>
+<p> <font color="red">二、香农公式，信道中的极限信息传输速率和带宽及信噪比的关系</font></p>
+<p>码元：承载信息量的基本信号单位</p>
+<p>限制码元在信道上的传输速率的因素有：信道能够通过的频率范围、信噪比</p>
+<p>在任何信道中，码元传输的速率是有上限的，否则就会出现码间串扰的问题，使接收端对码元的判决成为不可能。如果信道的频带越宽，也就是能够通过的信号高频分量越多，那么就可以用更高的速率传送码元而不出现码间串扰。</p>
+<p><font color="#b4d">信噪比就是信号的平均功率和噪声的平均功率之比，常记为S/N，并用分贝（dB）作为度量单位</font></p>
+<div align="center"><img src="https://img-blog.csdnimg.cn/20201227101906269.png"></div>
+
+
+<p><font color="#b4d">香农公式</font></p>
+<p>信道的极限信息传输速率C可表达为：</p>
+<center><img src="https://img-blog.csdnimg.cn/20201227102157810.png"></center>
+
+<p><font color="red">注：</font><br>    <center><strong>W为信道的带宽（以Hz为单位）；<br>    S为信道内所传信号的平均功率；<br>    N为信道内部的高斯噪声功率；</strong></center></p>
+<p>信道的带宽或信道中的信噪比越大，则信息的极限传输速率就越高。实际信道上能够到达的信息传输速率要比香农的极限传输速率低不少。</p>
+<p><font color="red"> 三、 物理传输介质的分类（导引、非导引）及导引型传输介质的特性</font></p>
+<p>传输媒体可分为两大类：</p>
+<ol>
+<li>导引型传输媒体：电磁波被导引沿着固体媒体（铜线或光纤）传播；举例：<code>架空明线、双绞线、同轴电缆、光纤</code></li>
+<li>非导引型传输媒体：指自由空间。电磁波的传输常被称为无线传输；举例：<code>短波通信、无线电微波通信、卫星通信</code></li>
+</ol>
+<p>导引型传输介质的特性：</p>
+<p><strong>架空明线</strong></p>
+<p>是指平行且互相分离或绝缘的架空裸线线路，通常采用铜线或铝线等金属导线</p>
+<p><strong>双绞线</strong></p>
+<p>两根相互绝缘的铜线并排绞和在一起，减少对相邻导线的电磁干扰。（STP）屏蔽双绞线（UTP）非屏蔽双绞线</p>
+<p><strong>同轴电缆</strong></p>
+<p>抗电磁干扰性能好，安装复杂，成本低；现在主要用于频带传输，如有线电视</p>
+<p><strong>光纤</strong></p>
+<p>基本原理是利用光的全反射；传输介质中性能最好、应用前途最广泛的一种；通信容量大、低损耗、宽频带、高数据传输速率、低误码率、安全保密性好、体积小；多模光纤和单模光纤（性能更好）</p>
+<p><font color="red"> 四、 通信的三种基本方式（单向通信、双向交换通信、双向同时通信） </font></p>
+<p>信道：一般用来表示向某一个方向传送信息的媒体</p>
+<ol>
+<li><p>单向通信（单工通信）—— 只能有一个方向的通信而没有反方向的交互</p>
+</li>
+<li><p>双向交替通信（半双工通信）—— 通信的双方都可以发送信息，但不能双方同时发送、接收</p>
+</li>
+<li><p>双向同时通信（全双工通信）—— 通信的双方可以同时发送和接收信息</p>
+</li>
+</ol>
+<p><font color="red"> 五、信道复用技术的分类及其主要特征（FDM、TDM、 WDM、 CDMS等）</font></p>
+<p>复用是通信技术中的基本概念，它允许用户使用一个共享信道进行通信，降低成本，提高利用率。</p>
+<p><strong>频分复用（FDM）</strong></p>
+<p>频分复用的所有用户在同样的时间占用不同的带宽（频率带宽而不是数据的发送速率）资源</p>
+<center><img src="https://img-blog.csdnimg.cn/20201227111557577.png"></center>
+
+<p><strong>时分复用（TDM）</strong></p>
+<p>时分复用则是将时间划分为一段段等长的时分复用帧。每一个时分复用的用户在每一个TDM帧中占用固定序号的时隙。每一个用户所占用的时隙是周期性地出现。时分复用的所有用户是在不同的时间占用相同的频带宽度。</p>
+<center><img src="https://img-blog.csdnimg.cn/20201227112044917.png"></center>
+
+<p>时分复用可能会造成线路资源的浪费。</p>
+<p><strong>统计时分复用（STDM）—— 不太重要</strong></p>
+<p>STDM不是固定分配时隙，而是按需分配时隙，可提高线路的利用率。</p>
+<p><strong>波分复用（WDM）</strong></p>
+<p>波分复用就是光的频分复用。使用一根光纤来同时传输多个光载波信号。</p>
+<center><img src="https://img-blog.csdnimg.cn/20201227112044917.png"></center>
+
+<p><strong>码分复用（CDM）</strong></p>
+<p>常用的名词是码分多址CSMA，个用户使用经过特殊挑选的码型，因此彼此不会造成干扰。</p>
+<p>每一个比特时间划分为m个短的间隔，称为码片。</p>
+<p>每个站被指派一个唯一的m bit码片序列。</p>
+<ul>
+<li>如发送比特1，则发送自己的m bit码片序列</li>
+<li>如发送比特0，则发送该码片序列的二进制反码</li>
+</ul>
+<p> <font color="red">六、CDMA的简单应用</font></p>
+<p>特点：</p>
+<ol>
+<li>每个站分配的码片序列不仅必须各不相同，并且还必须互相正交</li>
+<li>在实用的系统中是使用伪随机码序列</li>
+</ol>
+<p><strong>码片序列的正交关系</strong></p>
+<p>令向量S表示站S的码片向量，令T表示其他任何站的码片向量。两个不同站的码片序列正交，就是向量S和T的规格化内积等于0.</p>
+<center><img src="https://img-blog.csdnimg.cn/20201227120641975.png"></center>
+
+<ul>
+<li>任何一个码片向量和该码片向量自己的规格化内积都是1</li>
+<li>一个码片向量和该码片反码的向量的规格化内积值时-1</li>
+</ul>
+<p>CDMA的工作原理</p>
+<center><img width="600" src="https://img-blog.csdnimg.cn/20201227121111877.png"></center>
+
+<p>探究问题：</p>
+<hr>
+<ol>
+<li>光纤的带宽很宽，能不能同时传送多路信号？<br>答：能。多模光纤有多路信息通道，同时可以传输多路信号。</li>
+<li>自由空间同时有很多电磁波信号在传输，为什么能正常通信？<br>答：<code>没有找到答案，希望看到的人可以解答。谢谢！</code></li>
+</ol>
+<p>例题：</p>
+<hr>
+<ol>
+<li><p><code>通信系统的一般模型中，（发送器、接收器）是可有可无的</code></p>
+</li>
+<li><p><code>用香农公式计算一下，假定信道带宽为为3100Hz，最大信道传输速率为35Kb/ｓ，那么若想使最大信道传输速率增加６０％，问信噪比Ｓ/Ｎ应增大到多少倍？如果在刚才计算出的基础上将信噪比Ｓ/Ｎ应增大到多少倍？如果在刚才计算出的基础上将信噪比Ｓ/Ｎ再增大到十倍，问最大信息速率能否再增加２０％？</code></p>
+<p> 解：<center><img width="400" src="https://img-blog.csdnimg.cn/20201227124125498.png"></center></p>
+</li>
+<li><p><code>共有四个站进行码分多址CDMA通信。四个站的码片序列为：A:(-1 -1 -1 +1 +1 -1 +1 +1)        B:(-1 -1 +1 -1 +1 +1 +1 -1)   C:(-1 +1 -1 +1 +1 +1 -1 -1)        D:(-1 +1 -1 -1 -1 -1 +1 -1) 现收到这样的码片序列：(-1 +1 -3 +1 -1 -3 +1 +1)。问哪个站发送数据了？发送数据的站发送的1还是0</code></p>
+ <pre>解： A：（+1-1+3+1-1+3+1+1）/ 8 = 1，A发送1；
+      B：（+1-1-3-1-1-3+1-1）/ 8  = -1，B发送0；
+      C：（+1+1+3+1-1-3-1-1）/ 8 = 0，C没有发送；
+      D：（+1+!+3-1+1+3+1-1）/ 8 = 1，D发送1； </pre></li>
+</ol>
+<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章  数据链路层"></a>第三章  数据链路层</h2><center><img width="400" src="https://img-blog.csdnimg.cn/20201227155409300.png"></center>
+
+<p>数据链路层使用的信道主要有以下两种类型：</p>
+<ol>
+<li>点对点信道</li>
+<li>广播信道</li>
+</ol>
+<center>数据链路层的简单模型</center>
+<center><img width="400" src="https://img-blog.csdnimg.cn/20201227140740307.png"></center>
+
+<p>链路：是一条无源的点到点的物理线路段，中间没有任何其他的交换结点</p>
+<p>数据链路：除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。</p>
+<p><font color="red">一、数据链路层的三个基本问题</font></p>
+<p>为什么这三个问题都必须加以解决？</p>
+<p>答：封装成帧就是在一段数据前后分别添加首部和尾部。接收端以便从收到的比特流中识别帧的开始与结束，帧定界是分组交换的必然要求；透明传输避免消息符号与帧定界符号相混淆；差错检测防止差错的无效数据帧，浪费网络资源。</p>
+<ol>
+<li><p>封装成帧</p>
+</li>
+<li><p>透明传输<br>解决透明传输问题：字节填充或字符填充</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227141655880.png"></center></li>
+<li><p>差错检测</p>
+</li>
+</ol>
+<p><font color="red">二、点对点协议PPP及其透明传输的实现（同步传输）</font></p>
+<p>PPP协议应满足的需求：</p>
+<ul>
+<li>简单</li>
+<li>封装成帧</li>
+<li> 透明性</li>
+<li>多种网络层协议</li>
+<li>多种类型链路</li>
+<li> 差错检测</li>
+<li>检测连接状态</li>
+<li>最大传送单元</li>
+<li>网络层地址协商</li>
+<li>数据压缩协商</li>
+</ul>
+<p>PPP协议三个组成部分：</p>
+<ol>
+<li>一个将IP数据报封装到串行链路的方法</li>
+<li>链路控制协议LCP</li>
+<li>网络控制协议NCP</li>
+</ol>
+<p>PPP协议的帧格式：</p>
+<p>PPP帧的首部和尾部分别为4个字段和2个字段;PPP是面向字节的，所有的PPP帧的长度都是整数字节</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227154119379.png"></center>
+
+<p>透明传输问题：</p>
+<ul>
+<li>当PPP用在同步传输链路时，协议规定采用硬件来完成比特填充</li>
+<li>当PPP用在异步传输时，就使用一种特殊的字符填充法</li>
+</ul>
+<p>字符填充：</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227154549921.png"></center>
+
+<p>零比特填充：</p>
+<ul>
+<li>在发送端，只要发现有5个连续1，则立即添加一个0；</li>
+<li>接收端对帧中的比特流进行扫描。每当发现5个连续1时，就把这5个连续1后的一个0删除</li>
+</ul>
+<p><font color="#b4d">PPP协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容</font></p>
+<p><font color="red">三、差错检测技术（CRC）</font></p>
+<table>
+<thead>
+<tr>
+<th>被除数</th>
+<th>除数</th>
+<th>商</th>
+<th>余数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>M（k + 1位）</td>
+<td>P（n  + 1位）</td>
+<td>Q</td>
+<td>R（n位）</td>
+</tr>
+<tr>
+<td>则：M - R = P * Q    模2除法： M + R = P * Q   M * 2^n^ + R^’^ = P * Q^’^</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><font color="#b4d">循环冗余检验的原理</font></p>
+<ol>
+<li>在发送端，先把数据划分为组。假定每组k个比特，用M表示；</li>
+<li>用二进制的模2运算进行 2^n^ 乘M的运算，这相当于在M后面添加几个0；</li>
+<li>得到的（k + n）位的数除以实现选定好的长度为（n + 1）位的除数P，得出商是Q，而余数为R，余数R比除数P少1位，即R是n位</li>
+<li>将余数R作为冗余码拼接在数据M后面发送出去</li>
+</ol>
+<p>例题：</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227152524394.png"></center>
+<center><img width="500" src="https://img-blog.csdnimg.cn/2020122715285880.png"></center>
+
+<p>接收端对收到的每一帧进行CRC检验</p>
+<ul>
+<li>若得出的余数R = 0,则判定这个帧没有差错，就接受</li>
+<li>若余数R ≠ 0，则判定这个帧由差错，就丢弃。</li>
+</ul>
+<p><code>仅用循环冗余检验CRC差错检测技术只能做到无差错接收，要做到“可靠传输”就必须再加上确认和重传机制</code></p>
+<p><font color="red">四、局域网的拓扑类型、特点等</font></p>
+<p>局域网拓扑结构有：星形网、总线网、环形网</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227160929163.png"></center>
+
+<p>适配器（网卡）的作用：</p>
+<ul>
+<li>进行串行 / 并行转换</li>
+<li>对数据进行缓存</li>
+<li>在计算机的操作系统安装设备驱动程序</li>
+<li>实现以太网协议<center>计算机通过适配器和局域网进行通信</center>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227163805855.png"></center></li>
+</ul>
+<p>集线器：</p>
+<ul>
+<li>集线器是使用电子器件来模拟实际电缆线的工作，因此整个系统仍然像一个传统的以太网那样运行</li>
+<li>使用集线器的以太网在逻辑上仍是一个总线网，各工作站使用的还是CSMA/CD协议，并共享逻辑上的总线。</li>
+<li>集线器很像一个多接口的转发器，工作在物理层</li>
+<li>集线器采用了专门的芯片，进行自适应串音回波抵消，减少了近端串音</li>
+</ul>
+<p><font color="red">五、CSMA/CD协议的工作过程，征用期、最短帧长等概念和应用</font></p>
+<p>CSMA/CD含义：载波监听多点接入 / 碰撞检测<br>—<code>载波监听：指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。</code><br>—<code>多点接入：表示许多计算机以多点接入的方式连接在一根总线上</code><br>—<code>碰撞检测：计算机边发送数据边检测信道上的信号电压大小</code></p>
+<p><font color="#b4d">CSMA/CD协议工作流程：</font></p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227171313170.png"></center>
+
+<p>信号传播时延对载波监听的影响：</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227170000963.png"></center>
+
+<p>CSMA/CD重要特性：</p>
+<ul>
+<li>使用CSMA/CD协议的以太网不能进行全双工通信而只能进行双向交替通信</li>
+<li>每个站在发送数据后的一段时间内，存在着遭遇碰撞的可能性</li>
+<li>这种发送的不确定性使整个以太网的平均通信两远小于以太网的最高数据率</li>
+</ul>
+<p>征用期：以太网的端到端往返时延2τ称为征用期，或碰撞窗口。经过征用期这段时间还没有检测到碰撞，才能肯定这次发送不会发生碰撞。</p>
+<center><font color="liblue">二进制指数类型退避算法</font></center>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227170638250.png"></center>
+
+<p>征用期的长度：</p>
+<ul>
+<li>10Mbit/s以太网取51.2μs为征用期的长度</li>
+<li>对于10Mbit/s以太网，在征用期可发送512bit，即64字节。以太网在发送数据时，若前64字节没有发生冲突，则后续的数据就不会发生冲突）</li>
+</ul>
+<p>最短有效帧长：以太网规定了最短有效正常为64字节，凡长度小于64字节的帧都是由于冲突而异常终止的无效帧。</p>
+<p>例一：<code>假定1km长的CSMA/CD网络的数据率为1Gbit/s。设信号在网络上的传输速率为200000km/s.求能够使用此协议的最短帧长</code></p>
+<p>解：比特数（时延带宽积）= 传播时延 * 带宽<br>单程传播时延 = 1 / 200000 = 5μs，来回路程传播时间为10μs，则最小帧的发射时间不能小于10微秒。带宽为 1Gbit/s。<br>则10微秒可发送的比特数：10 * 10^-6^ * 10 ^9^ = 10000，即最短帧是10000位或1250字节长。</p>
+<p>例二：<code>在一个采用CSMA/CD协议的网络中，传输介质是一根电缆，传输速率为1Gbps，电缆中的信号传播速度是200000km/s。若最小数据帧长度减少800位，则最远的两个站点之间的距离应至少__减少80m__才能保证网络正常工作。</code></p>
+<p>解：设电缆减少的长度为xm，则信号往返减少的路程长度为2xm，因此有 2x/(200000×1000) ≥800/109，得到x≥80。</p>
+<center><font color="liblue">10BASE-T以太网在局域网中的统治地位</font></center>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227180018692.png?"></center>
+
+<p>以太网信道被占用的情况：</p>
+<p>一个站在发送帧时出现了碰撞。经过一个征用期2τ后，可能又出现了碰撞。这样经过若干个征用期后，一个站发送成功了。假定发送帧需要的时间是T0.</p>
+<center><img width="500" src="https://img-blog.csdnimg.cn/20201227182038846.png"></center>
+
+<ul>
+<li> 成功发送一个帧需要占用信道的时间是T0 + τ，比这个帧的发送时间要多一个单程端到端时延τ</li>
+</ul>
+<p>要提高以太网的信道利用率，就必须减少τ与T0之比。在一台网中定义了参数α。它是以太网单程端到端时延τ与帧的发送时间T0之比：</p>
+<center><font size="5" color="blue">α = τ / T0</font></center>
+
+<p>对以太网参数α的要求：</p>
+<ul>
+<li>当数据率一定时，以太网的连线的长度受到限制，否则τ的数值会太大</li>
+<li>以太网的帧长不能太短，否则T0的值会太小，使α值太大</li>
+</ul>
+<p>理想情况下的极限信道利用率Smax为：</p>
+<center><img width="300" src="https://img-blog.csdnimg.cn/20201227183801162.png"></center>
+
+
+<p><font color="red">六、以太网的MAC地址及帧格式中各个字段的作用</font></p>
+<p>在局域网中，硬件地址又称为物理地址，或MAC地址。</p>
+<center><img width="300" src="https://img-blog.csdnimg.cn/2020122718434040.png"></center>
+
+<p>IEEE的注册管理机构RA负责向厂家分配地址字段6个字节中的前三个字节；地址字段6个字节中的后三个字节有厂家自行指派，必须保证生产出的适配器没有重复地址。</p>
+<p>一个地址块可以生出2^24^个不同的地址。生产适配器时，6字节的MAC地址已被固化在适配器的ROM。</p>
+<p>“发往本站的帧”包括以下三种帧：</p>
+<ul>
+<li>单播帧（一对一）</li>
+<li>广播帧（一对全体）</li>
+<li>多播帧（一对多）</li>
+</ul>
+<p>只有目的地址才能使用广播地址和多播地址；以混杂方式工作的以太网适配器只要“听到”有帧在以太网上传输就都接收下来。</p>
+<p><font color="#b4d">MAC帧的格式</font></p>
+<ol>
+<li>常用的以太网MAC帧格式有两种标准<br> ① DIX Ethernet V2标准<br> ② IEEE的802.3标准</li>
+<li>最常用的MAC帧是以太网V2的格式<center><img width="600" src="https://img-blog.csdnimg.cn/20201227185435225.png"></center></li>
+</ol>
+<ul>
+<li>类型字段：用来标志上一层使用的是什么协议</li>
+<li>数据字段的最小长度 = 最小长度64字节 - 18字节的首部和尾部（46字节），当数据字段的长度小于46字节时，应在数据字段的后面加上证书字节的填充字段。</li>
+</ul>
+<p>无效的MAC帧：</p>
+<ul>
+<li>数据字段的长度与长度字段的值不一致；</li>
+<li>帧的长度不是整数个字节</li>
+<li>用收到的帧检验序列FCS查出有差错</li>
+<li>数据字段的长度不再46~1500字节之间</li>
+<li>有效的MAC帧长度为64~1518字节之间</li>
+</ul>
+<p>*<code>帧间最小间隔为9.6μs，相当于96bit的发送时间。一个站在检测到总线开始空闲后，还要等待9.6μs才能再次发送数据。这样做是为了使刚刚收到数据帧的站的接收缓存来得及清理，做好接收下一帧的准备。</code></p>
+<p><font color="orange">课后探究：</font></p>
+<hr>
+<ol>
+<li><p> PPOE是什么？<br>答：PPPoE的全称是Point to Point Protocol over Ethernet（基于局域网的点对点通讯协议），它通过简单桥接接入设备把一个网络的多个主机连接到远程接入集线器的功能。使用该模型，每一个主机使用自己的PPP协议栈，呈现给用户的还是熟悉的用户接口。</p>
+</li>
+<li><p>“E”的含义是什么？<br>答：以太网（Ethernet）</p>
+<center><img width="700" src="https://img-blog.csdnimg.cn/20201227194127504.png"></center></li>
+<li><p>每个接入站点在发送前都先“载波监听”了，为什么发送时还要进行“碰撞检测”？<br>答：<center><img width="500" src="https://img-blog.csdnimg.cn/20201227165524194.png"></center></p>
+</li>
+<li><p>要连网的计算机太多，一台集线器不够怎么办？<br>答：使用集线器扩展，使用多个集线器可以连成更大的、多级星形结构的以太网。</p>
+</li>
+</ol>
+<p><font color="orange">课后例题：</font></p>
+<hr>
+<ol>
+<li><p><code>假定站点A 和B 在同一个10Mb/s 以太网网段上。这两个站点之间的时延为225 比特时间。现假定A 开始发送一帧， 并且在A 发送结束之前B 也发送一帧。如果A 发送的是以太网所容许的最短的帧，那么A 在检测到和B 发生碰撞之前能否把自己的数据发送完毕？换言之，如果A 在发送完毕之前并没有检测到碰撞，那么能否肯定A 所发送的帧不会和B发送的帧发生碰撞？</code></p>
+<p> 解：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43068326/article/details/104840944">答案见链接</a></p>
+</li>
+<li><p><code>当t=255比特时间，A和B同时检测到发生了碰撞，并且在t=255+48=273比特时间完成了干扰信号的传输。A和B在CSMA/CD算法中选择不同的r值退避。假定A和B选择的随机数分别是rA=0和rB=1。试问A和B各在什么时间开始重传其数据帧？A重传的数据帧在什么时间到达B？A重传的数据会不会和B重传的数据再次发生碰撞？B会不会在预定的重传时间停止发送数据？</code></p>
+<p> 解：</p>
+ <center><img width = 700 src="https://img-blog.csdnimg.cn/20201227210655226.png"></center></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i>计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/08/%E8%B1%86%E7%93%A3%E3%80%8A%E9%9A%90%E7%A7%98%E7%9A%84%E8%A7%92%E8%90%BD%E3%80%8B%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/" rel="next" title=" 豆瓣《隐秘的角落》评论爬取 ">
+                <i class="fa fa-chevron-left"></i>  豆瓣《隐秘的角落》评论爬取 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AC%AC4%E7%AB%A0%EF%BC%89/" rel="prev" title="计算机网络（期末复习第4章）">
+                计算机网络（期末复习第4章） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66">
+    </iframe>
+</div>
+
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lemon-l" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2010048424@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCOIf38LitTM2isWaGXThMLA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_43372862" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">第一章  概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">第二章 物理层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">第三章  数据链路层</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span> | 
+</span>
+</div>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lemonl</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
